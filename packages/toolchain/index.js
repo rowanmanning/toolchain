@@ -79,6 +79,7 @@ exports.runCommand = async function runCommand({directoryPath, process}) {
 
 		// Load the config file
 		const config = await Config.fromFile(directoryPath);
+		config.registerPlugin('@rmtc/plugin-core');
 
 		// Set up a runner
 		const runner = new Runner({

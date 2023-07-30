@@ -103,6 +103,18 @@ class Config {
 	}
 
 	/**
+	 * @param {string} pluginPath
+	 * @param {import('@rmtc/plugin').PluginConfig} [config]
+	 * @returns {void}
+	 */
+	registerPlugin(pluginPath, config = {}) {
+		this.#plugins.push({
+			path: pluginPath,
+			config
+		});
+	}
+
+	/**
 	 * @param {string} directoryPath
 	 * @returns {Promise<Config>}
 	 */

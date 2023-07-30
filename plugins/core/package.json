@@ -1,15 +1,15 @@
 {
-  "name": "@rmtc/toolchain",
+  "name": "@rmtc/plugin-core",
   "version": "0.0.0",
-  "description": "The toolchain task runner",
+  "description": "The toolchain core setup plugin",
   "keywords": [],
   "author": "Rowan Manning (https://rowanmanning.com/)",
   "repository": {
     "type": "git",
     "url": "https://github.com/rowanmanning/toolchain.git",
-    "directory": "packages/toolchain"
+    "directory": "plugins/core"
   },
-  "homepage": "https://github.com/rowanmanning/toolchain/tree/main/packages/toolchain#readme",
+  "homepage": "https://github.com/rowanmanning/toolchain/tree/main/plugins/core#readme",
   "bugs": "https://github.com/rowanmanning/toolchain/issues",
   "license": "MIT",
   "engines": {
@@ -17,14 +17,7 @@
     "npm": "8.x || 9.x"
   },
   "main": "index.js",
-  "bin": {
-    "toolchain": "cli.js"
-  },
   "dependencies": {
-    "@rmtc/config": "*",
-    "@rmtc/errors": "*",
-    "@rmtc/logger": "^0.0.0",
-    "@rmtc/plugin": "*",
-    "@rmtc/plugin-core": "^0.0.0"
+    "@rmtc/plugin": "*"
   }
 }
