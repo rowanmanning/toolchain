@@ -14,6 +14,7 @@ class Eslint extends Plugin {
 	 */
 	async eslint() {
 		await this.exec('eslint', ['.']);
+		this.log.info('no eslint errors found');
 	}
 
 }

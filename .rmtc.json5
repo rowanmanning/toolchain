@@ -1,13 +1,12 @@
 {
 	plugins: [
-		'@rmtc/plugin-eslint'
+		'@rmtc/plugin-eslint',
+		'@rmtc/plugin-check-types'
 	],
 	workflows: {
-
-		// verify is a core workflow
 		'verify': [
-			// eslint is a step registered by the eslint plugin
-			'eslint'
+			'eslint',
+			'check-types'
 		]
 	}
 }
