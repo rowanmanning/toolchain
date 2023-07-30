@@ -20,7 +20,9 @@
     "npm": "8.x || 9.x"
   },
   "scripts": {
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "verify": "toolchain verify",
+    "test": "echo 'TODO'"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.6.7",

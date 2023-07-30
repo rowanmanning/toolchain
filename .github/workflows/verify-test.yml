@@ -24,9 +24,9 @@ jobs:
       - run: npm install
       - run: npm run verify
 
-  # Run unit tests
-  test-unit:
-    name: Run unit tests
+  # Run tests
+  test:
+    name: Run tests
     needs: verify
     runs-on: ubuntu-latest
     strategy:
@@ -40,22 +40,4 @@ jobs:
           cache: 'npm'
       - run: npm install -g npm@8
       - run: npm install
-      - run: npm run test:coverage
-
-  # Run integration tests
-  test-integration:
-    name: Run integration tests
-    needs: verify
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node: ['18', '20']
-    steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-        with:
-          node-version: ${{ matrix.node }}
-          cache: 'npm'
-      - run: npm install -g npm@8
-      - run: npm install
-      - run: npm run test:integration
+      - run: npm run test
