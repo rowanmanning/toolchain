@@ -2,8 +2,12 @@
 
 const {ToolchainError} = require('@rmtc/errors');
 const {loadPlugins} = require('@rmtc/plugin');
+const {ConfigError} = require('@rmtc/config');
 
 class Runner {
+
+	/** @type {import('@rmtc/config').Config} */
+	#config;
 
 	/** @type {import('@rmtc/plugin').PluginSet} */
 	#pluginSet;
@@ -17,8 +21,42 @@ class Runner {
 	 * @param {import('@rmtc/logger').Logger} options.logger
 	 */
 	constructor({config, logger}) {
+		this.#config = config;
 		this.#pluginSet = loadPlugins(config);
 		this.#logger = logger;
+
+		const allSteps = Object.values(config.workflows).flat();
+		for (const step of allSteps) {
+			this.#assertStepDefined(step);
+		}
+	}
+
+	/**
+	 * @param {string} name
+	 * @returns {void}
+	 */
+	#assertWorkflowDefined(name) {
+		const workflowInConfig = Boolean(this.#config.workflows[name]);
+		const workflowInPluginSet = this.#pluginSet.definesWorkflow(name);
+		if (!workflowInConfig && !workflowInPluginSet) {
+			throw new ConfigError({
+				code: 'WORKFLOW_MISSING',
+				message: `A workflow named "${name}" was not defined by a plugin or config file`
+			});
+		}
+	}
+
+	/**
+	 * @param {string} name
+	 * @returns {void}
+	 */
+	#assertStepDefined(name) {
+		if (!this.#pluginSet.definesStep(name)) {
+			throw new ConfigError({
+				code: 'STEP_MISSING',
+				message: `A step named "${name}" was not defined by any plugin`
+			});
+		}
 	}
 
 	/**
@@ -28,17 +66,14 @@ class Runner {
 	 */
 	async executeWorkflow(name, params) {
 		this.#logger.info(`executing workflow "${name}"`);
+		this.#assertWorkflowDefined(name);
 
-		// Check whether the workflow is defined
-		if (!this.#pluginSet.definesWorkflow(name)) {
-			throw new ToolchainError({
-				code: 'WORKFLOW_MISSING',
-				message: `A workflow named "${name}" was not defined by any plugin`
-			});
-		}
+		// Get the steps from the config if set, otherwise get
+		// it from the plugin set
+		const steps = this.#config.workflows[name] || this.#pluginSet.getWorkflowSteps(name);
 
 		// Attempt to execute each step in the workflow
-		for (const stepName of this.#pluginSet.getWorkflowSteps(name)) {
+		for (const stepName of steps) {
 			try {
 				this.#logger.info(`executing workflow step "${name}.${stepName}"`);
 				await this.executeStep(stepName, params);
@@ -61,19 +96,14 @@ class Runner {
 	 * @returns {Promise<void>}
 	 */
 	async executeStep(name, params) {
+		this.#assertStepDefined(name);
 		const stepExecutor = this.#pluginSet.getStepExecutor(name);
-
-		// Check whether the step is defined
-		if (!stepExecutor) {
-			throw new ToolchainError({
-				code: 'STEP_MISSING',
-				message: `A step named "${name}" was not defined by any plugin`
-			});
-		}
 
 		// Attempt to execute the step
 		try {
-			await stepExecutor(params);
+			if (stepExecutor) {
+				await stepExecutor(params);
+			}
 		} catch (/** @type {any} */ error) {
 			throw new ToolchainError({
 				code: 'STEP_FAILED',

@@ -79,6 +79,14 @@ class PluginSet {
 
 	/**
 	 * @param {string} name
+	 * @returns {boolean}
+	 */
+	definesStep(name) {
+		return this.#steps.some(step => step.name === name);
+	}
+
+	/**
+	 * @param {string} name
 	 * @returns {StepExecutor | null}
 	 */
 	getStepExecutor(name) {

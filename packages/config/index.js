@@ -165,3 +165,4 @@ class Config {
 }
 
 exports.Config = Config;
+exports.ConfigError = ConfigError;
