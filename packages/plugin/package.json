@@ -20,6 +20,6 @@
   "dependencies": {
     "@rmtc/config": "*",
     "@rmtc/errors": "*",
-    "@rmtc/logger": "^0.0.0"
+    "@rmtc/logger": "*"
   }
 }

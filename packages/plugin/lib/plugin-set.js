@@ -1,5 +1,6 @@
 'use strict';
 
+const {ConfigError} = require('@rmtc/config');
 const {Plugin} = require('./plugin');
 
 /**
@@ -74,6 +75,18 @@ class PluginSet {
 	 * @param {Step} step
 	 */
 	defineStep(step) {
+		const existingSteps = this.#steps.filter(existingStep => existingStep.name === step.name);
+		if (existingSteps.length) {
+			const pluginNames = [
+				step.plugin.constructor.name,
+				...existingSteps.map(existingStep => existingStep.plugin.constructor.name)
+			];
+			throw new ConfigError({
+				code: 'DUPLICATE_STEP_DEFINITION',
+				// eslint-disable-next-line max-len
+				message: `The "${step.name}" step is defined by multiple plugins: ${pluginNames.join(', ')}`
+			});
+		}
 		this.#steps.push(step);
 	}
 
