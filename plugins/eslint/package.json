@@ -18,6 +18,7 @@
   },
   "main": "index.js",
   "dependencies": {
-    "@rmtc/plugin": "*"
+    "@rmtc/plugin": "*",
+    "eslint": "^8.46.0"
   }
 }

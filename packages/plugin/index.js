@@ -9,7 +9,7 @@ const {PluginSet} = require('./lib/plugin-set');
  */
 
 /**
- * @typedef {import('./lib/plugin-set').StepParams} StepParams
+ * @typedef {import('./lib/plugin-set').StepExecutor} StepFunction
  */
 
 exports.loadPlugins = loadPlugins;

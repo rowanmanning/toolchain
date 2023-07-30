@@ -10,11 +10,10 @@ class Eslint extends Plugin {
 	}
 
 	/**
-	 * @param {import('@rmtc/plugin').StepParams} params
+	 * @type {import('@rmtc/plugin').StepFunction}
 	 */
-	// eslint-disable-next-line require-await
-	async eslint(params) {
-		this.log.info(`running eslint with params ${JSON.stringify(params)}`);
+	async eslint() {
+		await this.exec('eslint', ['.']);
 	}
 
 }

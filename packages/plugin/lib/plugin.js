@@ -1,5 +1,8 @@
 'use strict';
 
+const {spawn} = require('node:child_process');
+const {ToolchainError} = require('@rmtc/errors');
+
 /**
  * @typedef {Record<string, any>} PluginConfig
  */
@@ -60,10 +63,37 @@ class Plugin {
 		});
 	}
 
+	/**
+	 * @param {string} command
+	 * @param {string[]} [args]
+	 * @returns {Promise<void>}
+	 */
+	exec(command, args = []) {
+		return new Promise((resolve, reject) => {
+			const child = spawn(command, args, {stdio: 'inherit'});
+			child.on('close', code => {
+				if (!code || code === 0) {
+					return resolve();
+				}
+				reject(new CommandError({
+					code: 'COMMAND_FAILED',
+					message: `Command "${command}" exited with code ${code}`
+				}));
+			});
+		});
+	}
+
 	initialise() {
 		throw new Error('The Plugin class `initialise` method must be extended');
 	}
 
 }
+
+class CommandError extends ToolchainError {
+
+	name = 'CommandError';
+
+}
+
 
 exports.Plugin = Plugin;
