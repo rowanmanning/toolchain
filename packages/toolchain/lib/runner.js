@@ -15,6 +15,16 @@ class Runner {
 	/** @type {import('@rmtc/logger').Logger} */
 	#logger;
 
+	/** @type {string[]} */
+	get workflows() {
+		return this.#pluginSet.workflows;
+	}
+
+	/** @type {string[]} */
+	get steps() {
+		return this.#pluginSet.steps;
+	}
+
 	/**
 	 * @param {object} options
 	 * @param {import('@rmtc/config').Config} options.config
@@ -24,8 +34,13 @@ class Runner {
 		this.#config = config;
 		this.#pluginSet = loadPlugins(config);
 		this.#logger = logger;
+	}
 
-		const allSteps = Object.values(config.workflows).flat();
+	/**
+	 * @returns {void}
+	 */
+	revalidateConfig() {
+		const allSteps = Object.values(this.#config.workflows).flat();
 		for (const step of allSteps) {
 			this.#assertStepDefined(step);
 		}
