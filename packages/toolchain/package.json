@@ -1,0 +1,29 @@
+{
+  "name": "@rmtc/toolchain",
+  "version": "0.0.0",
+  "description": "The toolchain task runner",
+  "keywords": [],
+  "author": "Rowan Manning (https://rowanmanning.com/)",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rowanmanning/toolchain.git",
+    "directory": "packages/toolchain"
+  },
+  "homepage": "https://github.com/rowanmanning/toolchain/tree/main/packages/toolchain#readme",
+  "bugs": "https://github.com/rowanmanning/toolchain/issues",
+  "license": "MIT",
+  "engines": {
+    "node": "18.x || 20.x",
+    "npm": "8.x || 9.x"
+  },
+  "main": "index.js",
+  "bin": {
+    "toolchain": "cli.js"
+  },
+  "dependencies": {
+    "@rmtc/config": "*",
+    "@rmtc/errors": "*",
+    "@rmtc/logger": "^0.0.0",
+    "@rmtc/plugin": "*"
+  }
+}

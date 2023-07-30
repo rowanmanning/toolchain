@@ -1,0 +1,27 @@
+{
+  "name": "@rmtc/config",
+  "version": "0.0.0",
+  "description": "The toolchain config loader",
+  "keywords": [],
+  "author": "Rowan Manning (https://rowanmanning.com/)",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rowanmanning/toolchain.git",
+    "directory": "packages/config"
+  },
+  "homepage": "https://github.com/rowanmanning/toolchain/tree/main/packages/config#readme",
+  "bugs": "https://github.com/rowanmanning/toolchain/issues",
+  "license": "MIT",
+  "engines": {
+    "node": "18.x || 20.x",
+    "npm": "8.x || 9.x"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "@rmtc/errors": "*",
+    "@rmtc/logger": "^0.0.0",
+    "ajv": "^8.12.0",
+    "ajv-errors": "^3.0.0",
+    "json5": "^2.2.3"
+  }
+}

@@ -1,0 +1,14 @@
+{
+	plugins: [
+		'@rmtc/plugin-eslint'
+	],
+	workflows: {
+
+		// verify is a core workflow
+		'verify': [
+			// eslint is a step registered by the eslint plugin
+			'eslint',
+			'abcde'
+		]
+	}
+}

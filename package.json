@@ -1,0 +1,34 @@
+{
+  "name": "@rmtc/monorepo",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Build tools for Node.js projects",
+  "author": "Rowan Manning (https://rowanmanning.com/)",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rowanmanning/toolchain.git"
+  },
+  "homepage": "https://github.com/rowanmanning/toolchain",
+  "bugs": "https://github.com/rowanmanning/toolchain/issues",
+  "license": "MIT",
+  "workspaces": [
+    "packages/*",
+    "plugins/*"
+  ],
+  "engines": {
+    "node": "18.x || 20.x",
+    "npm": "8.x || 9.x"
+  },
+  "scripts": {
+    "prepare": "husky install"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^17.6.7",
+    "@commitlint/config-conventional": "^17.6.7",
+    "@rowanmanning/eslint-config": "^7.0.2",
+    "@types/node": "^20.4.5",
+    "eslint": "^8.45.0",
+    "husky": "^8.0.3",
+    "typescript": "^5.1.6"
+  }
+}

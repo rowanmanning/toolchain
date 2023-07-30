@@ -1,0 +1,55 @@
+{
+	"$id": "@rmtc/config",
+	"$schema": "https://json-schema.org/draft/2020-12/schema",
+	"description": "A configuration object for @rmtc/toolchain",
+	"type": "object",
+	"properties": {
+		"plugins": {
+			"type": "array",
+			"items": {
+				"anyOf": [
+					{
+						"type": "string",
+						"minLength": 1
+					},
+					{
+						"type": "array",
+						"prefixItems": [
+							{
+								"type": "string",
+								"minLength": 1
+							},
+							{
+								"type": "object"
+							}
+						],
+						"items": false,
+						"minItems": 2,
+						"maxItems": 2
+					}
+				],
+				"errorMessage": "must be an unempty string or an array with two items (the plugin name and config)"
+			},
+			"uniqueItems": true,
+			"errorMessage": "must be an array of plugin definitions"
+		},
+		"workflows": {
+			"type": "object",
+			"patternProperties": {
+				".*": {
+					"type": "array",
+					"items": {
+						"type": "string",
+						"minLength": 1
+					},
+					"uniqueItems": true,
+					"errorMessage": "must be an array of unique steps"
+				}
+			},
+			"errorMessage": "must be an object with with arrays of unique steps as properties"
+		}
+	},
+	"required": [
+		"plugins"
+	]
+}
