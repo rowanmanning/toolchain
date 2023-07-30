@@ -3,6 +3,7 @@
 const {Config} = require('@rmtc/config');
 const {Logger} = require('@rmtc/logger');
 const {Runner} = require('./lib/runner');
+const {ToolchainError} = require('@rmtc/errors');
 
 /**
  * @param {object} options
@@ -32,7 +33,11 @@ exports.runWorkflows = async function runWorkflows({directoryPath, process, work
 			});
 		}
 	} catch (/** @type {any} */ error) {
-		logger.error(error);
+		if (error instanceof ToolchainError) {
+			logger.error(error);
+		} else {
+			logger.error(`unexpected error:\n${error.stack}`);
+		}
 		process.exitCode = 1;
 	}
 };

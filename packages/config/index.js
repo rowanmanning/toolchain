@@ -98,7 +98,7 @@ class Config {
 				config: plugin[1]
 			};
 		});
-		this.#workflows = structuredClone(configData.workflows);
+		this.#workflows = structuredClone(configData.workflows || {});
 		this.#logger.debug(`loaded from "${filePath}"`);
 	}
 
