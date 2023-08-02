@@ -23,6 +23,14 @@ const {Plugin} = require('./plugin');
 
 class PluginSet {
 
+	/** @type {Plugin[]} */
+	#plugins = [];
+
+	/** @type {Plugin[]} */
+	get plugins() {
+		return [...this.#plugins];
+	}
+
 	/** @type {Record<string, Set<string>>} */
 	#workflows = {};
 
@@ -38,6 +46,13 @@ class PluginSet {
 	get steps() {
 		const stepNames = this.#steps.map(step => step.name);
 		return [...new Set(stepNames)].sort();
+	}
+
+	/**
+	 * @param {Plugin} plugin
+	 */
+	addPlugin(plugin) {
+		this.#plugins.push(plugin);
 	}
 
 	/**

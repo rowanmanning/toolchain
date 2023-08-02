@@ -1,15 +1,15 @@
 {
-  "name": "@rmtc/plugin-core",
+  "name": "@rmtc/installer",
   "version": "0.0.0",
-  "description": "The toolchain core setup plugin",
+  "description": "The toolchain plugin installation manager",
   "keywords": [],
   "author": "Rowan Manning (https://rowanmanning.com/)",
   "repository": {
     "type": "git",
     "url": "https://github.com/rowanmanning/toolchain.git",
-    "directory": "plugins/core"
+    "directory": "packages/installer"
   },
-  "homepage": "https://github.com/rowanmanning/toolchain/tree/main/plugins/core#readme",
+  "homepage": "https://github.com/rowanmanning/toolchain/tree/main/packages/installer#readme",
   "bugs": "https://github.com/rowanmanning/toolchain/issues",
   "license": "MIT",
   "engines": {
@@ -18,6 +18,11 @@
   },
   "main": "index.js",
   "dependencies": {
+    "@rmtc/errors": "*"
+  },
+  "devDependencies": {
+    "@rmtc/config": "^0.0.0",
+    "@rmtc/logger": "*",
     "@rmtc/plugin": "*"
   }
 }

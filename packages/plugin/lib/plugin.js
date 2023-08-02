@@ -7,6 +7,17 @@ const {ToolchainError} = require('@rmtc/errors');
  * @typedef {Record<string, any>} PluginConfig
  */
 
+/**
+ * @callback InitMethod
+ * @returns {void}
+ */
+
+/**
+ * @callback InstallMethod
+ * @param {import('@rmtc/installer').InstallManager} installManager
+ * @returns {void}
+ */
+
 class Plugin {
 
 	/** @type {PluginConfig} */
@@ -38,7 +49,7 @@ class Plugin {
 		this.#config = Object.freeze(structuredClone(config));
 		this.#logger = logger;
 		this.#pluginSet = pluginSet;
-		this.initialise();
+		this.init();
 	}
 
 	/**
@@ -83,8 +94,15 @@ class Plugin {
 		});
 	}
 
-	initialise() {
-		throw new Error('The Plugin class `initialise` method must be extended');
+	init() {
+		throw new Error('The Plugin class `init` method must be extended');
+	}
+
+	/**
+	 * @type {InstallMethod}
+	 */
+	install() {
+		// Intentionally empty
 	}
 
 }

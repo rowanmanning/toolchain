@@ -18,7 +18,7 @@ const {ToolchainError} = require('@rmtc/errors');
 function loadPlugins({directoryPath, plugins}) {
 	const pluginSet = new PluginSet();
 	for (const plugin of plugins) {
-		loadPlugin(directoryPath, plugin, pluginSet);
+		pluginSet.addPlugin(loadPlugin(directoryPath, plugin, pluginSet));
 	}
 	return pluginSet;
 }

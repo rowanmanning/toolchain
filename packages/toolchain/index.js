@@ -79,12 +79,11 @@ exports.runCommand = async function runCommand({directoryPath, process}) {
 
 		// Load the config file
 		const config = await Config.fromFile(directoryPath);
-		config.registerPlugin('@rmtc/plugin-core');
 
 		// Set up a runner
 		const runner = new Runner({
 			config,
-			logger: logger.child({prefix: '[Runner]'})
+			logger
 		});
 
 		// List all workflows and steps
@@ -98,6 +97,12 @@ exports.runCommand = async function runCommand({directoryPath, process}) {
 
 		// Re-validate the config
 		runner.revalidateConfig();
+
+		// Run plugin install checking or applying
+		if (cli.positionals.includes('install')) {
+			return await runner.installManager.apply();
+		}
+		await runner.installManager.validate();
 
 		// Run each workflow
 		for (const workflow of cli.positionals) {
@@ -121,6 +126,11 @@ exports.runCommand = async function runCommand({directoryPath, process}) {
 			logger.error(error);
 		} else {
 			logger.error(`unexpected error:\n${error.stack}`);
+		}
+
+		// If we're seeing an install error, add a hint
+		if (error.name === 'InstallStepError') {
+			logger.error('\nThis can be fixed by running `toolchain install`');
 		}
 	}
 };

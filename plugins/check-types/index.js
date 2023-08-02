@@ -4,7 +4,10 @@ const {Plugin} = require('@rmtc/plugin');
 
 class CheckTypes extends Plugin {
 
-	initialise() {
+	/**
+	 * @type {import('@rmtc/plugin').InitMethod}
+	 */
+	init() {
 		this.defineStep('check-types', this.checkTypes.bind(this));
 		this.defineWorkflow('verify', ['check-types']);
 	}

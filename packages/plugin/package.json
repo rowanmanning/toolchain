@@ -21,5 +21,8 @@
     "@rmtc/config": "*",
     "@rmtc/errors": "*",
     "@rmtc/logger": "*"
+  },
+  "devDependencies": {
+    "@rmtc/installer": "*"
   }
 }
