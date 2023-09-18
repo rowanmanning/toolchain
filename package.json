@@ -21,8 +21,7 @@
   },
   "scripts": {
     "prepare": "husky install",
-    "verify": "toolchain verify",
-    "test": "echo 'TODO'"
+    "verify": "toolchain verify"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.6.7",

@@ -1,7 +1,6 @@
 'use strict';
 
 const {ConfigError} = require('@rmtc/config');
-const {InstallManager} = require('@rmtc/installer');
 const {loadPlugins} = require('@rmtc/plugin');
 const {ToolchainError} = require('@rmtc/errors');
 
@@ -15,14 +14,6 @@ class Runner {
 
 	/** @type {import('@rmtc/logger').Logger} */
 	#logger;
-
-	/** @type {InstallManager} */
-	#installManager;
-
-	/** @type {InstallManager} */
-	get installManager() {
-		return this.#installManager;
-	}
 
 	/** @type {string[]} */
 	get workflows() {
@@ -42,11 +33,6 @@ class Runner {
 	constructor({config, logger}) {
 		this.#config = config;
 		this.#pluginSet = loadPlugins(config);
-		this.#installManager = new InstallManager({
-			config,
-			pluginSet: this.#pluginSet,
-			logger
-		});
 		this.#logger = logger.child({prefix: '[Runner]'});
 	}
 

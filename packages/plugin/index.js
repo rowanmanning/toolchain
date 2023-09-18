@@ -13,10 +13,6 @@ const {PluginSet} = require('./lib/plugin-set');
  */
 
 /**
- * @typedef {import('./lib/plugin').InstallMethod} InstallMethod
- */
-
-/**
  * @typedef {import('./lib/plugin-set').StepExecutor} StepFunction
  */
 

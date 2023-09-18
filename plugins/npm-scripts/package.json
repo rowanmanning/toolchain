@@ -1,15 +1,15 @@
 {
-  "name": "@rmtc/installer",
+  "name": "@rmtc/plugin-npm-scripts",
   "version": "0.0.0",
-  "description": "The toolchain plugin installation manager",
+  "description": "The toolchain npm scripts plugin",
   "keywords": [],
   "author": "Rowan Manning (https://rowanmanning.com/)",
   "repository": {
     "type": "git",
     "url": "https://github.com/rowanmanning/toolchain.git",
-    "directory": "packages/installer"
+    "directory": "plugins/npm-scripts"
   },
-  "homepage": "https://github.com/rowanmanning/toolchain/tree/main/packages/installer#readme",
+  "homepage": "https://github.com/rowanmanning/toolchain/tree/main/plugins/npm-scripts#readme",
   "bugs": "https://github.com/rowanmanning/toolchain/issues",
   "license": "MIT",
   "engines": {
@@ -18,11 +18,7 @@
   },
   "main": "index.js",
   "dependencies": {
-    "@rmtc/errors": "*"
-  },
-  "devDependencies": {
-    "@rmtc/config": "^0.0.0",
-    "@rmtc/logger": "*",
-    "@rmtc/plugin": "*"
+    "@rmtc/plugin": "*",
+    "detect-indent": "^6.1.0"
   }
 }

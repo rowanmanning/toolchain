@@ -12,12 +12,6 @@ const {ToolchainError} = require('@rmtc/errors');
  * @returns {void}
  */
 
-/**
- * @callback InstallMethod
- * @param {import('@rmtc/installer').InstallManager} installManager
- * @returns {void}
- */
-
 class Plugin {
 
 	/** @type {PluginConfig} */
@@ -26,6 +20,14 @@ class Plugin {
 	/** @type {PluginConfig} */
 	get config() {
 		return this.#config;
+	}
+
+	/** @type {string} */
+	#projectDirectory;
+
+	/** @type {string} */
+	get projectDirectory() {
+		return this.#projectDirectory;
 	}
 
 	/** @type {import('@rmtc/logger').Logger} */
@@ -39,14 +41,21 @@ class Plugin {
 	/** @type {import('./plugin-set').PluginSet} */
 	#pluginSet;
 
+	/** @type {string[]} */
+	get availableWorkflows() {
+		return this.#pluginSet.workflows;
+	}
+
 	/**
 	 * @param {object} options
 	 * @param {PluginConfig} options.config
+	 * @param {string} options.projectDirectory
 	 * @param {import('@rmtc/logger').Logger} options.logger
 	 * @param {import('./plugin-set').PluginSet} options.pluginSet
 	 */
-	constructor({config, logger, pluginSet}) {
+	constructor({config, projectDirectory, logger, pluginSet}) {
 		this.#config = Object.freeze(structuredClone(config));
+		this.#projectDirectory = projectDirectory;
 		this.#logger = logger;
 		this.#pluginSet = pluginSet;
 		this.init();
@@ -94,14 +103,10 @@ class Plugin {
 		});
 	}
 
-	init() {
-		throw new Error('The Plugin class `init` method must be extended');
-	}
-
 	/**
-	 * @type {InstallMethod}
+	 * @type {InitMethod}
 	 */
-	install() {
+	init() {
 		// Intentionally empty
 	}
 

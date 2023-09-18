@@ -1,7 +1,8 @@
 {
 	plugins: [
+		'@rmtc/plugin-check-types',
 		'@rmtc/plugin-eslint',
-		'@rmtc/plugin-check-types'
+		'@rmtc/plugin-npm-scripts'
 	],
 	workflows: {
 		'verify': [

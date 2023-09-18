@@ -23,7 +23,6 @@
   "dependencies": {
     "@rmtc/config": "*",
     "@rmtc/errors": "*",
-    "@rmtc/installer": "*",
     "@rmtc/logger": "*",
     "@rmtc/plugin": "*"
   }
