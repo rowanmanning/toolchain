@@ -23,11 +23,11 @@ class Plugin {
 	}
 
 	/** @type {string} */
-	#projectDirectory;
+	#projectDirectoryPath;
 
 	/** @type {string} */
-	get projectDirectory() {
-		return this.#projectDirectory;
+	get projectDirectoryPath() {
+		return this.#projectDirectoryPath;
 	}
 
 	/** @type {import('@rmtc/logger').Logger} */
@@ -49,13 +49,13 @@ class Plugin {
 	/**
 	 * @param {object} options
 	 * @param {PluginConfig} options.config
-	 * @param {string} options.projectDirectory
+	 * @param {string} options.projectDirectoryPath
 	 * @param {import('@rmtc/logger').Logger} options.logger
 	 * @param {import('./plugin-set').PluginSet} options.pluginSet
 	 */
-	constructor({config, projectDirectory, logger, pluginSet}) {
+	constructor({config, projectDirectoryPath, logger, pluginSet}) {
 		this.#config = Object.freeze(structuredClone(config));
-		this.#projectDirectory = projectDirectory;
+		this.#projectDirectoryPath = projectDirectoryPath;
 		this.#logger = logger;
 		this.#pluginSet = pluginSet;
 		this.init();

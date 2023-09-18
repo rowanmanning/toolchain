@@ -49,7 +49,7 @@ function loadPlugin(directoryPath, {path: pluginPath, config}, pluginSet) {
 
 		return new pluginModule.Plugin({
 			config,
-			projectDirectory: directoryPath,
+			projectDirectoryPath: directoryPath,
 			logger: new Logger({
 				prefix: `[${pluginModule.Plugin.name}]`
 			}),

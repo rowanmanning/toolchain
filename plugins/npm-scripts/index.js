@@ -21,7 +21,7 @@ class NpmScripts extends Plugin {
 	async install() {
 		this.log.info('setting up package.json scripts');
 
-		const packagePath = path.join(this.projectDirectory, 'package.json');
+		const packagePath = path.join(this.projectDirectoryPath, 'package.json');
 
 		// Check that the package.json file exists
 		let json;
