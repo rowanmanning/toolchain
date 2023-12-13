@@ -31,7 +31,7 @@
 				"errorMessage": "must be an unempty string or an array with two items (the plugin name and config)"
 			},
 			"uniqueItems": true,
-			"errorMessage": "must be an array of plugin definitions"
+			"errorMessage": "must be a unique array of plugin definitions"
 		},
 		"workflows": {
 			"type": "object",
