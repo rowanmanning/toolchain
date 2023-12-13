@@ -21,6 +21,7 @@
   },
   "scripts": {
     "prepare": "husky install",
+    "build": "toolchain build",
     "verify": "toolchain verify",
     "test": "toolchain test",
     "test:unit": "toolchain test:unit",
