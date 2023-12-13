@@ -1,5 +1,20 @@
 # Changelog
 
+## [0.1.1](https://github.com/rowanmanning/toolchain/compare/plugin-mocha-v0.1.0...plugin-mocha-v0.1.1) (2023-12-13)
+
+
+### Bug Fixes
+
+* bump glob from 10.3.4 to 10.3.10 ([3351e6e](https://github.com/rowanmanning/toolchain/commit/3351e6e86e9e63fd294951bef90de6df6157414b))
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * @rmtc/config bumped from ^0.1.0 to ^0.1.1
+    * @rmtc/plugin bumped from ^0.1.0 to ^0.1.1
+
 ## 0.1.0 (2023-12-13)
 
 

@@ -1,5 +1,19 @@
 # Changelog
 
+## [0.1.1](https://github.com/rowanmanning/toolchain/compare/plugin-check-types-v0.1.0...plugin-check-types-v0.1.1) (2023-12-13)
+
+
+### Bug Fixes
+
+* bump typescript from 5.1.6 to 5.3.3 ([e5f44b3](https://github.com/rowanmanning/toolchain/commit/e5f44b30b15e857b4650dcc458fcda26be49dbfd))
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * @rmtc/plugin bumped from ^0.1.0 to ^0.1.1
+
 ## 0.1.0 (2023-12-13)
 
 

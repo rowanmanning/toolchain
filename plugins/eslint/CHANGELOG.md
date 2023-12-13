@@ -1,5 +1,19 @@
 # Changelog
 
+## [0.1.1](https://github.com/rowanmanning/toolchain/compare/plugin-eslint-v0.1.0...plugin-eslint-v0.1.1) (2023-12-13)
+
+
+### Bug Fixes
+
+* bump eslint from 8.46.0 to 8.55.0 ([641b489](https://github.com/rowanmanning/toolchain/commit/641b489d7a09ac4d58f45a811382d30f28f024c8))
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * @rmtc/plugin bumped from ^0.1.0 to ^0.1.1
+
 ## 0.1.0 (2023-12-13)
 
 
