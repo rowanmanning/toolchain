@@ -1,6 +1,6 @@
 {
   "name": "@rmtc/create-toolchain",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "The toolchain task runner setup script",
   "keywords": [],
   "author": "Rowan Manning (https://rowanmanning.com/)",
