@@ -19,6 +19,6 @@
   "main": "index.js",
   "dependencies": {
     "@rmtc/plugin": "^0.1.0",
-    "detect-indent": "^6.1.0"
+    "detect-indent": "^7.0.1"
   }
 }
