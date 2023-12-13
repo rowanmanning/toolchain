@@ -38,6 +38,7 @@
 		"plugins/check-types": {},
 		"plugins/eslint": {},
 		"plugins/mocha": {},
-		"plugins/npm-scripts": {}
+		"plugins/npm-scripts": {},
+		"plugins/types-in-jsdoc": {}
 	}
 }
