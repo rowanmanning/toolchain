@@ -1,1 +1,1 @@
-{}
+{"packages/config":"0.1.0","packages/errors":"0.1.0","packages/logger":"0.1.0","packages/plugin":"0.1.0","plugins/check-types":"0.1.0","plugins/eslint":"0.1.0","plugins/mocha":"0.1.0","plugins/npm-scripts":"0.1.0","packages/toolchain":"0.1.0"}

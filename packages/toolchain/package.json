@@ -1,6 +1,6 @@
 {
   "name": "@rmtc/toolchain",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "The toolchain task runner",
   "keywords": [],
   "author": "Rowan Manning (https://rowanmanning.com/)",
@@ -21,9 +21,9 @@
     "toolchain": "cli.js"
   },
   "dependencies": {
-    "@rmtc/config": "*",
-    "@rmtc/errors": "*",
-    "@rmtc/logger": "*",
-    "@rmtc/plugin": "*"
+    "@rmtc/config": "0.1.0",
+    "@rmtc/errors": "0.1.0",
+    "@rmtc/logger": "0.1.0",
+    "@rmtc/plugin": "0.1.0"
   }
 }

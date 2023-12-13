@@ -1,6 +1,6 @@
 {
   "name": "@rmtc/plugin-check-types",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "The toolchain TypeScript type-checking plugin",
   "keywords": [],
   "author": "Rowan Manning (https://rowanmanning.com/)",
@@ -18,7 +18,7 @@
   },
   "main": "index.js",
   "dependencies": {
-    "@rmtc/plugin": "^0.0.0",
+    "@rmtc/plugin": "^0.1.0",
     "typescript": "^5.1.6"
   }
 }
