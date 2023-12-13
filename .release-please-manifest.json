@@ -8,5 +8,6 @@
 	"plugins/eslint": "0.1.1",
 	"plugins/mocha": "0.1.1",
 	"plugins/npm-scripts": "0.1.1",
-	"packages/create-toolchain": "0.1.0"
+	"packages/create-toolchain": "0.1.0",
+	".": "0.1.0"
 }
