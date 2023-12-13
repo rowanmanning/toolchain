@@ -21,7 +21,10 @@
   },
   "scripts": {
     "prepare": "husky install",
-    "verify": "toolchain verify"
+    "verify": "toolchain verify",
+    "test": "toolchain test",
+    "test:unit": "toolchain test:unit",
+    "test:end-to-end": "toolchain test:end-to-end"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.6.7",
@@ -31,5 +34,15 @@
     "eslint": "^8.45.0",
     "husky": "^8.0.3",
     "typescript": "^5.1.6"
+  },
+  "mocha": {
+    "timeout": 10000
+  },
+  "nyc": {
+    "eager": true,
+    "reporter": [
+      "html",
+      "text"
+    ]
   }
 }

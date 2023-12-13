@@ -57,7 +57,7 @@ class Logger {
 			if (message instanceof Error) {
 				process.stdout.write(
 					this.#prefixMessage(
-						`an error occurred:\n${this.#stringifyError(message)}`
+						`An error occurred:\n${this.#stringifyError(message)}`
 					)
 				);
 			} else {

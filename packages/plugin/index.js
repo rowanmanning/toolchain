@@ -9,6 +9,10 @@ const {PluginSet} = require('./lib/plugin-set');
  */
 
 /**
+ * @typedef {import('./lib/plugin').ConfigMethod} ConfigMethod
+ */
+
+/**
  * @typedef {import('./lib/plugin').InitMethod} InitMethod
  */
 

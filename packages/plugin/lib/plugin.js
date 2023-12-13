@@ -12,6 +12,12 @@ const {ToolchainError} = require('@rmtc/errors');
  * @returns {void}
  */
 
+/**
+ * @callback ConfigMethod
+ * @param {PluginConfig} config
+ * @returns {PluginConfig}
+ */
+
 class Plugin {
 
 	/** @type {PluginConfig} */
@@ -54,10 +60,10 @@ class Plugin {
 	 * @param {import('./plugin-set').PluginSet} options.pluginSet
 	 */
 	constructor({config, projectDirectoryPath, logger, pluginSet}) {
-		this.#config = Object.freeze(structuredClone(config));
 		this.#projectDirectoryPath = projectDirectoryPath;
 		this.#logger = logger;
 		this.#pluginSet = pluginSet;
+		this.#config = Object.freeze(this.configure(structuredClone(config)));
 		this.init();
 	}
 
@@ -90,6 +96,8 @@ class Plugin {
 	 */
 	exec(command, args = []) {
 		return new Promise((resolve, reject) => {
+			this.log.debug(`spawning child process: ${command} ${args.join(' ')}`);
+			// TODO we may need to set the PATH here to use node_modules/.bin
 			const child = spawn(command, args, {stdio: 'inherit'});
 			child.on('close', code => {
 				if (!code || code === 0) {
@@ -101,6 +109,13 @@ class Plugin {
 				}));
 			});
 		});
+	}
+
+	/**
+	 * @type {ConfigMethod}
+	 */
+	configure(config) {
+		return config;
 	}
 
 	/**

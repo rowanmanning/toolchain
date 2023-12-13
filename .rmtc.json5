@@ -2,10 +2,17 @@
 	plugins: [
 		'@rmtc/plugin-check-types',
 		'@rmtc/plugin-eslint',
-		'@rmtc/plugin-npm-scripts'
+		'@rmtc/plugin-npm-scripts',
+		['@rmtc/plugin-mocha', {
+			type: 'unit',
+			coverage: true
+		}],
+		['@rmtc/plugin-mocha', {
+			type: 'end-to-end'
+		}]
 	],
 	workflows: {
-		'verify': [
+		verify: [
 			'eslint',
 			'check-types'
 		]
