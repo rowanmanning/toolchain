@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.1](https://github.com/rowanmanning/toolchain/compare/config-v0.1.0...config-v0.1.1) (2023-12-13)
+
+
+### Features
+
+* export the config filename ([c5e4a05](https://github.com/rowanmanning/toolchain/commit/c5e4a052297b169430a52c0a337c9a8c5882633f))
+
 ## 0.1.0 (2023-12-13)
 
 
