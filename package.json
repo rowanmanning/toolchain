@@ -1,6 +1,6 @@
 {
   "name": "@rmtc/monorepo",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "private": true,
   "description": "Build tools for Node.js projects",
   "author": "Rowan Manning (https://rowanmanning.com/)",
