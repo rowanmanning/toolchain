@@ -29,7 +29,7 @@
   "devDependencies": {
     "@commitlint/cli": "^17.6.7",
     "@commitlint/config-conventional": "^17.6.7",
-    "@rowanmanning/eslint-config": "^7.0.2",
+    "@rowanmanning/eslint-config": "^8.0.1",
     "@types/node": "^20.10.4",
     "eslint": "^8.45.0",
     "husky": "^8.0.3",
