@@ -105,7 +105,7 @@ When you import a plugin you can also specify some configuration options if the 
 }
 ```
 
-In the example above, we're importing the [Mocha plugin](plugins/mocha#readme) plugin to collect code coverage automatically.
+In the example above, we're configuring the [Mocha plugin](plugins/mocha#readme) plugin to collect code coverage automatically.
 
 #### Workflows
 
