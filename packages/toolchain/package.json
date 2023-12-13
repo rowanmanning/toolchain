@@ -21,9 +21,9 @@
     "toolchain": "cli.js"
   },
   "dependencies": {
-    "@rmtc/config": "0.1.1",
-    "@rmtc/errors": "0.1.0",
-    "@rmtc/logger": "0.1.0",
-    "@rmtc/plugin": "0.1.1"
+    "@rmtc/config": "^0.1.1",
+    "@rmtc/errors": "^0.1.0",
+    "@rmtc/logger": "^0.1.0",
+    "@rmtc/plugin": "^0.1.1"
   }
 }
