@@ -1,6 +1,6 @@
 {
   "name": "@rmtc/config",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Configuration loading, parsing, and validation for the @rmtc/toolchain CLI",
   "keywords": [],
   "author": "Rowan Manning (https://rowanmanning.com/)",
@@ -18,8 +18,8 @@
   },
   "main": "index.js",
   "dependencies": {
-    "@rmtc/errors": "^0.0.0",
-    "@rmtc/logger": "^0.0.0",
+    "@rmtc/errors": "^0.1.0",
+    "@rmtc/logger": "^0.1.0",
     "ajv": "^8.12.0",
     "ajv-errors": "^3.0.0",
     "json5": "^2.2.3"

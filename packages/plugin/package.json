@@ -1,6 +1,6 @@
 {
   "name": "@rmtc/plugin",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "A base class to be extended by other @rmtc/toolchain plugins",
   "keywords": [],
   "author": "Rowan Manning (https://rowanmanning.com/)",
@@ -18,8 +18,8 @@
   },
   "main": "index.js",
   "dependencies": {
-    "@rmtc/config": "^0.0.0",
-    "@rmtc/errors": "^0.0.0",
-    "@rmtc/logger": "^0.0.0"
+    "@rmtc/config": "^0.1.0",
+    "@rmtc/errors": "^0.1.0",
+    "@rmtc/logger": "^0.1.0"
   }
 }
