@@ -1,1 +1,11 @@
-{"packages/config":"0.1.1","packages/errors":"0.1.0","packages/logger":"0.1.0","packages/plugin":"0.1.1","plugins/check-types":"0.1.1","plugins/eslint":"0.1.1","plugins/mocha":"0.1.1","plugins/npm-scripts":"0.1.1","packages/toolchain":"0.1.1"}
+{
+	"packages/config":"0.1.1",
+	"packages/errors":"0.1.0",
+	"packages/logger":"0.1.0",
+	"packages/plugin":"0.1.1",
+	"packages/toolchain":"0.1.1",
+	"plugins/check-types":"0.1.1",
+	"plugins/eslint":"0.1.1",
+	"plugins/mocha":"0.1.1",
+	"plugins/npm-scripts":"0.1.1"
+}
