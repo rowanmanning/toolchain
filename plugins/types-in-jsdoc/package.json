@@ -1,0 +1,24 @@
+{
+  "name": "@rmtc/plugin-types-in-jsdoc",
+  "version": "0.0.0",
+  "description": "The toolchain TypeScript-in-JSDoc plugin",
+  "keywords": [],
+  "author": "Rowan Manning (https://rowanmanning.com/)",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rowanmanning/toolchain.git",
+    "directory": "plugins/types-in-jsdoc"
+  },
+  "homepage": "https://github.com/rowanmanning/toolchain/tree/main/plugins/types-in-jsdoc#readme",
+  "bugs": "https://github.com/rowanmanning/toolchain/issues",
+  "license": "MIT",
+  "engines": {
+    "node": "18.x || 20.x",
+    "npm": "8.x || 9.x || 10.x"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "@rmtc/plugin": "^0.1.1",
+    "typescript": "^5.3.3"
+  }
+}
