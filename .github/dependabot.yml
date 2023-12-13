@@ -1,0 +1,113 @@
+version: 2
+updates:
+
+  # Keep GitHub actions up to date
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    commit-message:
+      prefix: "chore:"
+
+  # Root package.json
+  - package-ecosystem: "npm"
+    open-pull-requests-limit: 10
+    directory: "/"
+    schedule:
+      interval: "daily"
+      time: "15:00"
+      timezone: "Europe/London"
+    commit-message:
+      prefix: "fix:"
+      prefix-development: "chore:"
+    groups:
+      development-dependencies:
+        dependency-type: "development"
+        update-types:
+          - "minor"
+          - "patch"
+
+  # Monorepo packages
+  - package-ecosystem: "npm"
+    directory: "/packages/config"
+    schedule:
+      interval: "daily"
+      time: "15:00"
+      timezone: "Europe/London"
+    commit-message:
+      prefix: "fix:"
+      prefix-development: "chore:"
+  - package-ecosystem: "npm"
+    directory: "/packages/errors"
+    schedule:
+      interval: "daily"
+      time: "15:00"
+      timezone: "Europe/London"
+    commit-message:
+      prefix: "fix:"
+      prefix-development: "chore:"
+  - package-ecosystem: "npm"
+    directory: "/packages/logger"
+    schedule:
+      interval: "daily"
+      time: "15:00"
+      timezone: "Europe/London"
+    commit-message:
+      prefix: "fix:"
+      prefix-development: "chore:"
+  - package-ecosystem: "npm"
+    directory: "/packages/plugin"
+    schedule:
+      interval: "daily"
+      time: "15:00"
+      timezone: "Europe/London"
+    commit-message:
+      prefix: "fix:"
+      prefix-development: "chore:"
+  - package-ecosystem: "npm"
+    directory: "/packages/toolchain"
+    schedule:
+      interval: "daily"
+      time: "15:00"
+      timezone: "Europe/London"
+    commit-message:
+      prefix: "fix:"
+      prefix-development: "chore:"
+
+  # Monorepo plugins
+  - package-ecosystem: "npm"
+    directory: "/plugins/check-types"
+    schedule:
+      interval: "daily"
+      time: "15:00"
+      timezone: "Europe/London"
+    commit-message:
+      prefix: "fix:"
+      prefix-development: "chore:"
+  - package-ecosystem: "npm"
+    directory: "/plugins/eslint"
+    schedule:
+      interval: "daily"
+      time: "15:00"
+      timezone: "Europe/London"
+    commit-message:
+      prefix: "fix:"
+      prefix-development: "chore:"
+  - package-ecosystem: "npm"
+    directory: "/plugins/mocha"
+    schedule:
+      interval: "daily"
+      time: "15:00"
+      timezone: "Europe/London"
+    commit-message:
+      prefix: "fix:"
+      prefix-development: "chore:"
+  - package-ecosystem: "npm"
+    directory: "/plugins/npm-scripts"
+    schedule:
+      interval: "daily"
+      time: "15:00"
+      timezone: "Europe/London"
+    commit-message:
+      prefix: "fix:"
+      prefix-development: "chore:"
