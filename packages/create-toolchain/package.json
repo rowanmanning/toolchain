@@ -1,0 +1,28 @@
+{
+  "name": "@rmtc/create-toolchain",
+  "version": "0.0.0",
+  "description": "The toolchain task runner setup script",
+  "keywords": [],
+  "author": "Rowan Manning (https://rowanmanning.com/)",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rowanmanning/toolchain.git",
+    "directory": "packages/create-toolchain"
+  },
+  "homepage": "https://github.com/rowanmanning/toolchain/tree/main/packages/create-toolchain#readme",
+  "bugs": "https://github.com/rowanmanning/toolchain/issues",
+  "license": "MIT",
+  "engines": {
+    "node": "18.x || 20.x",
+    "npm": "8.x || 9.x || 10.x"
+  },
+  "main": "index.js",
+  "bin": {
+    "create-toolchain": "cli.js"
+  },
+  "dependencies": {
+    "@rmtc/config": "^0.1.1",
+    "@rmtc/errors": "^0.1.0",
+    "@rmtc/logger": "^0.1.0"
+  }
+}

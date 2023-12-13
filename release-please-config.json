@@ -30,6 +30,7 @@
 	],
 	"packages": {
 		"packages/config": {},
+		"packages/create-toolchain": {},
 		"packages/errors": {},
 		"packages/logger": {},
 		"packages/plugin": {},
