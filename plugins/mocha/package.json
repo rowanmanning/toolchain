@@ -18,8 +18,8 @@
   },
   "main": "index.js",
   "dependencies": {
-    "@rmtc/config": "*",
-    "@rmtc/plugin": "*",
+    "@rmtc/config": "^0.0.0",
+    "@rmtc/plugin": "^0.0.0",
     "glob": "^10.3.4",
     "mocha": "^10.2.0",
     "nyc": "^15.1.0"
