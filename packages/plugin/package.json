@@ -1,7 +1,7 @@
 {
   "name": "@rmtc/plugin",
   "version": "0.0.0",
-  "description": "The toolchain base plugin",
+  "description": "A base class to be extended by other @rmtc/toolchain plugins",
   "keywords": [],
   "author": "Rowan Manning (https://rowanmanning.com/)",
   "repository": {
