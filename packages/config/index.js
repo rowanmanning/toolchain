@@ -83,7 +83,7 @@ class Config {
 	 * @param {ConfigData} configData
 	 */
 	constructor({directoryPath, filePath}, configData) {
-		/** @type {typeof Config} */ (this.constructor).validateConfigData(configData);
+		/** @type {typeof Config} */ (this.constructor).#validateConfigData(configData);
 		this.#directoryPath = directoryPath;
 		this.#filePath = filePath;
 		this.#plugins = configData.plugins.map(plugin => {
@@ -100,6 +100,22 @@ class Config {
 		});
 		this.#workflows = structuredClone(configData.workflows || {});
 		this.#logger.debug(`loaded from "${filePath}"`);
+	}
+
+	/**
+	 * @param {ConfigData | any} value
+	 * @returns {value is ConfigData}
+	 */
+	static #validateConfigData(value) {
+		const isValid = validateConfigSchema(value);
+		if (!isValid && validateConfigSchema.errors?.length) {
+			throw new ConfigError({
+				code: 'CONFIG_INVALID_SCHEMA',
+				message: 'The config data does not match the schema',
+				validationErrors: validateConfigSchema.errors
+			});
+		}
+		return true;
 	}
 
 	/**
@@ -144,22 +160,6 @@ class Config {
 			// Rethrow any other errors
 			throw error;
 		}
-	}
-
-	/**
-	 * @param {ConfigData | any} value
-	 * @returns {value is ConfigData}
-	 */
-	static validateConfigData(value) {
-		const isValid = validateConfigSchema(value);
-		if (!isValid && validateConfigSchema.errors?.length) {
-			throw new ConfigError({
-				code: 'CONFIG_INVALID_SCHEMA',
-				message: 'The config data does not match the schema',
-				validationErrors: validateConfigSchema.errors
-			});
-		}
-		return true;
 	}
 
 }
