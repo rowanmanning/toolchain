@@ -6,6 +6,17 @@
   * dependencies
     * @rmtc/plugin bumped from ^0.1.0 to ^0.1.1
 
+## [0.2.0](https://github.com/rowanmanning/toolchain/compare/plugin-npm-scripts-v0.1.1...plugin-npm-scripts-v0.2.0) (2023-12-14)
+
+
+### ⚠ BREAKING CHANGES
+
+* switch to the postinstall workflow
+
+### Bug Fixes
+
+* switch to the postinstall workflow ([bf2b802](https://github.com/rowanmanning/toolchain/commit/bf2b802aac8b57f644f7d9385d6ca985e77d4eb8))
+
 ## 0.1.0 (2023-12-13)
 
 
