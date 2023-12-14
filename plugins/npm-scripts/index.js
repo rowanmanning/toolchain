@@ -12,7 +12,7 @@ class NpmScripts extends Plugin {
 	 */
 	init() {
 		this.defineStep('npm-scripts-install', this.install.bind(this));
-		this.defineWorkflow('rmtc:install', ['npm-scripts-install']);
+		this.defineWorkflow('postinstall', ['npm-scripts-install']);
 	}
 
 	/**
