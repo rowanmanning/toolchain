@@ -20,6 +20,7 @@ This project was inspired by [FT.com Tool Kit](https://github.com/financial-Time
       * [Workflows](#workflows)
     * [Running workflows](#running-workflows)
   * [Available plugins](#available-plugins)
+  * [Writing plugins](#writing-plugins)
   * [Contributing](#contributing)
   * [License](#license)
 
@@ -188,6 +189,42 @@ These are the official plugins which are published alongside the core library:
   * **[@rmtc/mocha](plugins/mocha#readme):** runs [Mocha](https://mochajs.org/) test suites.
 
   * **[@rmtc/plugin-npm-scripts](plugins/npm-scripts#readme):** creates `package.json` scripts for all defined workflows so that you can use `npm run <workflow>` instead of `npx toolchain <workflow>`.
+
+
+## Writing plugins
+
+Plugins are node modules that can either be published to the npm registry or kept on a local file path if it's specific to the project you're working on. All of these are valid plugin definitions:
+
+```js
+{
+    plugins: [
+        '@yourname/my-plugin', // published to npm
+        'my-plugin',           // published to npm
+        './plugins/my-plugin'  // in a local file
+    ],
+    workflows: {}
+}
+```
+
+For a module to be a valid plugin, it must export a class that extends the [@rmtc/plugin](packages/plugin#readme) `Plugin` class. This class must be exported as the `Plugin` export of the module:
+
+```js
+const { Plugin } = require('@rmtc/plugin');
+
+exports.Plugin = class Example extends Plugin {
+	/**
+	 * @type {import('@rmtc/plugin').InitMethod}
+	 */
+	init() {
+		this.defineStep('my-step', () => {
+            this.log.info('my plugin works');
+        });
+		this.defineWorkflow('my-workflow', ['my-step']);
+	}
+}
+```
+
+More information on extending the plugin class is available in the [@rmtc/plugin documentation](packages/plugin#readme).
 
 
 ## Contributing
