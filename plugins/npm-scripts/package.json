@@ -1,6 +1,6 @@
 {
   "name": "@rmtc/plugin-npm-scripts",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "The toolchain npm scripts plugin",
   "keywords": [],
   "author": "Rowan Manning (https://rowanmanning.com/)",
