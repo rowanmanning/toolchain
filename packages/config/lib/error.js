@@ -16,11 +16,12 @@ class ConfigError extends ToolchainError {
 	validationErrors = [];
 
 	/**
-	 * @param {import('@rmtc/errors').ToolchainErrorOptions & ConfigErrorOptions} options
+	 * @param {string} message
+	 * @param {import('@rmtc/errors').ToolchainErrorOptions & ConfigErrorOptions} [options]
 	 */
-	constructor(options) {
-		super(options);
-		const {message, validationErrors} = options;
+	constructor(message, options = {}) {
+		super(message, options);
+		const {validationErrors} = options;
 		if (validationErrors?.length) {
 			const self = /** @type {typeof ConfigError} */ (this.constructor);
 			this.validationErrors = validationErrors;

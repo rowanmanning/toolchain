@@ -3,7 +3,6 @@
 /**
  * @typedef {object} ToolchainErrorOptions
  * @property {string} [code]
- * @property {string} [message]
  * @property {Error} [cause]
  */
 
@@ -21,9 +20,10 @@ class ToolchainError extends Error {
 	name = 'ToolchainError';
 
 	/**
-	 * @param {ToolchainErrorOptions} options
+	 * @param {string} message
+	 * @param {ToolchainErrorOptions} [options]
 	 */
-	constructor({code, message, cause}) {
+	constructor(message, {code, cause} = {}) {
 		super(message, {cause});
 		this.#code = code || 'TOOLCHAIN_ERROR';
 	}

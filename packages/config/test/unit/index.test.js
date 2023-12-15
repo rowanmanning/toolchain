@@ -173,9 +173,8 @@ describe('@rmtc/config', () => {
 						assert.equal(true, false, 'did not throw');
 					} catch (error) {
 						assert.ok(error instanceof ConfigError);
-						td.verify(new ConfigError({
+						td.verify(new ConfigError(td.matchers.isA(String), {
 							code: 'CONFIG_INVALID_SCHEMA',
-							message: td.matchers.isA(String),
 							validationErrors: ['mock-error']
 						}));
 					}
@@ -228,9 +227,8 @@ describe('@rmtc/config', () => {
 						assert.equal(true, false, 'did not throw');
 					} catch (error) {
 						assert.ok(error instanceof ConfigError);
-						td.verify(new ConfigError({
+						td.verify(new ConfigError(td.matchers.isA(String), {
 							code: 'CONFIG_MISSING',
-							message: td.matchers.isA(String),
 							cause: mockError
 						}), {times: 1});
 					}
@@ -252,9 +250,8 @@ describe('@rmtc/config', () => {
 						assert.equal(true, false, 'did not throw');
 					} catch (error) {
 						assert.ok(error instanceof ConfigError);
-						td.verify(new ConfigError({
+						td.verify(new ConfigError(td.matchers.isA(String), {
 							code: 'CONFIG_INVALID_JSON5',
-							message: td.matchers.isA(String),
 							cause: mockError
 						}), {times: 1});
 					}

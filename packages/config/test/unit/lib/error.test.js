@@ -29,14 +29,15 @@ describe('@rmtc/config/lib/error', () => {
 			let options;
 
 			before(() => {
-				options = {
-					message: 'mock message'
-				};
-				configError = new ConfigError(options);
+				options = {code: 'MOCK_CODE'};
+				configError = new ConfigError('mock message', options);
 			});
 
 			it('calls the ToolchainError constructor', () => {
-				td.verify(ToolchainError.prototype.constructor(options), {times: 1});
+				td.verify(
+					ToolchainError.prototype.constructor('mock message', options),
+					{times: 1}
+				);
 			});
 
 			describe('.validationErrors', () => {
@@ -46,10 +47,8 @@ describe('@rmtc/config/lib/error', () => {
 			});
 
 			describe('when options.validationErrors is an array', () => {
-
 				before(() => {
 					options = {
-						message: 'mock message',
 						validationErrors: [
 							{
 								message: 'mock validation error 1',
@@ -61,7 +60,7 @@ describe('@rmtc/config/lib/error', () => {
 							}
 						]
 					};
-					configError = new ConfigError(options);
+					configError = new ConfigError('mock message', options);
 				});
 
 				describe('.validationErrors', () => {
@@ -80,7 +79,6 @@ describe('@rmtc/config/lib/error', () => {
 						);
 					});
 				});
-
 			});
 		});
 	});

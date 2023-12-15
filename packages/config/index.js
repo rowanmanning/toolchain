@@ -109,9 +109,8 @@ class Config {
 	static #validateConfigData(value) {
 		const isValid = validateConfigSchema(value);
 		if (!isValid && validateConfigSchema.errors?.length) {
-			throw new ConfigError({
+			throw new ConfigError('The config data does not match the schema', {
 				code: 'CONFIG_INVALID_SCHEMA',
-				message: 'The config data does not match the schema',
 				validationErrors: validateConfigSchema.errors
 			});
 		}
@@ -141,18 +140,16 @@ class Config {
 
 			// Config file was not found
 			if (error.code === 'ENOENT') {
-				throw new ConfigError({
+				throw new ConfigError(`A config file was not found at ${filePath}`, {
 					code: 'CONFIG_MISSING',
-					message: `A config file was not found at ${filePath}`,
 					cause: error
 				});
 			}
 
 			// Config file was not valid JSON5
 			if (error instanceof SyntaxError) {
-				throw new ConfigError({
+				throw new ConfigError(`The config file at ${filePath} was not valid JSON5`, {
 					code: 'CONFIG_INVALID_JSON5',
-					message: `The config file at ${filePath} was not valid JSON5`,
 					cause: error
 				});
 			}
