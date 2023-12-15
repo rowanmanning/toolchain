@@ -21,10 +21,10 @@ class TypesInJsdoc extends Plugin {
 	 * @type {import('@rmtc/plugin').InitMethod}
 	 */
 	init() {
-		this.defineStep('type-in-jsdoc:check-types', this.checkTypes.bind(this));
-		this.defineStep('type-in-jsdoc:build-typedefs', this.buildTypeDefinitions.bind(this));
-		this.defineWorkflow('verify', ['type-in-jsdoc:check-types']);
-		this.defineWorkflow('build', ['type-in-jsdoc:build-typedefs']);
+		this.defineStep('types-in-jsdoc:check-types', this.checkTypes.bind(this));
+		this.defineStep('types-in-jsdoc:build-typedefs', this.buildTypeDefinitions.bind(this));
+		this.defineWorkflow('verify', ['types-in-jsdoc:check-types']);
+		this.defineWorkflow('build', ['types-in-jsdoc:build-typedefs']);
 	}
 
 	/**
