@@ -1,5 +1,24 @@
 # Changelog
 
+## [0.2.0](https://github.com/rowanmanning/toolchain/compare/plugin-mocha-v0.1.1...plugin-mocha-v0.2.0) (2023-12-15)
+
+
+### ⚠ BREAKING CHANGES
+
+* simplify the test file pattern matching
+
+### Bug Fixes
+
+* simplify the test file pattern matching ([c0d18dd](https://github.com/rowanmanning/toolchain/commit/c0d18dd0bfab106ecd6d151d8d55709acea36bcd))
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * @rmtc/config bumped from ^0.1.1 to ^0.2.0
+    * @rmtc/plugin bumped from ^0.1.1 to ^0.1.2
+
 ## [0.1.1](https://github.com/rowanmanning/toolchain/compare/plugin-mocha-v0.1.0...plugin-mocha-v0.1.1) (2023-12-13)
 
 

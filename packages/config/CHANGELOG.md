@@ -1,5 +1,16 @@
 # Changelog
 
+## [0.2.0](https://github.com/rowanmanning/toolchain/compare/config-v0.1.1...config-v0.2.0) (2023-12-15)
+
+
+### ⚠ BREAKING CHANGES
+
+* make the config validation private
+
+### Bug Fixes
+
+* make the config validation private ([c6a5e52](https://github.com/rowanmanning/toolchain/commit/c6a5e525a30e2c6dee60b42eb4c43d184faf6044))
+
 ## [0.1.1](https://github.com/rowanmanning/toolchain/compare/config-v0.1.0...config-v0.1.1) (2023-12-13)
 
 
