@@ -1,7 +1,7 @@
 
 # @rmtc/plugin-biome
 
-An [Biome](https://biomejs.dev/) plugin for [@rmtc/toolchain](https://github.com/rowanmanning/toolchain#readme).
+A [Biome](https://biomejs.dev/) plugin for [@rmtc/toolchain](https://github.com/rowanmanning/toolchain#readme).
 
 > [!CAUTION]<br/>
 > This project is in early alpha, it's highly likely that we'll introduce accidental breaking changes.
