@@ -1,7 +1,7 @@
 
-# @rmtc/plugin-eslint
+# @rmtc/plugin-biome
 
-An [ESLint](https://eslint.org/) plugin for [@rmtc/toolchain](https://github.com/rowanmanning/toolchain#readme).
+An [Biome](https://biomejs.dev/) plugin for [@rmtc/toolchain](https://github.com/rowanmanning/toolchain#readme).
 
 > [!CAUTION]<br/>
 > This project is in early alpha, it's highly likely that we'll introduce accidental breaking changes.
@@ -28,7 +28,7 @@ This library requires the following to run:
 Install the module with [npm](https://www.npmjs.com/):
 
 ```sh
-npm install --save-dev @rmtc/plugin-eslint
+npm install --save-dev @rmtc/plugin-biome
 ```
 
 🚧 Proper documentation coming soon.
