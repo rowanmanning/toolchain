@@ -97,8 +97,7 @@ class Plugin {
 	exec(command, args = []) {
 		return new Promise((resolve, reject) => {
 			this.log.debug(`spawning child process: ${command} ${args.join(' ')}`);
-			// TODO we may need to set the PATH here to use node_modules/.bin
-			const child = spawn(command, args, {stdio: 'inherit'});
+			const child = spawn('npx', [command, ...args], {stdio: 'inherit'});
 			child.on('close', code => {
 				if (!code || code === 0) {
 					return resolve();

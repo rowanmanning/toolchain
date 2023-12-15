@@ -18,14 +18,14 @@ class Biome extends Plugin {
 	 * @type {import('@rmtc/plugin').StepFunction}
 	 */
 	async format() {
-		await this.exec('npx', ['@biomejs/biome', 'format', '.', '--write']);
+		await this.exec('biome', ['format', '.', '--write']);
 	}
 
 	/**
 	 * @type {import('@rmtc/plugin').StepFunction}
 	 */
 	async lint() {
-		await this.exec('npx', ['@biomejs/biome', 'lint', '.']);
+		await this.exec('biome', ['lint', '.']);
 		this.log.info('no linting errors found');
 	}
 
