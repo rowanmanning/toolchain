@@ -182,13 +182,13 @@ npx toolchain verify test
 
 These are the official plugins which are published alongside the core library:
 
-  * **[@rmtc/plugin-check-types](plugins/check-types#readme):** validates [TypeScript](https://www.typescriptlang.org/) types across all JavaScript files in the project. It expects a `jsconfig.json` file to exist in the project.
-
   * **[@rmtc/plugin-eslint](plugins/eslint#readme):** validates JavaScript using [ESLint](https://eslint.org/), with any config found in the project.
 
   * **[@rmtc/mocha](plugins/mocha#readme):** runs [Mocha](https://mochajs.org/) test suites.
 
   * **[@rmtc/plugin-npm-scripts](plugins/npm-scripts#readme):** creates `package.json` scripts for all defined workflows so that you can use `npm run <workflow>` instead of `npx toolchain <workflow>`.
+
+  * **[@rmtc/plugin-types-in-jsdoc](plugins/types-in-jsdoc#readme):** validates [TypeScript](https://www.typescriptlang.org/) types across all JavaScript files in the project and generates type definition files. It expects a `jsconfig.json` file to exist in the project.
 
 
 ## Writing plugins
