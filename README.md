@@ -182,6 +182,8 @@ npx toolchain verify test
 
 These are the official plugins which are published alongside the core library:
 
+  * **[@rmtc/plugin-biome](plugins/biome#readme):** validates and formats JavaScript using [Biome](https://biomejs.dev/), with any config found in the project.
+
   * **[@rmtc/plugin-eslint](plugins/eslint#readme):** validates JavaScript using [ESLint](https://eslint.org/), with any config found in the project.
 
   * **[@rmtc/mocha](plugins/mocha#readme):** runs [Mocha](https://mochajs.org/) test suites.
