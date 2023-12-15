@@ -1,6 +1,5 @@
 'use strict';
 
-const {glob} = require('glob');
 const {ConfigError} = require('@rmtc/config');
 const {Plugin} = require('@rmtc/plugin');
 
@@ -55,21 +54,22 @@ class Mocha extends Plugin {
 	 * @returns {import('@rmtc/plugin').StepFunction}
 	 */
 	buildMochaFunction(type) {
+		const extensions = ['js', 'cjs', 'mjs'];
 		return async () => {
-			const testPattern = type ? `**/test/${type}` : `**/test`;
-			const testFolders = await glob(testPattern, {
-				ignore: ['node_modules/**'],
-				mark: true
-			});
-			if (!testFolders.length) {
-				return this.log.info('no matching test files found');
-			}
-			this.log.debug(`found test folders ${testFolders.join(', ')}`);
-			const testPatterns = testFolders.map(folder => `${folder}**/*.test.js`);
+			const mochaParams = [
+				'--recursive',
+				...extensions.flatMap(extension => [
+					'--extension', `test.${extension}`,
+					'--extension', `spec.${extension}`
+				])
+			];
+
+			mochaParams.push(type ? `**/test/${type}/**` : '**/test/**');
+
 			if (this.config.coverage) {
-				await this.exec('nyc', ['mocha', ...testPatterns]);
+				await this.exec('nyc', ['mocha', ...mochaParams]);
 			} else {
-				await this.exec('mocha', testPatterns);
+				await this.exec('mocha', mochaParams);
 			}
 			this.log.info('all tests passed');
 		};
