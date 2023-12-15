@@ -20,12 +20,13 @@
     "npm": "8.x || 9.x || 10.x"
   },
   "scripts": {
-    "prepare": "husky install",
     "build": "toolchain build",
-    "verify": "toolchain verify",
-    "test": "toolchain test",
+    "postinstall": "toolchain postinstall",
+    "prepare": "husky install",
+    "test:end-to-end": "toolchain test:end-to-end",
     "test:unit": "toolchain test:unit",
-    "test:end-to-end": "toolchain test:end-to-end"
+    "test": "toolchain test",
+    "verify": "toolchain verify"
   },
   "devDependencies": {
     "@commitlint/cli": "^18.4.3",
