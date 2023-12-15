@@ -35,6 +35,7 @@
 		"packages/logger": {},
 		"packages/plugin": {},
 		"packages/toolchain": {},
+		"plugins/biome": {},
 		"plugins/eslint": {},
 		"plugins/mocha": {},
 		"plugins/npm-scripts": {},

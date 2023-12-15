@@ -1,0 +1,24 @@
+{
+  "name": "@rmtc/plugin-biome",
+  "version": "0.0.0",
+  "description": "The toolchain Biome plugin",
+  "keywords": [],
+  "author": "Rowan Manning (https://rowanmanning.com/)",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rowanmanning/toolchain.git",
+    "directory": "plugins/biome"
+  },
+  "homepage": "https://github.com/rowanmanning/toolchain/tree/main/plugins/biome#readme",
+  "bugs": "https://github.com/rowanmanning/toolchain/issues",
+  "license": "MIT",
+  "engines": {
+    "node": "18.x || 20.x",
+    "npm": "8.x || 9.x || 10.x"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "@biomejs/biome": "^1.4.1",
+    "@rmtc/plugin": "^0.1.2"
+  }
+}
