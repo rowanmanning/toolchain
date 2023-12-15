@@ -12,6 +12,9 @@ class ConfigError extends ToolchainError {
 	/** @type {string} */
 	name = 'ConfigError';
 
+	/** @type {import('ajv').ErrorObject[]} */
+	validationErrors = [];
+
 	/**
 	 * @param {import('@rmtc/errors').ToolchainErrorOptions & ConfigErrorOptions} options
 	 */
