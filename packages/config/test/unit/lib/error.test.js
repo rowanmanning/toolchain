@@ -24,6 +24,21 @@ describe('@rmtc/config/lib/error', () => {
 			assert.ok(ConfigError.prototype instanceof ToolchainError);
 		});
 
+		describe('new ConfigError(message)', () => {
+
+			before(() => {
+				// eslint-disable-next-line no-new
+				new ConfigError('mock message');
+			});
+
+			it('calls the ToolchainError constructor', () => {
+				td.verify(
+					ToolchainError.prototype.constructor('mock message', {}),
+					{times: 1}
+				);
+			});
+		});
+
 		describe('new ConfigError(message, options)', () => {
 			let configError;
 			let options;
