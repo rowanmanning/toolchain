@@ -36,18 +36,18 @@ class Logger {
 	constructor({logLevel = process.env.LOG_LEVEL, prefix = ''} = {}) {
 		if (typeof logLevel === 'string') {
 			this.#level = levels[logLevel] ?? levels.info;
-		} else if (logLevel) {
+		} else if (typeof logLevel === 'number') {
 			this.#level = logLevel;
 		}
 		this.#prefix = prefix;
 	}
 
 	/**
-	 * @param {object} options
+	 * @param {object} [options]
 	 * @param {string} [options.prefix]
 	 * @returns {Logger}
 	 */
-	child({prefix}) {
+	child({prefix} = {}) {
 		return new Logger({
 			logLevel: this.#level,
 			prefix: prefix ? this.#prefixMessage(prefix) : this.#prefix
