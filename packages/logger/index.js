@@ -1,11 +1,14 @@
 'use strict';
 
+const process = require('node:process');
+
 const levels = {
 	error: 0,
 	warn: 1,
 	info: 2,
 	debug: 3
 };
+const levelNames = Object.keys(levels);
 
 class Logger {
 
@@ -13,7 +16,17 @@ class Logger {
 	#level = levels.info;
 
 	/** @type {string} */
+	get logLevel() {
+		return levelNames[this.#level];
+	}
+
+	/** @type {string} */
 	#prefix;
+
+	/** @type {string} */
+	get prefix() {
+		return this.#prefix;
+	}
 
 	/**
 	 * @param {object} [options]
@@ -22,7 +35,7 @@ class Logger {
 	 */
 	constructor({logLevel = process.env.LOG_LEVEL, prefix = ''} = {}) {
 		if (typeof logLevel === 'string') {
-			this.#level = levels[logLevel] || levels.info;
+			this.#level = levels[logLevel] ?? levels.info;
 		} else if (logLevel) {
 			this.#level = logLevel;
 		}
