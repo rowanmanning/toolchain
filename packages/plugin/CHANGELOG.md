@@ -12,6 +12,26 @@
   * dependencies
     * @rmtc/config bumped from ^0.1.1 to ^0.2.0
 
+## [0.2.0](https://github.com/rowanmanning/toolchain/compare/plugin-v0.1.2...plugin-v0.2.0) (2023-12-16)
+
+
+### ⚠ BREAKING CHANGES
+
+* run executables with node_modules paths
+
+### Bug Fixes
+
+* run executables with node_modules paths ([3a13993](https://github.com/rowanmanning/toolchain/commit/3a13993248e067922f5970af57097bc625fad6d9))
+* switch to the new error inferfaces ([da2e5fb](https://github.com/rowanmanning/toolchain/commit/da2e5fb17ba0b45d990d6eecbc2e63540aa2aa20))
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * @rmtc/config bumped from ^0.2.0 to ^0.3.0
+    * @rmtc/errors bumped from ^0.1.0 to ^0.2.0
+
 ## 0.1.0 (2023-12-13)
 
 

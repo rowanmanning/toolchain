@@ -1,5 +1,16 @@
 # Changelog
 
+## [0.2.0](https://github.com/rowanmanning/toolchain/compare/errors-v0.1.0...errors-v0.2.0) (2023-12-16)
+
+
+### ⚠ BREAKING CHANGES
+
+* mimic the regular error class interface
+
+### Bug Fixes
+
+* mimic the regular error class interface ([a2501ce](https://github.com/rowanmanning/toolchain/commit/a2501ceb8b62c20ac381d5fe453f38054013263f))
+
 ## 0.1.0 (2023-12-13)
 
 
