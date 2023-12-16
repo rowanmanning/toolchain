@@ -24,7 +24,7 @@ describe('@rmtc/config/lib/error', () => {
 			assert.ok(ConfigError.prototype instanceof ToolchainError);
 		});
 
-		describe('new ConfigError(options)', () => {
+		describe('new ConfigError(message, options)', () => {
 			let configError;
 			let options;
 
