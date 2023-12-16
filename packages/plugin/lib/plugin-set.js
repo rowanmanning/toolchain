@@ -96,11 +96,10 @@ class PluginSet {
 				step.plugin.constructor.name,
 				...existingSteps.map(existingStep => existingStep.plugin.constructor.name)
 			];
-			throw new ConfigError({
-				code: 'DUPLICATE_STEP_DEFINITION',
-				// eslint-disable-next-line max-len
-				message: `The "${step.name}" step is defined by multiple plugins: ${pluginNames.join(', ')}`
-			});
+			throw new ConfigError(
+				`The "${step.name}" step is defined by multiple plugins: ${pluginNames.join(', ')}`,
+				{code: 'DUPLICATE_STEP_DEFINITION'}
+			);
 		}
 		this.#steps.push(step);
 	}

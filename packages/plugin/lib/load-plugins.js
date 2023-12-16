@@ -40,11 +40,10 @@ function loadPlugin(directoryPath, {path: pluginPath, config}, pluginSet) {
 
 		// Check that the plugin is valid
 		if (!(pluginModule?.Plugin?.prototype instanceof Plugin)) {
-			throw new ToolchainError({
-				code: 'PLUGIN_INVALID',
-				// eslint-disable-next-line max-len
-				message: `The plugin file at "${pluginPath}" does not export a \`Plugin\` property that extends @rmtc/plugin`
-			});
+			throw new ToolchainError(
+				`The plugin file at "${pluginPath}" does not export a \`Plugin\` property that extends @rmtc/plugin`,
+				{code: 'PLUGIN_INVALID'}
+			);
 		}
 
 		return new pluginModule.Plugin({
@@ -60,20 +59,24 @@ function loadPlugin(directoryPath, {path: pluginPath, config}, pluginSet) {
 
 		// Config file was not found
 		if (error.code === 'MODULE_NOT_FOUND') {
-			throw new ToolchainError({
-				code: 'PLUGIN_MISSING',
-				message: `A plugin file was not found at "${pluginPath}"`,
-				cause: error
-			});
+			throw new ToolchainError(
+				`A plugin file was not found at "${pluginPath}"`,
+				{
+					code: 'PLUGIN_MISSING',
+					cause: error
+				}
+			);
 		}
 
 		// Config file was not valid JavaScript
 		if (error instanceof SyntaxError) {
-			throw new ToolchainError({
-				code: 'PLUGIN_INVALID_JAVASCRIPT',
-				message: `The plugin file at "${pluginPath}" was not valid JavaScript`,
-				cause: error
-			});
+			throw new ToolchainError(
+				`The plugin file at "${pluginPath}" was not valid JavaScript`,
+				{
+					code: 'PLUGIN_INVALID_JAVASCRIPT',
+					cause: error
+				}
+			);
 		}
 
 		// Rethrow any other errors

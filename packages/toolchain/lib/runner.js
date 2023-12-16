@@ -54,10 +54,10 @@ class Runner {
 		const workflowInConfig = Boolean(this.#config.workflows[name]);
 		const workflowInPluginSet = this.#pluginSet.definesWorkflow(name);
 		if (!workflowInConfig && !workflowInPluginSet) {
-			throw new ConfigError({
-				code: 'WORKFLOW_MISSING',
-				message: `A workflow named "${name}" was not defined by a plugin or config file`
-			});
+			throw new ConfigError(
+				`A workflow named "${name}" was not defined by a plugin or config file`,
+				{code: 'WORKFLOW_MISSING'}
+			);
 		}
 	}
 
@@ -67,10 +67,10 @@ class Runner {
 	 */
 	#assertStepDefined(name) {
 		if (!this.#pluginSet.definesStep(name)) {
-			throw new ConfigError({
-				code: 'STEP_MISSING',
-				message: `A step named "${name}" was not defined by any plugin`
-			});
+			throw new ConfigError(
+				`A step named "${name}" was not defined by any plugin`,
+				{code: 'STEP_MISSING'}
+			);
 		}
 	}
 
@@ -94,9 +94,8 @@ class Runner {
 				await this.executeStep(stepName, params);
 				this.#logger.debug(`completed workflow step "${name}.${stepName}"`);
 			} catch (/** @type {any} */ error) {
-				throw new ToolchainError({
+				throw new ToolchainError(`The workflow "${name}" failed to execute`, {
 					code: 'WORKFLOW_FAILED',
-					message: `The workflow "${name}" failed to execute`,
 					cause: error
 				});
 			}
@@ -120,9 +119,8 @@ class Runner {
 				await stepExecutor(params);
 			}
 		} catch (/** @type {any} */ error) {
-			throw new ToolchainError({
+			throw new ToolchainError(`The step "${name}" failed to execute`, {
 				code: 'STEP_FAILED',
-				message: `The step "${name}" failed to execute`,
 				cause: error
 			});
 		}

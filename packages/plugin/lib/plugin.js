@@ -102,9 +102,8 @@ class Plugin {
 				if (!code || code === 0) {
 					return resolve();
 				}
-				reject(new CommandError({
-					code: 'COMMAND_FAILED',
-					message: `Command "${command}" exited with code ${code}`
+				reject(new CommandError(`Command "${command}" exited with code ${code}`, {
+					code: 'COMMAND_FAILED'
 				}));
 			});
 		});

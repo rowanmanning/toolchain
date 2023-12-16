@@ -50,10 +50,12 @@ exports.runCommand = async function runCommand({directoryPath, process}) {
 					if (!code || code === 0) {
 						return resolve();
 					}
-					reject(new ToolchainError({
-						code: 'PACKAGE_INSTALL_FAILED',
-						message: `Package install of ${packageName} failed with exit code ${code}`
-					}));
+					reject(
+						new ToolchainError(
+							`Package install of ${packageName} failed with exit code ${code}`,
+							{code: 'PACKAGE_INSTALL_FAILED'}
+						)
+					);
 				});
 			});
 		}

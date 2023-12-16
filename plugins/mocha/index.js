@@ -18,18 +18,18 @@ class Mocha extends Plugin {
 
 		// Validate the test type
 		if (config.type !== null && typeof config.type !== 'string') {
-			throw new ConfigError({
-				code: 'MOCHA_PLUGIN_CONFIG_INVALID',
-				message: `The mocha plugin "type" config option must be a string or null`
-			});
+			throw new ConfigError(
+				`The mocha plugin "type" config option must be a string or null`,
+				{code: 'MOCHA_PLUGIN_CONFIG_INVALID'}
+			);
 		}
 
 		// Validate the test coverage flag
 		if (typeof config.coverage !== 'boolean') {
-			throw new ConfigError({
-				code: 'MOCHA_PLUGIN_CONFIG_INVALID',
-				message: `The mocha plugin "coverage" config option must be a boolean`
-			});
+			throw new ConfigError(
+				`The mocha plugin "coverage" config option must be a boolean`,
+				{code: 'MOCHA_PLUGIN_CONFIG_INVALID'}
+			);
 		}
 
 		return config;
