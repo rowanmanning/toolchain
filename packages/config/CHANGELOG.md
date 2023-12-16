@@ -1,5 +1,28 @@
 # Changelog
 
+## [0.3.0](https://github.com/rowanmanning/toolchain/compare/config-v0.2.0...config-v0.3.0) (2023-12-16)
+
+
+### ⚠ BREAKING CHANGES
+
+* mimic the regular error class interface
+
+### Bug Fixes
+
+* mimic the regular error class interface ([a2501ce](https://github.com/rowanmanning/toolchain/commit/a2501ceb8b62c20ac381d5fe453f38054013263f))
+
+
+### Documentation Changes
+
+* fix a typo ([616a87b](https://github.com/rowanmanning/toolchain/commit/616a87b4c3f4ef4cdb26a45c14022a6f780c7c6f))
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * @rmtc/errors bumped from ^0.1.0 to ^0.2.0
+
 ## [0.2.0](https://github.com/rowanmanning/toolchain/compare/config-v0.1.1...config-v0.2.0) (2023-12-15)
 
 

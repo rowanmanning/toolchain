@@ -1,5 +1,23 @@
 # Changelog
 
+## [0.2.0](https://github.com/rowanmanning/toolchain/compare/plugin-biome-v0.1.1...plugin-biome-v0.2.0) (2023-12-16)
+
+
+### ⚠ BREAKING CHANGES
+
+* run executables with node_modules paths
+
+### Bug Fixes
+
+* run executables with node_modules paths ([3a13993](https://github.com/rowanmanning/toolchain/commit/3a13993248e067922f5970af57097bc625fad6d9))
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * @rmtc/plugin bumped from ^0.1.2 to ^0.2.0
+
 ## [0.1.1](https://github.com/rowanmanning/toolchain/compare/plugin-biome-v0.1.0...plugin-biome-v0.1.1) (2023-12-15)
 
 

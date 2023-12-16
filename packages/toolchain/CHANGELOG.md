@@ -14,6 +14,22 @@
     * @rmtc/config bumped from ^0.1.1 to ^0.2.0
     * @rmtc/plugin bumped from ^0.1.1 to ^0.1.2
 
+## [0.1.3](https://github.com/rowanmanning/toolchain/compare/toolchain-v0.1.2...toolchain-v0.1.3) (2023-12-16)
+
+
+### Bug Fixes
+
+* switch to the new error inferfaces ([da2e5fb](https://github.com/rowanmanning/toolchain/commit/da2e5fb17ba0b45d990d6eecbc2e63540aa2aa20))
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * @rmtc/config bumped from ^0.2.0 to ^0.3.0
+    * @rmtc/errors bumped from ^0.1.0 to ^0.2.0
+    * @rmtc/plugin bumped from ^0.1.2 to ^0.2.0
+
 ## 0.1.0 (2023-12-13)
 
 
