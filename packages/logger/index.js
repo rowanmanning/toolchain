@@ -66,16 +66,14 @@ class Logger {
 	 * @param {string | Error} message
 	 */
 	error(message) {
-		if (this.#level >= levels.error) {
-			if (message instanceof Error) {
-				process.stdout.write(
-					this.#prefixMessage(
-						`An error occurred:\n${this.#stringifyError(message)}`
-					)
-				);
-			} else {
-				process.stdout.write(this.#prefixMessage(`${message}\n`));
-			}
+		if (message instanceof Error) {
+			process.stdout.write(
+				this.#prefixMessage(
+					`An error occurred:\n${this.#stringifyError(message)}`
+				)
+			);
+		} else {
+			process.stdout.write(this.#prefixMessage(`${message}\n`));
 		}
 	}
 
