@@ -11,6 +11,7 @@ describe('@rmtc/config', () => {
 	let configSchema;
 	let JSON5;
 	let Logger;
+	let module;
 	let path;
 	let readFile;
 	let validateConfigSchema;
@@ -32,7 +33,8 @@ describe('@rmtc/config', () => {
 		configSchema = require('../../schema.json');
 		td.when(Ajv.prototype.compile(configSchema)).thenReturn(validateConfigSchema);
 
-		Config = require('../..').Config;
+		module = require('../..');
+		Config = module.Config;
 	});
 
 	describe('on import', () => {
@@ -270,6 +272,12 @@ describe('@rmtc/config', () => {
 					await assert.rejects(Config.fromFile('mock-directory'), mockError);
 				});
 			});
+		});
+	});
+
+	describe('.ConfigError', () => {
+		it('aliases @rmtc/config/lib/error', () => {
+			assert.equal(module.ConfigError, ConfigError);
 		});
 	});
 });
