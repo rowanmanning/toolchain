@@ -33,7 +33,20 @@ Install the module with [npm](https://www.npmjs.com/):
 npm install @rmtc/config
 ```
 
-🚧 Proper documentation coming soon.
+Read a valid `.rmtc.json5` config file with:
+
+```js
+const {Config} = require('@rmtc/config');
+await Config.fromFile(`/path/to/project/directory`);
+```
+
+There's no need to include `.rmtc.json5` in the file path, it's added automatically.
+
+The above function will throw an error if:
+
+  * There is no config file
+  * The config file is not valid [JSON5](https://json5.org/)
+  * The config file does not match the [config schema](./schema.json)
 
 
 ## Contributing
