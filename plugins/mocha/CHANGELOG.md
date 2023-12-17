@@ -1,5 +1,12 @@
 # Changelog
 
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * @rmtc/config bumped from ^0.3.0 to ^0.3.1
+    * @rmtc/plugin bumped from ^0.2.0 to ^0.2.1
+
 ## [0.2.1](https://github.com/rowanmanning/toolchain/compare/plugin-mocha-v0.2.0...plugin-mocha-v0.2.1) (2023-12-16)
 
 

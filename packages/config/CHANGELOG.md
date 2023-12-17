@@ -1,5 +1,11 @@
 # Changelog
 
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * @rmtc/logger bumped from ^0.1.0 to ^0.1.1
+
 ## [0.3.0](https://github.com/rowanmanning/toolchain/compare/config-v0.2.0...config-v0.3.0) (2023-12-16)
 
 

@@ -1,6 +1,6 @@
 {
   "name": "@rmtc/logger",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Consistent logging for the @rmtc/toolchain CLI",
   "keywords": [],
   "author": "Rowan Manning (https://rowanmanning.com/)",

@@ -12,6 +12,12 @@
   * dependencies
     * @rmtc/plugin bumped from ^0.1.2 to ^0.2.0
 
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * @rmtc/plugin bumped from ^0.2.0 to ^0.2.1
+
 ## [0.2.0](https://github.com/rowanmanning/toolchain/compare/plugin-types-in-jsdoc-v0.1.1...plugin-types-in-jsdoc-v0.2.0) (2023-12-15)
 
 
