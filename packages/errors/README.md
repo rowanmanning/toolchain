@@ -33,7 +33,18 @@ Install the module with [npm](https://www.npmjs.com/):
 npm install @rmtc/errors
 ```
 
-🚧 Proper documentation coming soon.
+This module exports error classes for use across the rest of this project:
+
+```js
+const {ToolchainError} = require('@rmtc/errors');
+throw new ToolchainError('this is a message');
+```
+
+You can pass a `code` as a property on the second argument to the error constructor to provide a machine-readable alternative to the message:
+
+```js
+throw new ToolchainError('this is a message', { code: 'EXAMPLE_CODE' });
+```
 
 
 ## Contributing
