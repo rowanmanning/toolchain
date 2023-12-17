@@ -96,7 +96,9 @@ class Plugin {
 	 */
 	exec(command, args = []) {
 		return new Promise((resolve, reject) => {
-			this.log.debug(`spawning child process: ${command} ${args.join(' ')}`);
+			this.log.debug(
+				`spawning child process: ${command}${args.length ? ` ${args.join(' ')}` : ''}`
+			);
 			const child = spawn('npx', [command, ...args], {stdio: 'inherit'});
 			child.on('close', code => {
 				if (!code || code === 0) {
