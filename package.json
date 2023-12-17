@@ -40,7 +40,9 @@
   },
   "mocha": {
     "timeout": 10000,
-    "ignore": ["**/*/fixtures/**/*"]
+    "ignore": [
+      "**/*/fixtures/**/*"
+    ]
   },
   "nyc": {
     "eager": true,

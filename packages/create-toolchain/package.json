@@ -24,5 +24,8 @@
     "@rmtc/config": "^0.3.1",
     "@rmtc/errors": "^0.2.0",
     "@rmtc/logger": "^0.1.1"
+  },
+  "devDependencies": {
+    "json5": "^2.2.3"
   }
 }
