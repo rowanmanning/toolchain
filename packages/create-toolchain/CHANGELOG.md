@@ -6,6 +6,13 @@
   * dependencies
     * @rmtc/config bumped from ^0.1.1 to ^0.2.0
 
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * @rmtc/config bumped from ^0.3.0 to ^0.3.1
+    * @rmtc/logger bumped from ^0.1.0 to ^0.1.1
+
 ## [0.1.2](https://github.com/rowanmanning/toolchain/compare/create-toolchain-v0.1.1...create-toolchain-v0.1.2) (2023-12-16)
 
 

@@ -12,6 +12,21 @@
   * dependencies
     * @rmtc/config bumped from ^0.1.1 to ^0.2.0
 
+## [0.2.1](https://github.com/rowanmanning/toolchain/compare/plugin-v0.2.0...plugin-v0.2.1) (2023-12-17)
+
+
+### Bug Fixes
+
+* remove an unused import ([7b1f9b2](https://github.com/rowanmanning/toolchain/commit/7b1f9b260b09caed1ea97d7f72f559bd27e0226b))
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * @rmtc/config bumped from ^0.3.0 to ^0.3.1
+    * @rmtc/logger bumped from ^0.1.0 to ^0.1.1
+
 ## [0.2.0](https://github.com/rowanmanning/toolchain/compare/plugin-v0.1.2...plugin-v0.2.0) (2023-12-16)
 
 
