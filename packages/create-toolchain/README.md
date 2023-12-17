@@ -33,8 +33,6 @@ Run the toolchain setup script with:
 npm create @rmtc/toolchain
 ```
 
-🚧 Proper documentation coming soon.
-
 
 ## Contributing
 
