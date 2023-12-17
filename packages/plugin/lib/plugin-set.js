@@ -1,7 +1,10 @@
 'use strict';
 
 const {ConfigError} = require('@rmtc/config');
-const {Plugin} = require('./plugin');
+
+/**
+ * @typedef {import('./plugin').Plugin} Plugin
+ */
 
 /**
  * @typedef {object} StepParams
