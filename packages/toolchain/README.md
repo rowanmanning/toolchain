@@ -33,7 +33,29 @@ Install the module with [npm](https://www.npmjs.com/):
 npm install --save-dev @rmtc/toolchain
 ```
 
-🚧 Proper documentation coming soon.
+Get command-line help with:
+
+```sh
+npx @rmtc/toolchain --help
+```
+
+List available workflows and steps with:
+
+```sh
+npx @rmtc/toolchain --list
+```
+
+Run a single workflow:
+
+```sh
+npx @rmtc/toolchain workflowName
+```
+
+Run multiple workflows:
+
+```sh
+npx @rmtc/toolchain workflowName anotherWorkflowName ...
+```
 
 
 ## Contributing
