@@ -22,6 +22,23 @@
     * @rmtc/logger bumped from ^0.1.0 to ^0.1.1
     * @rmtc/plugin bumped from ^0.2.0 to ^0.2.1
 
+## [0.1.5](https://github.com/rowanmanning/toolchain/compare/toolchain-v0.1.4...toolchain-v0.1.5) (2023-12-18)
+
+
+### Documentation Changes
+
+* write up docs for the CLI ([6cad81f](https://github.com/rowanmanning/toolchain/commit/6cad81f8d05d6d409220e7a51cb9873089a7a3fd))
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * @rmtc/config bumped from ^0.3.1 to ^0.3.2
+    * @rmtc/errors bumped from ^0.2.0 to ^0.2.1
+    * @rmtc/logger bumped from ^0.1.1 to ^0.1.2
+    * @rmtc/plugin bumped from ^0.2.1 to ^0.2.2
+
 ## [0.1.3](https://github.com/rowanmanning/toolchain/compare/toolchain-v0.1.2...toolchain-v0.1.3) (2023-12-16)
 
 

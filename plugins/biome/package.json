@@ -1,6 +1,6 @@
 {
   "name": "@rmtc/plugin-biome",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "The toolchain Biome plugin",
   "keywords": [],
   "author": "Rowan Manning (https://rowanmanning.com/)",
@@ -19,6 +19,6 @@
   "main": "index.js",
   "dependencies": {
     "@biomejs/biome": "^1.4.1",
-    "@rmtc/plugin": "^0.2.1"
+    "@rmtc/plugin": "^0.2.2"
   }
 }

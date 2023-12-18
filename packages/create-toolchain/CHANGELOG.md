@@ -13,6 +13,22 @@
     * @rmtc/config bumped from ^0.3.0 to ^0.3.1
     * @rmtc/logger bumped from ^0.1.0 to ^0.1.1
 
+## [0.1.4](https://github.com/rowanmanning/toolchain/compare/create-toolchain-v0.1.3...create-toolchain-v0.1.4) (2023-12-18)
+
+
+### Documentation Changes
+
+* remove an unnecessary TODO ([c815311](https://github.com/rowanmanning/toolchain/commit/c815311b635e73450316791ce9b9c66f4521bdf0))
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * @rmtc/config bumped from ^0.3.1 to ^0.3.2
+    * @rmtc/errors bumped from ^0.2.0 to ^0.2.1
+    * @rmtc/logger bumped from ^0.1.1 to ^0.1.2
+
 ## [0.1.2](https://github.com/rowanmanning/toolchain/compare/create-toolchain-v0.1.1...create-toolchain-v0.1.2) (2023-12-16)
 
 
