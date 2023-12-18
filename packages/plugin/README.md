@@ -12,7 +12,6 @@ A base class to be extended by other @rmtc/toolchain plugins.
 
 ## Table of Contents
 
-  * [Table of Contents](#table-of-contents)
   * [Requirements](#requirements)
   * [Usage](#usage)
     * [Override methods](#override-methods)
@@ -47,7 +46,7 @@ Install the module with [npm](https://www.npmjs.com/):
 npm install @rmtc/plugin
 ```
 
-Now you can import the plugin and extend it. This is the minimal code for a plugin, but it doesn't do anything:
+Now you can import the `Plugin` class and extend it. This is the minimal code for a plugin, but it doesn't do anything:
 
 ```js
 const { Plugin } = require('@rmtc/plugin');
