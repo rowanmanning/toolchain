@@ -36,6 +36,7 @@
 		"packages/plugin": {},
 		"packages/toolchain": {},
 		"plugins/biome": {},
+		"plugins/contributing": {},
 		"plugins/eslint": {},
 		"plugins/mocha": {},
 		"plugins/npm-scripts": {},
