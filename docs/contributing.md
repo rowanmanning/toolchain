@@ -1,5 +1,4 @@
 
-
 # Contribution Guide
 
 I welcome contributions to this project. This guide outlines what's expected of you when you contribute, and what you can expect from me in return.
@@ -35,7 +34,7 @@ Contributing to this project **does not**:
 
 ## Technical
 
-To contribute to this project's code, clone this repo locally and commit your work to a separate branch. Open a pull request to get your changes merged. If you're doing any large feature work, please make sure to have a discussion in an issue first – I'd rather not waste your time if it's not a feature I want to add to this project 🙂
+To contribute to this project's code, clone this repo locally and commit your work to a separate branch. Open a pull request to get your changes merged. If you're doing any large feature work, please make sure to open an issue to discuss it first – I'd rather not waste your time if it's not a feature I want to add to this project 🙂
 
 I don't offer any guarantees on how long it will take me to review a PR or respond to an issue, [as outlined here](#what-you-can-expect-from-me).
 
@@ -49,7 +48,7 @@ Commit messages must be written using [conventional commits](https://www.convent
 [body]
 ```
 
-The `type` can be any of: `feat`, `fix`, `docs` or `chore`.
+The `type` can be any of the following: `feat`, `fix`, `docs` or `chore`.
 
 The prefix is used to calculate the [Semantic Versioning](https://semver.org/) release:
 
@@ -60,22 +59,20 @@ The prefix is used to calculate the [Semantic Versioning](https://semver.org/) r
 | docs      | a change to documentation                              | `patch`       |
 | chore     | repo maintenance and support tasks                     | none          |
 
-Indicate a breaking change by placing an `!` between the type name and the colon, e.g.
+Indicate a breaking change by placing an exclamation (`!`) between the type name and the colon, e.g.
 
 ```
 feat!: add a breaking feature
 ```
 
-We use [commitlint](https://commitlint.js.org/) to enforce these commit messages.
-
 ### Linting
 
-This project is linted using [ESLint](https://eslint.org/), configured in the way I normally write JavaScript. Please keep to the existing style.
+The code quality of this project is checked automatically, with tooling configured in the way I normally write JavaScript. Please keep to the existing style.
 
-ESLint errors will fail the build on any PRs. Most editors have an ESLint plugin that will pick up errors, but you can also run the linter manually as part of the following command:
+Linting errors will fail the build on any PRs, you can also run linting manually as part of the following command:
 
 ```
-npm run verify
+npx @rmtc/toolchain verify
 ```
 
 ### TypeScript
@@ -85,25 +82,15 @@ Although this project is written in JavaScript, it is checked with [TypeScript](
 Type errors will fail the build on any PRs. Most editors have a TypeScript plugin that will pick up errors, but you can also check types manually as part of the following command:
 
 ```
-npm run verify
+npx @rmtc/toolchain verify
 ```
 
-### Unit tests
+### Testing
 
-This project has unit tests with good coverage, and failing unit tests will fail the build on any PRs. If you add or remove features, please update the tests to match.
+The project strives to have automated tests with good coverage, and failing tests will fail the build on any PRs. If you add or remove features, please update the tests to match or write new tests if necessary.
 
 You can run tests manually with the following command:
 
 ```
-npm run test:unit
-```
-
-### End-to-end tests
-
-This project has end-to-end tests, and these tests can fail the build on PRs. If you add or remove features, please update the tests to match.
-
-You can run end-to-end tests manually with the following command:
-
-```
-npm run test:end-to-end
+npx @rmtc/toolchain test
 ```

@@ -3,6 +3,14 @@
 		'@rmtc/plugin-eslint',
 		'@rmtc/plugin-types-in-jsdoc',
 		'@rmtc/plugin-npm-scripts',
+		['@rmtc/plugin-contributing', {
+			techSections: [
+				'conventional-commits',
+				'linting',
+				'types-in-jsdoc',
+				'testing'
+			]
+		}],
 		['@rmtc/plugin-mocha', {
 			type: 'unit',
 			coverage: true
