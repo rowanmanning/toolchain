@@ -9,5 +9,6 @@
 	"plugins/npm-scripts": "0.3.0",
 	"packages/create-toolchain": "0.1.4",
 	"plugins/types-in-jsdoc": "0.2.3",
-	"plugins/biome": "0.2.2"
+	"plugins/biome": "0.2.2",
+	"plugins/contributing": "0.1.0"
 }
