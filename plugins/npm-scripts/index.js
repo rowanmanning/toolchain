@@ -11,8 +11,8 @@ class NpmScripts extends Plugin {
 	 * @type {import('@rmtc/plugin').InitMethod}
 	 */
 	init() {
-		this.defineStep('npm-scripts-install', this.install.bind(this));
-		this.defineWorkflow('postinstall', ['npm-scripts-install']);
+		this.defineStep('npm-scripts:install', this.install.bind(this));
+		this.defineWorkflow('postinstall', ['npm-scripts:install']);
 	}
 
 	/**
