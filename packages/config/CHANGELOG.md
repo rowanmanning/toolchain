@@ -6,6 +6,21 @@
   * dependencies
     * @rmtc/logger bumped from ^0.1.0 to ^0.1.1
 
+## [0.3.2](https://github.com/rowanmanning/toolchain/compare/config-v0.3.1...config-v0.3.2) (2023-12-18)
+
+
+### Documentation Changes
+
+* finish the config module README ([96a4f6a](https://github.com/rowanmanning/toolchain/commit/96a4f6a2a62ca87ac31beeb22a76903fb757ca59))
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * @rmtc/errors bumped from ^0.2.0 to ^0.2.1
+    * @rmtc/logger bumped from ^0.1.1 to ^0.1.2
+
 ## [0.3.0](https://github.com/rowanmanning/toolchain/compare/config-v0.2.0...config-v0.3.0) (2023-12-16)
 
 

@@ -12,6 +12,23 @@
   * dependencies
     * @rmtc/config bumped from ^0.1.1 to ^0.2.0
 
+## [0.2.2](https://github.com/rowanmanning/toolchain/compare/plugin-v0.2.1...plugin-v0.2.2) (2023-12-18)
+
+
+### Documentation Changes
+
+* finish documentation for plugin creation ([d899733](https://github.com/rowanmanning/toolchain/commit/d899733e1c2f973b2825ae18ccdf73ec06bb3965))
+* fix some typos ([d1decb6](https://github.com/rowanmanning/toolchain/commit/d1decb67f35c587f557e5f0ca0e71f547a53d466))
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * @rmtc/config bumped from ^0.3.1 to ^0.3.2
+    * @rmtc/errors bumped from ^0.2.0 to ^0.2.1
+    * @rmtc/logger bumped from ^0.1.1 to ^0.1.2
+
 ## [0.2.1](https://github.com/rowanmanning/toolchain/compare/plugin-v0.2.0...plugin-v0.2.1) (2023-12-17)
 
 

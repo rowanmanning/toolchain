@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.2.1](https://github.com/rowanmanning/toolchain/compare/errors-v0.2.0...errors-v0.2.1) (2023-12-18)
+
+
+### Documentation Changes
+
+* finish the errors module README ([9c52885](https://github.com/rowanmanning/toolchain/commit/9c52885f31f49611e39639a173115f0e70a9959c))
+
 ## [0.2.0](https://github.com/rowanmanning/toolchain/compare/errors-v0.1.0...errors-v0.2.0) (2023-12-16)
 
 

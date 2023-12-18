@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.2](https://github.com/rowanmanning/toolchain/compare/logger-v0.1.1...logger-v0.1.2) (2023-12-18)
+
+
+### Documentation Changes
+
+* document the logger ([f441e8e](https://github.com/rowanmanning/toolchain/commit/f441e8e08673f2117e87353213e069ba23dbe9d1))
+
 ## [0.1.1](https://github.com/rowanmanning/toolchain/compare/logger-v0.1.0...logger-v0.1.1) (2023-12-17)
 
 

@@ -6,6 +6,20 @@
   * dependencies
     * @rmtc/plugin bumped from ^0.2.0 to ^0.2.1
 
+## [0.2.2](https://github.com/rowanmanning/toolchain/compare/plugin-biome-v0.2.1...plugin-biome-v0.2.2) (2023-12-18)
+
+
+### Documentation Changes
+
+* finish plugin documentation ([6649298](https://github.com/rowanmanning/toolchain/commit/66492985257fa151576c904d881a3803b55aa863))
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * @rmtc/plugin bumped from ^0.2.1 to ^0.2.2
+
 ## [0.2.0](https://github.com/rowanmanning/toolchain/compare/plugin-biome-v0.1.1...plugin-biome-v0.2.0) (2023-12-16)
 
 
