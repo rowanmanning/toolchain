@@ -1,6 +1,6 @@
 {
   "name": "@rmtc/plugin-contributing",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "The toolchain contributing guide plugin",
   "keywords": [],
   "author": "Rowan Manning (https://rowanmanning.com/)",
