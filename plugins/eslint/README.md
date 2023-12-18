@@ -11,6 +11,9 @@ An [ESLint](https://eslint.org/) plugin for [@rmtc/toolchain](https://github.com
 
   * [Requirements](#requirements)
   * [Usage](#usage)
+    * [Workflows](#workflows)
+    * [Steps](#steps)
+    * [Configuration](#configuration)
   * [Contributing](#contributing)
   * [License](#license)
 
@@ -31,7 +34,44 @@ Install the module with [npm](https://www.npmjs.com/):
 npm install --save-dev @rmtc/plugin-eslint
 ```
 
-🚧 Proper documentation coming soon.
+Include it in your `.rmtc.json` file:
+
+```js
+{
+    plugins: [
+        // ...
+        '@rmtc/plugin-eslint'
+    ]
+    // ...
+}
+```
+
+### Workflows
+
+This plugin defines the following workflows:
+
+  * **`verify`:** a general workflow used to verify code quality.
+
+### Steps
+
+This plugin defines the following steps that can be added to any workflow:
+
+  * **`eslint`:** run the `eslint` command-line tool on the whole project.
+
+E.g. if you prefer to define a `lint` workflow, use the following:
+
+```js
+{
+    plugins: ['@rmtc/plugin-eslint'],
+    workflows: {
+        lint: ['eslint']
+    }
+}
+```
+
+### Configuration
+
+This plugin provides no additional configuration. To configure the way that the `eslint` command-line tool runs, you should [use one of the configuration methods that they suggest](https://eslint.org/docs/latest/use/configure/).
 
 
 ## Contributing
