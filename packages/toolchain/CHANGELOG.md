@@ -22,6 +22,12 @@
     * @rmtc/logger bumped from ^0.1.0 to ^0.1.1
     * @rmtc/plugin bumped from ^0.2.0 to ^0.2.1
 
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * @rmtc/plugin bumped from ^0.2.2 to ^0.2.3
+
 ## [0.1.5](https://github.com/rowanmanning/toolchain/compare/toolchain-v0.1.4...toolchain-v0.1.5) (2023-12-18)
 
 

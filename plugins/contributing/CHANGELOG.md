@@ -1,5 +1,11 @@
 # Changelog
 
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * @rmtc/plugin bumped from ^0.2.2 to ^0.2.3
+
 ## 0.1.0 (2023-12-18)
 
 
