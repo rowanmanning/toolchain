@@ -31,13 +31,9 @@ class NpmScripts extends Plugin {
 				}
 			}
 
-			// Exclude internal workflows (starting with rmtc:)
-			// TODO remove this
-			const workflows = this.availableWorkflows.filter(workflow => !workflow.startsWith('rmtc:'));
-
 			// Set the new scripts properties
 			packageJson.scripts ||= {};
-			for (const workflow of workflows) {
+			for (const workflow of this.availableWorkflows) {
 				const oldScript = packageJson.scripts[workflow];
 				const newScript = packageJson.scripts[workflow] = `toolchain ${workflow}`;
 				if (newScript === oldScript) {
@@ -52,7 +48,7 @@ class NpmScripts extends Plugin {
 			// Remove any script properties from old plugins
 			for (const [workflow, script] of Object.entries(packageJson.scripts)) {
 				if (
-					!workflows.includes(workflow) &&
+					!this.availableWorkflows.includes(workflow) &&
 					typeof script === 'string' &&
 					script.startsWith('toolchain ')
 				) {
