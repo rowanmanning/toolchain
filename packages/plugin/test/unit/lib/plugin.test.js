@@ -3,8 +3,10 @@
 const assert = require('node:assert/strict');
 const td = require('testdouble');
 
-describe('@rmtc/plugin/lib/plugin-set', () => {
+describe('@rmtc/plugin/lib/plugin', () => {
+	let fs;
 	let Logger;
+	let path;
 	let Plugin;
 	let PluginSet;
 	let spawn;
@@ -13,7 +15,9 @@ describe('@rmtc/plugin/lib/plugin-set', () => {
 	before(() => {
 		td.reset();
 
+		fs = td.replace('node:fs/promises');
 		Logger = td.replace('@rmtc/logger').Logger;
+		path = td.replace('node:path');
 		PluginSet = td.replace('../../../lib/plugin-set').PluginSet;
 		spawn = td.replace('node:child_process').spawn;
 		ToolchainError = td.replace('@rmtc/errors').ToolchainError;
@@ -214,6 +218,152 @@ describe('@rmtc/plugin/lib/plugin-set', () => {
 						),
 						{times: 1}
 					);
+				});
+			});
+
+			describe('.editJsonFile(filePath)', () => {
+				let mockTransformer;
+				let resolvedValue;
+
+				before(async () => {
+					mockTransformer = td.func();
+
+					td.when(path.resolve('mock-directory', 'mock-file'))
+						.thenReturn('mock-resolved-file');
+					td.when(fs.readFile('mock-resolved-file', 'utf-8'))
+						.thenResolve('{\n\t"isMockJSON": true\n}');
+					td.when(mockTransformer({isMockJSON: true}))
+						.thenResolve({isMockTransformedJSON: true});
+					td.when(
+						fs.writeFile('mock-resolved-file', '{\n\t"isMockTransformedJSON": true\n}')
+					).thenResolve();
+
+					resolvedValue = await plugin.editJsonFile('mock-file', mockTransformer);
+				});
+
+				it('resolves with nothing', () => {
+					assert.equal(resolvedValue, undefined);
+				});
+
+				it('loads the JSON relative to the project directory', () => {
+					td.verify(
+						fs.readFile('mock-resolved-file', 'utf-8'),
+						{times: 1}
+					);
+				});
+
+				it('edits the JSON using the given transformer', () => {
+					td.verify(
+						mockTransformer({isMockJSON: true}),
+						{times: 1}
+					);
+				});
+
+				it('writes the edited JSON', () => {
+					td.verify(
+						fs.writeFile('mock-resolved-file', '{\n\t"isMockTransformedJSON": true\n}'),
+						{times: 1}
+					);
+				});
+
+				describe('when no changes are made in the transformer', () => {
+					it('does not write the file', async () => {
+						td.when(mockTransformer({isMockJSON: true}))
+							.thenResolve({isMockJSON: true});
+						await plugin.editJsonFile('mock-file', mockTransformer);
+						td.verify(
+							fs.writeFile(),
+							{
+								ignoreExtraArgs: true,
+								// The 1 time is from a previous test run
+								times: 1
+							}
+						);
+					});
+				});
+
+				describe('when the JSON uses spaces for indentation', () => {
+					it('preserves the whitespace choice when writing the file', async () => {
+						td.when(fs.readFile('mock-resolved-file', 'utf-8'))
+							.thenResolve('{\n    "isMockJSON": true\n}');
+						td.when(mockTransformer({isMockJSON: true}))
+							.thenResolve({isMockTransformedJSON: true});
+						await plugin.editJsonFile('mock-file', mockTransformer);
+						td.verify(fs.writeFile(
+							'mock-resolved-file',
+							'{\n    "isMockTransformedJSON": true\n}'
+						), {times: 1});
+					});
+				});
+
+				describe('when the JSON uses no indentation', () => {
+					it('defaults to tabs', async () => {
+						td.when(fs.readFile('mock-resolved-file', 'utf-8'))
+							.thenResolve('{\n"isMockJSON": true\n}');
+						td.when(mockTransformer({isMockJSON: true}))
+							.thenResolve({isMockTransformedJSON: true});
+						await plugin.editJsonFile('mock-file', mockTransformer);
+						td.verify(fs.writeFile(
+							'mock-resolved-file',
+							'{\n\t"isMockTransformedJSON": true\n}'
+							// 1 of these times is from a previous test run
+						), {times: 2});
+					});
+				});
+
+				describe('when the JSON uses mixed tabs and spaces for indentation', () => {
+					it('defaults to tabs', async () => {
+						td.when(fs.readFile('mock-resolved-file', 'utf-8')).thenResolve(
+							'{\n\t"isMockJSON": true,\n  "hasConsistentSpacing": false\n}'
+						);
+						td.when(mockTransformer({
+							isMockJSON: true,
+							hasConsistentSpacing: false
+						})).thenResolve({
+							isMockTransformedJSON: true,
+							hasConsistentSpacing: false
+						});
+						await plugin.editJsonFile('mock-file', mockTransformer);
+						td.verify(fs.writeFile(
+							'mock-resolved-file',
+							'{\n\t"isMockTransformedJSON": true,\n\t"hasConsistentSpacing": false\n}'
+						), {times: 1});
+					});
+				});
+
+				describe('when a file-system operation fails', () => {
+					it('throws a custom error', async () => {
+						const mockFileError = new Error('mock file error');
+						try {
+							td.when(fs.readFile('mock-resolved-file', 'utf-8'))
+								.thenReject(mockFileError);
+							await plugin.editJsonFile('mock-file', mockTransformer);
+							assert.equal(true, false, 'did not throw');
+						} catch (error) {
+							assert.ok(error instanceof ToolchainError);
+							td.verify(new ToolchainError(td.matchers.isA(String), {
+								code: 'EDIT_JSON_FAILED',
+								cause: mockFileError
+							}));
+						}
+					});
+				});
+
+				describe('when the JSON is invalid', () => {
+					it('throws a custom error', async () => {
+						try {
+							td.when(fs.readFile('mock-resolved-file', 'utf-8'))
+								.thenResolve('{\n\t"isValidJSON": false');
+							await plugin.editJsonFile('mock-file', mockTransformer);
+							assert.equal(true, false, 'did not throw');
+						} catch (error) {
+							assert.ok(error instanceof ToolchainError);
+							td.verify(new ToolchainError(td.matchers.isA(String), {
+								code: 'EDIT_JSON_FAILED',
+								cause: td.matchers.isA(TypeError)
+							}));
+						}
+					});
 				});
 			});
 

@@ -25,6 +25,7 @@ A base class to be extended by other @rmtc/toolchain plugins.
       * [`this.defineStep()`](#thisdefinestep)
       * [`this.defineWorkflow()`](#thisdefineworkflow)
       * [`this.exec()`](#thisexec)
+      * [`this.editJsonFile()`](#thiseditjsonfile)
   * [Contributing](#contributing)
   * [License](#license)
 
@@ -228,6 +229,34 @@ exports.Plugin = class Example extends Plugin {
 ```
 
 It's important to note that all commands are prefixed with `npx`, the intention being that this works best with Node.js-based command line tools.
+
+#### `this.editJsonFile()`
+
+This is a shortcut method for editing the contents of JSON files in the project. The method signature is:
+
+```ts
+type Transformer = (json: any) => any
+(filePath: string, transformer: Transformer) => Promise<void>
+```
+
+The transformer function is called with a copy of the parsed JSON and expects you to return this with any edits you want to make. The edited JSON is then written back to the file if there are any changes. E.g.
+
+```js
+exports.Plugin = class Example extends Plugin {
+    init() {
+        this.defineStep('myStep', this.myStep.bind(this));
+        this.defineWorkflow('test', ['myStep']);
+    }
+    async myStep() {
+        await this.editJsonFile('package.json', (packageJson) => {
+            if (Array.isArray(packageJson?.keywords)) {
+                packageJson.keywords.push('edited');
+            }
+            return packageJson;
+        });
+    }
+}
+```
 
 
 ## Contributing

@@ -1,5 +1,9 @@
 'use strict';
 
+const detectIndentation = require('detect-indentation').default;
+const {isDeepStrictEqual} = require('node:util');
+const path = require('node:path');
+const {readFile, writeFile} = require('node:fs/promises');
 const {spawn} = require('node:child_process');
 const {ToolchainError} = require('@rmtc/errors');
 
@@ -109,6 +113,40 @@ class Plugin {
 				}));
 			});
 		});
+	}
+
+	/**
+	 * @param {string} filePath - The file path of the JSON file to edit.
+	 * @param {(json: any) => any} transformer - A function used to transform the JSON.
+	 * @returns {Promise<void>} - Resolves when the file has been written.
+	 */
+	async editJsonFile(filePath, transformer) {
+		try {
+			filePath = path.resolve(this.#projectDirectoryPath, filePath);
+			const fileContents = await readFile(filePath, 'utf-8');
+
+			let indentation = '\t';
+			try {
+				indentation = detectIndentation(fileContents) ?? indentation;
+			} catch (error) {}
+
+			let json = {};
+			try {
+				json = JSON.parse(fileContents);
+			} catch (/** @type {any} */ cause) {
+				throw new TypeError('package.json is not valid JSON', {cause});
+			}
+
+			const updatedJson = await transformer(structuredClone(json));
+			if (!isDeepStrictEqual(json, updatedJson)) {
+				await writeFile(filePath, JSON.stringify(updatedJson, null, indentation));
+			}
+		} catch (/** @type {any} */ cause) {
+			throw new ToolchainError(`Failed to edit JSON at "${filePath}"`, {
+				code: 'EDIT_JSON_FAILED',
+				cause
+			});
+		}
 	}
 
 	/**
