@@ -12,6 +12,13 @@
   * dependencies
     * @rmtc/config bumped from ^0.1.1 to ^0.2.0
 
+## [0.2.3](https://github.com/rowanmanning/toolchain/compare/plugin-v0.2.2...plugin-v0.2.3) (2023-12-23)
+
+
+### Features
+
+* add a method to edit JSON files ([5e97e2c](https://github.com/rowanmanning/toolchain/commit/5e97e2cb91cbaa6e477637437a0dfa8fddbe101a))
+
 ## [0.2.2](https://github.com/rowanmanning/toolchain/compare/plugin-v0.2.1...plugin-v0.2.2) (2023-12-18)
 
 

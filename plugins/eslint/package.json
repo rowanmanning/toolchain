@@ -1,6 +1,6 @@
 {
   "name": "@rmtc/plugin-eslint",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "The toolchain ESLint plugin",
   "keywords": [],
   "author": "Rowan Manning (https://rowanmanning.com/)",
@@ -18,7 +18,7 @@
   },
   "main": "index.js",
   "dependencies": {
-    "@rmtc/plugin": "^0.2.2",
+    "@rmtc/plugin": "^0.2.3",
     "eslint": "^8.56.0"
   }
 }

@@ -24,6 +24,25 @@
   * dependencies
     * @rmtc/plugin bumped from ^0.2.0 to ^0.2.1
 
+## [0.4.0](https://github.com/rowanmanning/toolchain/compare/plugin-npm-scripts-v0.3.0...plugin-npm-scripts-v0.4.0) (2023-12-23)
+
+
+### ⚠ BREAKING CHANGES
+
+* don't filter nonexistent internal workflows
+
+### Bug Fixes
+
+* don't filter nonexistent internal workflows ([7151146](https://github.com/rowanmanning/toolchain/commit/7151146e0077d401ac64dbd346756b0d85f47000))
+* switch to use plugin.editJsonFile ([e590b1e](https://github.com/rowanmanning/toolchain/commit/e590b1ef38bbf3ea7d45da72fc9593db84c80867))
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * @rmtc/plugin bumped from ^0.2.2 to ^0.2.3
+
 ## [0.3.0](https://github.com/rowanmanning/toolchain/compare/plugin-npm-scripts-v0.2.3...plugin-npm-scripts-v0.3.0) (2023-12-18)
 
 
