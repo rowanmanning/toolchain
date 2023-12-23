@@ -38,6 +38,7 @@
 		"plugins/biome": {},
 		"plugins/contributing": {},
 		"plugins/eslint": {},
+		"plugins/mit-license": {},
 		"plugins/mocha": {},
 		"plugins/npm-scripts": {},
 		"plugins/types-in-jsdoc": {}
