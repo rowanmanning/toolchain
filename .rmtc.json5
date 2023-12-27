@@ -3,6 +3,9 @@
 		'@rmtc/plugin-eslint',
 		'@rmtc/plugin-types-in-jsdoc',
 		'@rmtc/plugin-npm-scripts',
+		['@rmtc/plugin-mit-license', {
+			holders: 'Rowan Manning'
+		}],
 		['@rmtc/plugin-contributing', {
 			techSections: [
 				'conventional-commits',
