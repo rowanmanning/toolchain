@@ -21,6 +21,6 @@
     "@rmtc/config": "^0.3.2",
     "@rmtc/errors": "^0.2.1",
     "@rmtc/logger": "^0.1.2",
-    "detect-indentation": "^6.6.0"
+    "detect-indentation": "^6.7.0"
   }
 }
