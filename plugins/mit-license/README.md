@@ -14,6 +14,7 @@ A plugin for [@rmtc/toolchain](https://github.com/rowanmanning/toolchain#readme)
     * [Workflows](#workflows)
     * [Steps](#steps)
     * [Configuration](#configuration)
+      * [`config.holders`](#configholders)
   * [Contributing](#contributing)
   * [License](#license)
 
