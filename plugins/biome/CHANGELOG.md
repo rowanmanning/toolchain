@@ -12,6 +12,20 @@
   * dependencies
     * @rmtc/plugin bumped from ^0.2.2 to ^0.2.3
 
+## [0.2.4](https://github.com/rowanmanning/toolchain/compare/plugin-biome-v0.2.3...plugin-biome-v0.2.4) (2023-12-28)
+
+
+### Bug Fixes
+
+* switch to a global npmignore ([8c9de23](https://github.com/rowanmanning/toolchain/commit/8c9de2325e0783d1471cbd0f17a684d5eb301246))
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * @rmtc/plugin bumped from ^0.2.3 to ^0.2.4
+
 ## [0.2.2](https://github.com/rowanmanning/toolchain/compare/plugin-biome-v0.2.1...plugin-biome-v0.2.2) (2023-12-18)
 
 

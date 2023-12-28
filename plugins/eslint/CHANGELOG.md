@@ -24,6 +24,20 @@
   * dependencies
     * @rmtc/plugin bumped from ^0.2.2 to ^0.2.3
 
+## [0.1.7](https://github.com/rowanmanning/toolchain/compare/plugin-eslint-v0.1.6...plugin-eslint-v0.1.7) (2023-12-28)
+
+
+### Bug Fixes
+
+* switch to a global npmignore ([8c9de23](https://github.com/rowanmanning/toolchain/commit/8c9de2325e0783d1471cbd0f17a684d5eb301246))
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * @rmtc/plugin bumped from ^0.2.3 to ^0.2.4
+
 ## [0.1.5](https://github.com/rowanmanning/toolchain/compare/plugin-eslint-v0.1.4...plugin-eslint-v0.1.5) (2023-12-18)
 
 

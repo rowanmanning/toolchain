@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.3](https://github.com/rowanmanning/toolchain/compare/logger-v0.1.2...logger-v0.1.3) (2023-12-28)
+
+
+### Bug Fixes
+
+* switch to a global npmignore ([8c9de23](https://github.com/rowanmanning/toolchain/commit/8c9de2325e0783d1471cbd0f17a684d5eb301246))
+
 ## [0.1.2](https://github.com/rowanmanning/toolchain/compare/logger-v0.1.1...logger-v0.1.2) (2023-12-18)
 
 

@@ -1,6 +1,6 @@
 {
   "name": "@rmtc/plugin-mocha",
-  "version": "0.2.4",
+  "version": "0.2.5",
   "description": "The toolchain mocha plugin",
   "keywords": [],
   "author": "Rowan Manning (https://rowanmanning.com/)",
@@ -18,8 +18,8 @@
   },
   "main": "index.js",
   "dependencies": {
-    "@rmtc/config": "^0.3.2",
-    "@rmtc/plugin": "^0.2.3",
+    "@rmtc/config": "^0.3.3",
+    "@rmtc/plugin": "^0.2.4",
     "mocha": "^10.2.0",
     "nyc": "^15.1.0"
   }
