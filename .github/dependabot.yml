@@ -112,6 +112,15 @@ updates:
       prefix: "fix:"
       prefix-development: "chore:"
   - package-ecosystem: "npm"
+    directory: "/plugins/ignore-files"
+    schedule:
+      interval: "daily"
+      time: "15:00"
+      timezone: "Europe/London"
+    commit-message:
+      prefix: "fix:"
+      prefix-development: "chore:"
+  - package-ecosystem: "npm"
     directory: "/plugins/mit-license"
     schedule:
       interval: "daily"
