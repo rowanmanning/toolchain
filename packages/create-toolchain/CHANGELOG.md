@@ -13,6 +13,22 @@
     * @rmtc/config bumped from ^0.3.0 to ^0.3.1
     * @rmtc/logger bumped from ^0.1.0 to ^0.1.1
 
+## [0.1.5](https://github.com/rowanmanning/toolchain/compare/create-toolchain-v0.1.4...create-toolchain-v0.1.5) (2023-12-28)
+
+
+### Bug Fixes
+
+* switch to a global npmignore ([8c9de23](https://github.com/rowanmanning/toolchain/commit/8c9de2325e0783d1471cbd0f17a684d5eb301246))
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * @rmtc/config bumped from ^0.3.2 to ^0.3.3
+    * @rmtc/errors bumped from ^0.2.1 to ^0.2.2
+    * @rmtc/logger bumped from ^0.1.2 to ^0.1.3
+
 ## [0.1.4](https://github.com/rowanmanning/toolchain/compare/create-toolchain-v0.1.3...create-toolchain-v0.1.4) (2023-12-18)
 
 

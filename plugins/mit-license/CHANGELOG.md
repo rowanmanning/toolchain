@@ -1,5 +1,25 @@
 # Changelog
 
+## [0.1.1](https://github.com/rowanmanning/toolchain/compare/plugin-mit-license-v0.1.0...plugin-mit-license-v0.1.1) (2023-12-28)
+
+
+### Bug Fixes
+
+* switch to a global npmignore ([8c9de23](https://github.com/rowanmanning/toolchain/commit/8c9de2325e0783d1471cbd0f17a684d5eb301246))
+
+
+### Documentation Changes
+
+* add a link to the holders configuration ([dd63f16](https://github.com/rowanmanning/toolchain/commit/dd63f16ca9eecf5ddbbb18f617dd16164b09a266))
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * @rmtc/config bumped from ^0.3.2 to ^0.3.3
+    * @rmtc/plugin bumped from ^0.2.3 to ^0.2.4
+
 ## 0.1.0 (2023-12-23)
 
 

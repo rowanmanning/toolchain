@@ -6,6 +6,21 @@
   * dependencies
     * @rmtc/logger bumped from ^0.1.0 to ^0.1.1
 
+## [0.3.3](https://github.com/rowanmanning/toolchain/compare/config-v0.3.2...config-v0.3.3) (2023-12-28)
+
+
+### Bug Fixes
+
+* switch to a global npmignore ([8c9de23](https://github.com/rowanmanning/toolchain/commit/8c9de2325e0783d1471cbd0f17a684d5eb301246))
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * @rmtc/errors bumped from ^0.2.1 to ^0.2.2
+    * @rmtc/logger bumped from ^0.1.2 to ^0.1.3
+
 ## [0.3.2](https://github.com/rowanmanning/toolchain/compare/config-v0.3.1...config-v0.3.2) (2023-12-18)
 
 

@@ -24,6 +24,20 @@
   * dependencies
     * @rmtc/plugin bumped from ^0.2.2 to ^0.2.3
 
+## [0.2.5](https://github.com/rowanmanning/toolchain/compare/plugin-types-in-jsdoc-v0.2.4...plugin-types-in-jsdoc-v0.2.5) (2023-12-28)
+
+
+### Bug Fixes
+
+* switch to a global npmignore ([8c9de23](https://github.com/rowanmanning/toolchain/commit/8c9de2325e0783d1471cbd0f17a684d5eb301246))
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * @rmtc/plugin bumped from ^0.2.3 to ^0.2.4
+
 ## [0.2.3](https://github.com/rowanmanning/toolchain/compare/plugin-types-in-jsdoc-v0.2.2...plugin-types-in-jsdoc-v0.2.3) (2023-12-18)
 
 

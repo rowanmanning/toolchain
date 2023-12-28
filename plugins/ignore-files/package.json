@@ -1,6 +1,6 @@
 {
   "name": "@rmtc/plugin-ignore-files",
-  "version": "0.4.0",
+  "version": "0.1.0",
   "description": "A toolchain plugin to manage ignore files",
   "keywords": [],
   "author": "Rowan Manning (https://rowanmanning.com/)",
@@ -18,6 +18,6 @@
   },
   "main": "index.js",
   "dependencies": {
-    "@rmtc/plugin": "^0.2.3"
+    "@rmtc/plugin": "^0.2.4"
   }
 }

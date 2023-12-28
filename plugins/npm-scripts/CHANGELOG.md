@@ -24,6 +24,20 @@
   * dependencies
     * @rmtc/plugin bumped from ^0.2.0 to ^0.2.1
 
+## [0.4.1](https://github.com/rowanmanning/toolchain/compare/plugin-npm-scripts-v0.4.0...plugin-npm-scripts-v0.4.1) (2023-12-28)
+
+
+### Bug Fixes
+
+* switch to a global npmignore ([8c9de23](https://github.com/rowanmanning/toolchain/commit/8c9de2325e0783d1471cbd0f17a684d5eb301246))
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * @rmtc/plugin bumped from ^0.2.3 to ^0.2.4
+
 ## [0.4.0](https://github.com/rowanmanning/toolchain/compare/plugin-npm-scripts-v0.3.0...plugin-npm-scripts-v0.4.0) (2023-12-23)
 
 

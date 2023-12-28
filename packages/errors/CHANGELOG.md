@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.2.2](https://github.com/rowanmanning/toolchain/compare/errors-v0.2.1...errors-v0.2.2) (2023-12-28)
+
+
+### Bug Fixes
+
+* switch to a global npmignore ([8c9de23](https://github.com/rowanmanning/toolchain/commit/8c9de2325e0783d1471cbd0f17a684d5eb301246))
+
 ## [0.2.1](https://github.com/rowanmanning/toolchain/compare/errors-v0.2.0...errors-v0.2.1) (2023-12-18)
 
 
