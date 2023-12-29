@@ -46,6 +46,8 @@ class IgnoreFiles extends Plugin {
 				'CHANGELOG.md',
 				'coverage',
 				'docs',
+				'example',
+				'jsconfig.json',
 				'release-please-config.json',
 				'test'
 			]);

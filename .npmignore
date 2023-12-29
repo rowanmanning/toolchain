@@ -9,5 +9,7 @@
 CHANGELOG.md
 coverage
 docs
+example
+jsconfig.json
 release-please-config.json
 test
