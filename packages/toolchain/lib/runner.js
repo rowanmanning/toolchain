@@ -32,7 +32,7 @@ class Runner {
 	 */
 	constructor({config, logger}) {
 		this.#config = config;
-		this.#pluginSet = loadPlugins(config);
+		this.#pluginSet = loadPlugins(config).initPlugins();
 		this.#logger = logger.child({prefix: '[Runner]'});
 	}
 
