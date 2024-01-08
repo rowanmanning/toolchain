@@ -47,6 +47,8 @@ class Mocha extends Plugin {
 			this.defineStep(`mocha`, this.buildMochaFunction());
 			this.defineWorkflow(`test`, ['mocha']);
 		}
+
+		this.pluginSet.map(plugin => plugin.config);
 	}
 
 	/**

@@ -63,6 +63,10 @@ class PluginSet {
 	 */
 	initPlugins() {
 		for (const plugin of this.#plugins) {
+			// @ts-ignore we allow use of this protected method internally,
+			// it's marked as protected just to try and avoid other plugins
+			// from re-initialising each other. Nothing stopping them really
+			// but getting a type error might deter someone
 			plugin.init();
 		}
 		return this;

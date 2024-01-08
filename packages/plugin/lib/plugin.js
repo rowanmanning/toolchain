@@ -35,7 +35,10 @@ class Plugin {
 	/** @type {string} */
 	#projectDirectoryPath;
 
-	/** @type {string} */
+	/**
+	 * @protected
+	 * @type {string}
+	 */
 	get projectDirectoryPath() {
 		return this.#projectDirectoryPath;
 	}
@@ -43,7 +46,10 @@ class Plugin {
 	/** @type {import('@rmtc/logger').Logger} */
 	#logger;
 
-	/** @type {import('@rmtc/logger').Logger} */
+	/**
+	 * @protected
+	 * @type {import('@rmtc/logger').Logger}
+	 */
 	get log() {
 		return this.#logger;
 	}
@@ -51,12 +57,18 @@ class Plugin {
 	/** @type {import('./plugin-set').PluginSet} */
 	#pluginSet;
 
-	/** @type {string[]} */
+	/**
+	 * @protected
+	 * @type {string[]}
+	 */
 	get availableWorkflows() {
 		return this.#pluginSet.workflows;
 	}
 
-	/** @type {Plugin[]} */
+	/**
+	 * @protected
+	 * @type {Plugin[]}
+	 */
 	get pluginSet() {
 		return this.#pluginSet.plugins;
 	}
@@ -76,6 +88,7 @@ class Plugin {
 	}
 
 	/**
+	 * @protected
 	 * @param {string} name
 	 * @param {string[]} [defaultSteps]
 	 */
@@ -85,6 +98,7 @@ class Plugin {
 	}
 
 	/**
+	 * @protected
 	 * @param {string} name
 	 * @param {import('./plugin-set').StepExecutor} executor
 	 */
@@ -98,6 +112,7 @@ class Plugin {
 	}
 
 	/**
+	 * @protected
 	 * @param {string} command
 	 * @param {string[]} [args]
 	 * @returns {Promise<void>}
@@ -120,6 +135,7 @@ class Plugin {
 	}
 
 	/**
+	 * @protected
 	 * @param {string} filePath - The file path of the JSON file to edit.
 	 * @param {(json: any) => any} transformer - A function used to transform the JSON.
 	 * @returns {Promise<void>} - Resolves when the file has been written.
@@ -154,6 +170,7 @@ class Plugin {
 	}
 
 	/**
+	 * @protected
 	 * @type {ConfigMethod}
 	 */
 	configure(config) {
@@ -161,6 +178,7 @@ class Plugin {
 	}
 
 	/**
+	 * @protected
 	 * @type {InitMethod}
 	 */
 	init() {
