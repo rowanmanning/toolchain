@@ -56,6 +56,11 @@ class Plugin {
 		return this.#pluginSet.workflows;
 	}
 
+	/** @type {Plugin[]} */
+	get pluginSet() {
+		return this.#pluginSet.plugins;
+	}
+
 	/**
 	 * @param {object} options
 	 * @param {PluginConfig} options.config

@@ -44,6 +44,7 @@ describe('@rmtc/plugin/lib/plugin', () => {
 					pluginSet: new PluginSet()
 				};
 				mockOptions.pluginSet.workflows = ['mock-workflow'];
+				mockOptions.pluginSet.plugins = ['mock-plugin'];
 
 				mockChildProcess = {on: td.func()};
 				td.when(spawn(), {ignoreExtraArgs: true}).thenReturn(mockChildProcess);
@@ -97,6 +98,18 @@ describe('@rmtc/plugin/lib/plugin', () => {
 					assert.throws(() => {
 						plugin.availableWorkflows = 'nope';
 					}, /cannot set property availableWorkflows/i);
+				});
+			});
+
+			describe('.pluginSet', () => {
+				it('is the value of the plugin set plugins property', () => {
+					assert.equal(plugin.pluginSet, mockOptions.pluginSet.plugins);
+				});
+
+				it('is read-only', () => {
+					assert.throws(() => {
+						plugin.pluginSet = 'nope';
+					}, /cannot set property pluginSet/i);
 				});
 			});
 
