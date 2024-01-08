@@ -24,6 +24,12 @@
   * dependencies
     * @rmtc/plugin bumped from ^0.2.0 to ^0.2.1
 
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * @rmtc/plugin bumped from ^0.2.4 to ^0.3.0
+
 ## [0.4.1](https://github.com/rowanmanning/toolchain/compare/plugin-npm-scripts-v0.4.0...plugin-npm-scripts-v0.4.1) (2023-12-28)
 
 

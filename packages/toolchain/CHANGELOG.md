@@ -28,6 +28,20 @@
   * dependencies
     * @rmtc/plugin bumped from ^0.2.2 to ^0.2.3
 
+## [0.1.8](https://github.com/rowanmanning/toolchain/compare/toolchain-v0.1.7...toolchain-v0.1.8) (2024-01-08)
+
+
+### Bug Fixes
+
+* manually initialise plugins ([626eac0](https://github.com/rowanmanning/toolchain/commit/626eac04f262aaf9d82e3288310d8b59b2f838b3))
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * @rmtc/plugin bumped from ^0.2.4 to ^0.3.0
+
 ## [0.1.7](https://github.com/rowanmanning/toolchain/compare/toolchain-v0.1.6...toolchain-v0.1.7) (2023-12-28)
 
 

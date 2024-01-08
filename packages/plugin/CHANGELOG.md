@@ -12,6 +12,24 @@
   * dependencies
     * @rmtc/config bumped from ^0.1.1 to ^0.2.0
 
+## [0.3.0](https://github.com/rowanmanning/toolchain/compare/plugin-v0.2.4...plugin-v0.3.0) (2024-01-08)
+
+
+### ⚠ BREAKING CHANGES
+
+* protect all internal plugin methods
+* initialise all plugins together
+
+### Features
+
+* allow access to other plugins in the set ([c2db94c](https://github.com/rowanmanning/toolchain/commit/c2db94c7b1bdeea7723245841e6f3d258df5595e))
+* initialise all plugins together ([d0c9c5c](https://github.com/rowanmanning/toolchain/commit/d0c9c5ce6b576334a97f431b8ef94cb2c75024b4))
+
+
+### Bug Fixes
+
+* protect all internal plugin methods ([2caa8b6](https://github.com/rowanmanning/toolchain/commit/2caa8b6789ed519127bbf216c13e1f40ce7fc093))
+
 ## [0.2.4](https://github.com/rowanmanning/toolchain/compare/plugin-v0.2.3...plugin-v0.2.4) (2023-12-28)
 
 
