@@ -59,6 +59,16 @@ class PluginSet {
 	}
 
 	/**
+	 * @returns {PluginSet}
+	 */
+	initPlugins() {
+		for (const plugin of this.#plugins) {
+			plugin.init();
+		}
+		return this;
+	}
+
+	/**
 	 * @param {string} name
 	 * @param {string[]} [defaultSteps]
 	 */

@@ -68,7 +68,6 @@ class Plugin {
 		this.#logger = logger;
 		this.#pluginSet = pluginSet;
 		this.#config = Object.freeze(this.configure(structuredClone(config)));
-		this.init();
 	}
 
 	/**

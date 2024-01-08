@@ -33,7 +33,6 @@ describe('@rmtc/plugin/lib/plugin', () => {
 
 		describe('new Plugin(options)', () => {
 			let mockChildProcess;
-			let mockInitMethod;
 			let mockOptions;
 			let plugin;
 
@@ -49,17 +48,7 @@ describe('@rmtc/plugin/lib/plugin', () => {
 				mockChildProcess = {on: td.func()};
 				td.when(spawn(), {ignoreExtraArgs: true}).thenReturn(mockChildProcess);
 
-				const originalInitMethod = Plugin.prototype.init;
-				mockInitMethod = td.func();
-				Plugin.prototype.init = mockInitMethod;
-
 				plugin = new Plugin(mockOptions);
-
-				Plugin.prototype.init = originalInitMethod;
-			});
-
-			it('calls the plugin init method', () => {
-				td.verify(mockInitMethod(), {times: 1});
 			});
 
 			describe('.config', () => {

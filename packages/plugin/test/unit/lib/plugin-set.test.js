@@ -91,6 +91,22 @@ describe('@rmtc/plugin/lib/plugin-set', () => {
 				});
 			});
 
+			describe('.initPlugins()', () => {
+				it('initialises each plugin in the set and returns the plugin set', () => {
+					const mockPlugin1 = {init: td.func()};
+					const mockPlugin2 = {init: td.func()};
+
+					pluginSet = new PluginSet();
+					pluginSet.addPlugin(mockPlugin1);
+					pluginSet.addPlugin(mockPlugin2);
+
+					const returnValue = pluginSet.initPlugins();
+					assert.equal(returnValue, pluginSet);
+					td.verify(mockPlugin1.init(), {times: 1});
+					td.verify(mockPlugin2.init(), {times: 1});
+				});
+			});
+
 			describe('.defineWorkflow(name)', () => {
 				before(() => {
 					pluginSet = new PluginSet();
