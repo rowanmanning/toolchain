@@ -18,7 +18,7 @@
   },
   "main": "index.js",
   "dependencies": {
-    "@biomejs/biome": "^1.4.1",
+    "@biomejs/biome": "^1.5.0",
     "@rmtc/plugin": "^0.3.0"
   }
 }
