@@ -1,6 +1,6 @@
 {
   "name": "@rmtc/toolchain",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "description": "The toolchain task runner",
   "keywords": [],
   "author": "Rowan Manning (https://rowanmanning.com/)",
@@ -24,6 +24,6 @@
     "@rmtc/config": "^0.3.3",
     "@rmtc/errors": "^0.2.2",
     "@rmtc/logger": "^0.1.3",
-    "@rmtc/plugin": "^0.2.4"
+    "@rmtc/plugin": "^0.3.0"
   }
 }

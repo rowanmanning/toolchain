@@ -13,6 +13,24 @@
   * dependencies
     * @rmtc/plugin bumped from ^0.2.2 to ^0.2.3
 
+## [0.3.0](https://github.com/rowanmanning/toolchain/compare/plugin-mocha-v0.2.5...plugin-mocha-v0.3.0) (2024-01-08)
+
+
+### ⚠ BREAKING CHANGES
+
+* protect all internal plugin methods
+
+### Bug Fixes
+
+* protect all internal plugin methods ([2caa8b6](https://github.com/rowanmanning/toolchain/commit/2caa8b6789ed519127bbf216c13e1f40ce7fc093))
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * @rmtc/plugin bumped from ^0.2.4 to ^0.3.0
+
 ## [0.2.5](https://github.com/rowanmanning/toolchain/compare/plugin-mocha-v0.2.4...plugin-mocha-v0.2.5) (2023-12-28)
 
 
