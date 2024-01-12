@@ -1,5 +1,19 @@
 # Changelog
 
+## [0.1.2](https://github.com/rowanmanning/toolchain/compare/plugin-ignore-files-v0.1.1...plugin-ignore-files-v0.1.2) (2024-01-12)
+
+
+### Bug Fixes
+
+* use the new `plugin.project` property ([ff9e400](https://github.com/rowanmanning/toolchain/commit/ff9e400540756b17666fe23aed234c58f4d85009))
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * @rmtc/plugin bumped from ^0.3.0 to ^0.4.0
+
 ## [0.1.1](https://github.com/rowanmanning/toolchain/compare/plugin-ignore-files-v0.1.0...plugin-ignore-files-v0.1.1) (2024-01-08)
 
 

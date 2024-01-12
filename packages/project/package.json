@@ -1,6 +1,6 @@
 {
   "name": "@rmtc/project",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "A class to represent the project that toolchain is running in",
   "keywords": [],
   "author": "Rowan Manning (https://rowanmanning.com/)",

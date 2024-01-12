@@ -1,6 +1,6 @@
 {
   "name": "@rmtc/plugin",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "A base class to be extended by other @rmtc/toolchain plugins",
   "keywords": [],
   "author": "Rowan Manning (https://rowanmanning.com/)",
@@ -24,6 +24,6 @@
     "detect-indentation": "^6.8.0"
   },
   "devDependencies": {
-    "@rmtc/project": "^0.0.0"
+    "@rmtc/project": "^0.1.0"
   }
 }
