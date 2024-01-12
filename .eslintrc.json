@@ -7,6 +7,7 @@
 		"jsdoc/require-param-description": "off",
 		"jsdoc/require-property-description": "off",
 		"jsdoc/require-returns-description": "off",
-		"require-atomic-updates": "off"
+		"require-atomic-updates": "off",
+		"require-await": "off"
 	}
 }
