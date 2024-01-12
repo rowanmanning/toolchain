@@ -13,6 +13,12 @@
   * dependencies
     * @rmtc/plugin bumped from ^0.2.2 to ^0.2.3
 
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * @rmtc/plugin bumped from ^0.3.0 to ^0.4.0
+
 ## [0.3.0](https://github.com/rowanmanning/toolchain/compare/plugin-mocha-v0.2.5...plugin-mocha-v0.3.0) (2024-01-08)
 
 

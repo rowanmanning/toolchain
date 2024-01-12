@@ -28,6 +28,21 @@
   * dependencies
     * @rmtc/plugin bumped from ^0.2.2 to ^0.2.3
 
+## [0.1.9](https://github.com/rowanmanning/toolchain/compare/toolchain-v0.1.8...toolchain-v0.1.9) (2024-01-12)
+
+
+### Features
+
+* pass project details to the plugin loader ([a19442e](https://github.com/rowanmanning/toolchain/commit/a19442ea2cda2ed2cb245420ddc9ca9d8fe741a8))
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * @rmtc/plugin bumped from ^0.3.0 to ^0.4.0
+    * @rmtc/project bumped from ^0.0.0 to ^0.1.0
+
 ## [0.1.8](https://github.com/rowanmanning/toolchain/compare/toolchain-v0.1.7...toolchain-v0.1.8) (2024-01-08)
 
 

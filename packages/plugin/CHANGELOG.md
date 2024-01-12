@@ -12,6 +12,29 @@
   * dependencies
     * @rmtc/config bumped from ^0.1.1 to ^0.2.0
 
+## [0.4.0](https://github.com/rowanmanning/toolchain/compare/plugin-v0.3.0...plugin-v0.4.0) (2024-01-12)
+
+
+### ⚠ BREAKING CHANGES
+
+* add full project details to plugins
+
+### Features
+
+* add full project details to plugins ([17404c4](https://github.com/rowanmanning/toolchain/commit/17404c4ef690f59a7b8daf6493fcf9a1c5866be7))
+
+
+### Bug Fixes
+
+* bump detect-indentation from 6.7.0 to 6.8.0 ([808a0bd](https://github.com/rowanmanning/toolchain/commit/808a0bdc60aae53606f6e227e8db46aa3f891642))
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * devDependencies
+    * @rmtc/project bumped from ^0.0.0 to ^0.1.0
+
 ## [0.3.0](https://github.com/rowanmanning/toolchain/compare/plugin-v0.2.4...plugin-v0.3.0) (2024-01-08)
 
 

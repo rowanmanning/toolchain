@@ -6,6 +6,20 @@
   * dependencies
     * @rmtc/plugin bumped from ^0.2.4 to ^0.3.0
 
+## [0.1.3](https://github.com/rowanmanning/toolchain/compare/plugin-mit-license-v0.1.2...plugin-mit-license-v0.1.3) (2024-01-12)
+
+
+### Bug Fixes
+
+* use the new `plugin.project` property ([ff9e400](https://github.com/rowanmanning/toolchain/commit/ff9e400540756b17666fe23aed234c58f4d85009))
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * @rmtc/plugin bumped from ^0.3.0 to ^0.4.0
+
 ## [0.1.1](https://github.com/rowanmanning/toolchain/compare/plugin-mit-license-v0.1.0...plugin-mit-license-v0.1.1) (2023-12-28)
 
 

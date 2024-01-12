@@ -1,6 +1,6 @@
 {
   "name": "@rmtc/plugin-contributing",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "The toolchain contributing guide plugin",
   "keywords": [],
   "author": "Rowan Manning (https://rowanmanning.com/)",
@@ -19,6 +19,6 @@
   "main": "index.js",
   "dependencies": {
     "@rmtc/config": "^0.3.3",
-    "@rmtc/plugin": "^0.3.0"
+    "@rmtc/plugin": "^0.4.0"
   }
 }
