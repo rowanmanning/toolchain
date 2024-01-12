@@ -6,6 +6,7 @@ const {Logger} = require('@rmtc/logger');
 const {Runner} = require('./lib/runner');
 const {ToolchainError} = require('@rmtc/errors');
 const {parseArgs} = require('node:util');
+const {Project} = require('@rmtc/project');
 
 /**
  * @typedef {object} CLIOption
@@ -77,13 +78,15 @@ exports.runCommand = async function runCommand({directoryPath, process}) {
 		// Default the environment
 		const environment = cli.values.ci || process.env.CI ? 'ci' : 'local';
 
-		// Load the config file
+		// Load the config file and set up the project
 		const config = await Config.fromFile(directoryPath);
+		const project = await Project.fromDirectory(directoryPath);
 
 		// Set up a runner
 		const runner = new Runner({
 			config,
-			logger
+			logger,
+			project
 		});
 
 		// List all workflows and steps

@@ -29,10 +29,11 @@ class Runner {
 	 * @param {object} options
 	 * @param {import('@rmtc/config').Config} options.config
 	 * @param {import('@rmtc/logger').Logger} options.logger
+	 * @param {import('@rmtc/project').Project} options.project
 	 */
-	constructor({config, logger}) {
+	constructor({config, logger, project}) {
 		this.#config = config;
-		this.#pluginSet = loadPlugins(config).initPlugins();
+		this.#pluginSet = loadPlugins(config, project).initPlugins();
 		this.#logger = logger.child({prefix: '[Runner]'});
 	}
 
