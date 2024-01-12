@@ -13,26 +13,27 @@ const {ToolchainError} = require('@rmtc/errors');
 
 /**
  * @param {import('@rmtc/config').Config} config
+ * @param {import('@rmtc/project').Project} project
  * @returns {PluginSet}
  */
-function loadPlugins({directoryPath, plugins}) {
+function loadPlugins(config, project) {
 	const pluginSet = new PluginSet();
-	for (const plugin of plugins) {
-		pluginSet.addPlugin(loadPlugin(directoryPath, plugin, pluginSet));
+	for (const plugin of config.plugins) {
+		pluginSet.addPlugin(loadPlugin(plugin, pluginSet, project));
 	}
 	return pluginSet;
 }
 
 /**
- * @param {string} directoryPath
  * @param {import('@rmtc/config').PluginDefinition} definition
  * @param {PluginSet} pluginSet
+ * @param {import('@rmtc/project').Project} project
  * @returns {Plugin}
  */
-function loadPlugin(directoryPath, {path: pluginPath, config}, pluginSet) {
+function loadPlugin({path: pluginPath, config}, pluginSet, project) {
 	try {
 		const resolvedPluginPath = require.resolve(pluginPath, {
-			paths: [directoryPath]
+			paths: [project.directoryPath]
 		});
 
 		/** @type {{Plugin: typeof Plugin}} */
@@ -48,11 +49,11 @@ function loadPlugin(directoryPath, {path: pluginPath, config}, pluginSet) {
 
 		return new pluginModule.Plugin({
 			config,
-			projectDirectoryPath: directoryPath,
 			logger: new Logger({
 				prefix: `[${pluginModule.Plugin.name}]`
 			}),
-			pluginSet
+			pluginSet,
+			project
 		});
 
 	} catch (/** @type {any} */ error) {

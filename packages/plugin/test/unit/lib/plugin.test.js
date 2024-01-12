@@ -34,14 +34,16 @@ describe('@rmtc/plugin/lib/plugin', () => {
 		describe('new Plugin(options)', () => {
 			let mockChildProcess;
 			let mockOptions;
+			let mockProject;
 			let plugin;
 
 			before(() => {
+				mockProject = {directoryPath: 'mock-directory'};
 				mockOptions = {
 					config: {mockConfig: true},
-					projectDirectoryPath: 'mock-directory',
 					logger: new Logger(),
-					pluginSet: new PluginSet()
+					pluginSet: new PluginSet(),
+					project: mockProject
 				};
 				mockOptions.pluginSet.workflows = ['mock-workflow'];
 				mockOptions.pluginSet.plugins = ['mock-plugin'];
@@ -65,15 +67,15 @@ describe('@rmtc/plugin/lib/plugin', () => {
 				});
 			});
 
-			describe('.projectDirectoryPath', () => {
-				it('is the directory path passed into the constructor', () => {
-					assert.equal(plugin.projectDirectoryPath, 'mock-directory');
+			describe('.project', () => {
+				it('is the project passed into the constructor', () => {
+					assert.equal(plugin.project, mockProject);
 				});
 
 				it('is read-only', () => {
 					assert.throws(() => {
-						plugin.projectDirectoryPath = 'nope';
-					}, /cannot set property projectDirectoryPath/i);
+						plugin.project = 'nope';
+					}, /cannot set property project/i);
 				});
 			});
 

@@ -32,17 +32,6 @@ class Plugin {
 		return this.#config;
 	}
 
-	/** @type {string} */
-	#projectDirectoryPath;
-
-	/**
-	 * @protected
-	 * @type {string}
-	 */
-	get projectDirectoryPath() {
-		return this.#projectDirectoryPath;
-	}
-
 	/** @type {import('@rmtc/logger').Logger} */
 	#logger;
 
@@ -73,17 +62,28 @@ class Plugin {
 		return this.#pluginSet.plugins;
 	}
 
+	/** @type {import('@rmtc/project').Project} */
+	#project;
+
+	/**
+	 * @protected
+	 * @type {import('@rmtc/project').Project}
+	 */
+	get project() {
+		return this.#project;
+	}
+
 	/**
 	 * @param {object} options
 	 * @param {PluginConfig} options.config
-	 * @param {string} options.projectDirectoryPath
 	 * @param {import('@rmtc/logger').Logger} options.logger
 	 * @param {import('./plugin-set').PluginSet} options.pluginSet
+	 * @param {import('@rmtc/project').Project} options.project
 	 */
-	constructor({config, projectDirectoryPath, logger, pluginSet}) {
-		this.#projectDirectoryPath = projectDirectoryPath;
+	constructor({config, logger, pluginSet, project}) {
 		this.#logger = logger;
 		this.#pluginSet = pluginSet;
+		this.#project = project;
 		this.#config = Object.freeze(this.configure(structuredClone(config)));
 	}
 
@@ -142,7 +142,7 @@ class Plugin {
 	 */
 	async editJsonFile(filePath, transformer) {
 		try {
-			filePath = path.resolve(this.#projectDirectoryPath, filePath);
+			filePath = path.resolve(this.#project.directoryPath, filePath);
 			const fileContents = await readFile(filePath, 'utf-8');
 
 			let indentation = '\t';

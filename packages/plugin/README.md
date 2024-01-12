@@ -19,7 +19,7 @@ A base class to be extended by other @rmtc/toolchain plugins.
       * [`configure` method](#configure-method)
     * [Utilities](#utilities)
       * [`this.config`](#thisconfig)
-      * [`this.projectDirectoryPath`](#thisprojectdirectorypath)
+      * [`this.project`](#thisproject)
       * [`this.log`](#thislog)
       * [`this.availableWorkflows`](#thisavailableworkflows)
       * [`this.defineStep()`](#thisdefinestep)
@@ -131,9 +131,13 @@ The rest of the properties and methods on the `Plugin` class can be used as you 
 
 `{[key: string]: any}`. A read-only property that contains the plugin configuration found in the project's `.rmtc.json5` config file. It will also be the exact value you return from your [`configure` method](#configure-method) if you specify one.
 
-#### `this.projectDirectoryPath`
+#### `this.project`
 
-`string`. A read-only property that contains the resolved directory path that the project is in. This can be used to make file system operations relative to the project that's running, e.g. reading a `package.json` file.
+`Project`. A read-only property that contains a representation of the project the plugin is installed in.
+
+The most common use-case would be to access `this.project.directoryPath` which can be used to make file system operations relative to the project, e.g. reading a `package.json` file.
+
+See the [@rmtc/project documentation](https://github.com/rowanmanning/toolchain/tree/main/packages/project#readme) for more information.
 
 #### `this.log`
 

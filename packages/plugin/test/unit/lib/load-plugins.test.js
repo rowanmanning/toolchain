@@ -11,6 +11,7 @@ describe('@rmtc/plugin/lib/load-plugins', () => {
 	let mockConfig;
 	let MockPlugin1;
 	let MockPlugin2;
+	let mockProject;
 	let PluginSet;
 	let ToolchainError;
 
@@ -27,7 +28,6 @@ describe('@rmtc/plugin/lib/load-plugins', () => {
 		directoryPath = path.resolve(__dirname, '..', 'fixtures', 'plugins');
 
 		mockConfig = {
-			directoryPath,
 			plugins: [
 				{
 					path: './plugin-1',
@@ -44,14 +44,18 @@ describe('@rmtc/plugin/lib/load-plugins', () => {
 			]
 		};
 
+		mockProject = {
+			directoryPath
+		};
+
 		loadPlugins = require('../../../lib/load-plugins').loadPlugins;
 	});
 
-	describe('.loadPlugins(config)', () => {
+	describe('.loadPlugins(config, project)', () => {
 		let returnValue;
 
 		before(() => {
-			returnValue = loadPlugins(mockConfig);
+			returnValue = loadPlugins(mockConfig, mockProject);
 		});
 
 		it('creates and returns a plugin set', () => {
@@ -70,13 +74,13 @@ describe('@rmtc/plugin/lib/load-plugins', () => {
 			const loggers = td.explain(Logger).calls.map(call => call.context);
 			td.verify(new MockPlugin1({
 				config: {mockPluginConfig1: true},
-				projectDirectoryPath: directoryPath,
+				project: mockProject,
 				logger: loggers[0],
 				pluginSet
 			}), {times: 1});
 			td.verify(new MockPlugin2({
 				config: {mockPluginConfig2: true},
-				projectDirectoryPath: directoryPath,
+				project: mockProject,
 				logger: loggers[1],
 				pluginSet
 			}), {times: 1});
@@ -92,13 +96,12 @@ describe('@rmtc/plugin/lib/load-plugins', () => {
 			it('throws a plugin invalid error', () => {
 				try {
 					loadPlugins({
-						directoryPath,
 						plugins: [
 							{
 								path: './no-export-plugin'
 							}
 						]
-					});
+					}, mockProject);
 				} catch (error) {
 					assert.ok(error instanceof ToolchainError);
 					td.verify(new ToolchainError(td.matchers.isA(String), {
@@ -112,13 +115,12 @@ describe('@rmtc/plugin/lib/load-plugins', () => {
 			it('throws a plugin invalid error', () => {
 				try {
 					loadPlugins({
-						directoryPath,
 						plugins: [
 							{
 								path: './non-plugin-export-plugin'
 							}
 						]
-					});
+					}, mockProject);
 				} catch (error) {
 					assert.ok(error instanceof ToolchainError);
 					td.verify(new ToolchainError(td.matchers.isA(String), {
@@ -132,13 +134,12 @@ describe('@rmtc/plugin/lib/load-plugins', () => {
 			it('throws a plugin missing error', () => {
 				try {
 					loadPlugins({
-						directoryPath,
 						plugins: [
 							{
 								path: './non-plugin'
 							}
 						]
-					});
+					}, mockProject);
 				} catch (error) {
 					assert.ok(error instanceof ToolchainError);
 					td.verify(new ToolchainError(td.matchers.isA(String), {
@@ -153,13 +154,12 @@ describe('@rmtc/plugin/lib/load-plugins', () => {
 			it('throws a plugin invalid error', () => {
 				try {
 					loadPlugins({
-						directoryPath,
 						plugins: [
 							{
 								path: './invalid-js-plugin'
 							}
 						]
-					});
+					}, mockProject);
 				} catch (error) {
 					assert.ok(error instanceof ToolchainError);
 					td.verify(new ToolchainError(td.matchers.isA(String), {
@@ -179,7 +179,7 @@ describe('@rmtc/plugin/lib/load-plugins', () => {
 			});
 
 			it('rethrows the error', () => {
-				assert.throws(() => loadPlugins(mockConfig), mockError);
+				assert.throws(() => loadPlugins(mockConfig, mockProject), mockError);
 			});
 		});
 	});
