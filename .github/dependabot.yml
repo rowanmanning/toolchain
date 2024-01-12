@@ -74,6 +74,15 @@ updates:
       prefix: "fix:"
       prefix-development: "chore:"
   - package-ecosystem: "npm"
+    directory: "/packages/project"
+    schedule:
+      interval: "daily"
+      time: "15:00"
+      timezone: "Europe/London"
+    commit-message:
+      prefix: "fix:"
+      prefix-development: "chore:"
+  - package-ecosystem: "npm"
     directory: "/packages/toolchain"
     schedule:
       interval: "daily"
