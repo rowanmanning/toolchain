@@ -42,7 +42,7 @@ class MitLicense extends Plugin {
 	async install() {
 		this.log.info('syncing the license');
 
-		const licensePath = path.join(this.projectDirectoryPath, 'LICENSE');
+		const licensePath = path.join(this.project.directoryPath, 'LICENSE');
 
 		// Grab the code of license text
 		const licenseTemplate = await readFile(

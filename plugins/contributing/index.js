@@ -53,7 +53,7 @@ class Contributing extends Plugin {
 	async install() {
 		this.log.info('syncing the contributing guides');
 
-		const docsPath = path.join(this.projectDirectoryPath, 'docs');
+		const docsPath = path.join(this.project.directoryPath, 'docs');
 		const codeOfConductPath = path.join(docsPath, 'code_of_conduct.md');
 		const contributingGuidePath = path.join(docsPath, 'contributing.md');
 

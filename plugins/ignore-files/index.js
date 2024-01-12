@@ -18,9 +18,6 @@ class IgnoreFiles extends Plugin {
 	 * @type {import('@rmtc/plugin').StepFunction}
 	 */
 	async install() {
-		const packageJsonPath = path.join(this.projectDirectoryPath, 'package.json');
-		const packageJson = JSON.parse(await readFile(packageJsonPath, 'utf-8'));
-
 		// Write the root level .gitignore file
 		this.#ensureIgnoreFileHasStatements('.gitignore', [
 			'.nyc_output',
@@ -32,8 +29,8 @@ class IgnoreFiles extends Plugin {
 		]);
 
 		// Write the root level .npmignore file if required
-		// (either a non-private root package or defined workspaces)
-		if (!packageJson?.private || packageJson?.workspaces) {
+		// (either a public root package or a monorepo)
+		if (!this.project.isPrivate || this.project.isMonorepo) {
 			this.#ensureIgnoreFileHasStatements('.npmignore', [
 				'!*.d.ts.map',
 				'!*.d.ts',
@@ -61,7 +58,7 @@ class IgnoreFiles extends Plugin {
 	 */
 	async #ensureIgnoreFileHasStatements(fileName, statements) {
 		this.log.info(`writing ${fileName}`);
-		const ignorePath = path.join(this.projectDirectoryPath, fileName);
+		const ignorePath = path.join(this.project.directoryPath, fileName);
 		const ignoreStatements = await this.#readIgnoreFile(ignorePath);
 		for (const statement of statements) {
 			ignoreStatements.add(statement);
