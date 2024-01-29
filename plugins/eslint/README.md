@@ -3,8 +3,8 @@
 
 An [ESLint](https://eslint.org/) plugin for [@rmtc/toolchain](https://github.com/rowanmanning/toolchain#readme).
 
-> [!CAUTION]<br/>
-> This project is in early alpha, it's highly likely that we'll introduce accidental breaking changes.
+> [!WARNING]<br/>
+> This project is intended for use in [@rowanmanning](https://github.com/rowanmanning/)'s projects. It's free to use but I don't offer support for use-cases outside of what I need.
 
 
 ## Table of Contents

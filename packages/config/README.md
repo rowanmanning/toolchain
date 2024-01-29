@@ -6,8 +6,8 @@ Configuration loading, parsing, and validation for the @rmtc/toolchain CLI.
 > [!WARNING]<br/>
 > This package is intended for internal use by [@rmtc/toolchain](https://github.com/rowanmanning/toolchain#readme). It's probably not useful by itself.
 
-> [!CAUTION]<br/>
-> This project is in early alpha, it's highly likely that we'll introduce accidental breaking changes.
+> [!WARNING]<br/>
+> This project is intended for use in [@rowanmanning](https://github.com/rowanmanning/)'s projects. It's free to use but I don't offer support for use-cases outside of what I need.
 
 
 ## Table of Contents

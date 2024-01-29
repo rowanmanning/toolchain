@@ -5,8 +5,8 @@ This is a suite of build tools for Node.js projects, really intended to be used 
 
 This project was inspired by [FT.com Tool Kit](https://github.com/financial-Times/dotcom-tool-kit), a project we use to build Node.js projects at the Financial Times.
 
-> [!CAUTION]<br/>
-> This project is in early alpha, it's highly likely that we'll introduce accidental breaking changes.
+> [!WARNING]<br/>
+> This project is intended for use in [@rowanmanning](https://github.com/rowanmanning/)'s projects. It's free to use but I don't offer support for use-cases outside of what I need.
 
 
 ## Table of Contents

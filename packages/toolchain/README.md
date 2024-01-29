@@ -6,8 +6,8 @@ A command-line task runner.
 > [!TIP]<br/>
 > This package forms part of [@rmtc/toolchain](https://github.com/rowanmanning/toolchain#readme). You'll find further documentation in the main project README.
 
-> [!CAUTION]<br/>
-> This project is in early alpha, it's highly likely that we'll introduce accidental breaking changes.
+> [!WARNING]<br/>
+> This project is intended for use in [@rowanmanning](https://github.com/rowanmanning/)'s projects. It's free to use but I don't offer support for use-cases outside of what I need.
 
 
 ## Table of Contents
