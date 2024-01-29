@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.0](https://github.com/rowanmanning/toolchain/compare/logger-v0.1.3...logger-v1.0.0) (2024-01-29)
+
+
+### Documentation Changes
+
+* mark as stable ([595257c](https://github.com/rowanmanning/toolchain/commit/595257cdb79b451a728a60d67063279f4b7b9105))
+
 ## [0.1.3](https://github.com/rowanmanning/toolchain/compare/logger-v0.1.2...logger-v0.1.3) (2023-12-28)
 
 

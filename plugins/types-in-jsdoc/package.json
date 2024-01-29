@@ -1,6 +1,6 @@
 {
   "name": "@rmtc/plugin-types-in-jsdoc",
-  "version": "0.2.7",
+  "version": "1.0.0",
   "description": "The toolchain TypeScript-in-JSDoc plugin",
   "keywords": [],
   "author": "Rowan Manning (https://rowanmanning.com/)",
@@ -18,7 +18,7 @@
   },
   "main": "index.js",
   "dependencies": {
-    "@rmtc/plugin": "^0.4.0",
+    "@rmtc/plugin": "^1.0.0",
     "typescript": "^5.3.3"
   }
 }
