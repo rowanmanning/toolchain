@@ -1,6 +1,6 @@
 {
   "name": "@rmtc/create-toolchain",
-  "version": "0.1.5",
+  "version": "1.0.0",
   "description": "The toolchain task runner setup script",
   "keywords": [],
   "author": "Rowan Manning (https://rowanmanning.com/)",
@@ -21,9 +21,9 @@
     "create-toolchain": "cli.js"
   },
   "dependencies": {
-    "@rmtc/config": "^0.3.3",
-    "@rmtc/errors": "^0.2.2",
-    "@rmtc/logger": "^0.1.3"
+    "@rmtc/config": "^1.0.0",
+    "@rmtc/errors": "^1.0.0",
+    "@rmtc/logger": "^1.0.0"
   },
   "devDependencies": {
     "json5": "^2.2.3"

@@ -18,6 +18,26 @@
   * dependencies
     * @rmtc/plugin bumped from ^0.2.4 to ^0.3.0
 
+## [1.0.0](https://github.com/rowanmanning/toolchain/compare/plugin-biome-v0.2.6...plugin-biome-v1.0.0) (2024-01-29)
+
+
+### Bug Fixes
+
+* bump @biomejs/biome from 1.5.1 to 1.5.2 ([cf5cd17](https://github.com/rowanmanning/toolchain/commit/cf5cd179b6699dca2bbf9207890719d996c83c20))
+* bump @biomejs/biome from 1.5.2 to 1.5.3 ([7523b2e](https://github.com/rowanmanning/toolchain/commit/7523b2e40d437af756ffa09b49643ff9bc450af8))
+
+
+### Documentation Changes
+
+* mark as stable ([595257c](https://github.com/rowanmanning/toolchain/commit/595257cdb79b451a728a60d67063279f4b7b9105))
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * @rmtc/plugin bumped from ^0.4.0 to ^1.0.0
+
 ## [0.2.6](https://github.com/rowanmanning/toolchain/compare/plugin-biome-v0.2.5...plugin-biome-v0.2.6) (2024-01-12)
 
 
