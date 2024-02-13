@@ -29,12 +29,12 @@
     "verify": "toolchain verify"
   },
   "devDependencies": {
-    "@commitlint/cli": "^18.6.0",
-    "@commitlint/config-conventional": "^18.6.0",
+    "@commitlint/cli": "^18.6.1",
+    "@commitlint/config-conventional": "^18.6.1",
     "@rowanmanning/eslint-config": "^8.1.0",
-    "@types/node": "^20.11.10",
+    "@types/node": "^20.11.17",
     "eslint": "^8.56.0",
-    "husky": "^9.0.7",
+    "husky": "^9.0.10",
     "testdouble": "^3.20.1",
     "typescript": "^5.3.3"
   },
