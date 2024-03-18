@@ -29,7 +29,7 @@
     "verify": "toolchain verify"
   },
   "devDependencies": {
-    "@commitlint/cli": "^18.6.0",
+    "@commitlint/cli": "^19.2.0",
     "@commitlint/config-conventional": "^18.6.0",
     "@rowanmanning/eslint-config": "^8.1.0",
     "@types/node": "^20.11.28",
