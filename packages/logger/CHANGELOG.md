@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.0](https://github.com/rowanmanning/toolchain/compare/logger-v1.0.0...logger-v1.1.0) (2024-06-29)
+
+
+### Features
+
+* add Node.js 22 support ([812b7e6](https://github.com/rowanmanning/toolchain/commit/812b7e6bff71d677a144767a61e8dfed615a5094))
+
 ## [1.0.0](https://github.com/rowanmanning/toolchain/compare/logger-v0.1.3...logger-v1.0.0) (2024-01-29)
 
 
