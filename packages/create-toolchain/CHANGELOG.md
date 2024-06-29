@@ -13,6 +13,22 @@
     * @rmtc/config bumped from ^0.3.0 to ^0.3.1
     * @rmtc/logger bumped from ^0.1.0 to ^0.1.1
 
+## [1.1.0](https://github.com/rowanmanning/toolchain/compare/create-toolchain-v1.0.0...create-toolchain-v1.1.0) (2024-06-29)
+
+
+### Features
+
+* add Node.js 22 support ([812b7e6](https://github.com/rowanmanning/toolchain/commit/812b7e6bff71d677a144767a61e8dfed615a5094))
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * @rmtc/config bumped from ^1.0.0 to ^1.1.0
+    * @rmtc/errors bumped from ^1.0.0 to ^1.1.0
+    * @rmtc/logger bumped from ^1.0.0 to ^1.1.0
+
 ## [1.0.0](https://github.com/rowanmanning/toolchain/compare/create-toolchain-v0.1.5...create-toolchain-v1.0.0) (2024-01-29)
 
 

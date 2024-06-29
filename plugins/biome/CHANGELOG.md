@@ -18,6 +18,35 @@
   * dependencies
     * @rmtc/plugin bumped from ^0.2.4 to ^0.3.0
 
+## [2.0.0](https://github.com/rowanmanning/toolchain/compare/plugin-biome-v1.0.0...plugin-biome-v2.0.0) (2024-06-29)
+
+
+### ⚠ BREAKING CHANGES
+
+* switch to check rather than lint
+
+### Features
+
+* add Node.js 22 support ([812b7e6](https://github.com/rowanmanning/toolchain/commit/812b7e6bff71d677a144767a61e8dfed615a5094))
+* switch to check rather than lint ([bcdbc1f](https://github.com/rowanmanning/toolchain/commit/bcdbc1fe3ed1dfd8ef23b326216b15c3b3aca4cf))
+
+
+### Bug Fixes
+
+* bump @biomejs/biome from 1.5.3 to 1.8.3 ([537e275](https://github.com/rowanmanning/toolchain/commit/537e275f1752d7d77dd99267bd39a115d9a33e87))
+
+
+### Documentation Changes
+
+* correct a copy/paste error ([04cd1c2](https://github.com/rowanmanning/toolchain/commit/04cd1c2d3a99634d979271b6d9d05414115932c1))
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * @rmtc/plugin bumped from ^1.0.0 to ^1.1.0
+
 ## [1.0.0](https://github.com/rowanmanning/toolchain/compare/plugin-biome-v0.2.6...plugin-biome-v1.0.0) (2024-01-29)
 
 

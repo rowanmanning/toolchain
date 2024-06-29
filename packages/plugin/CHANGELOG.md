@@ -12,6 +12,24 @@
   * dependencies
     * @rmtc/config bumped from ^0.1.1 to ^0.2.0
 
+## [1.1.0](https://github.com/rowanmanning/toolchain/compare/plugin-v1.0.0...plugin-v1.1.0) (2024-06-29)
+
+
+### Features
+
+* add Node.js 22 support ([812b7e6](https://github.com/rowanmanning/toolchain/commit/812b7e6bff71d677a144767a61e8dfed615a5094))
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * @rmtc/config bumped from ^1.0.0 to ^1.1.0
+    * @rmtc/errors bumped from ^1.0.0 to ^1.1.0
+    * @rmtc/logger bumped from ^1.0.0 to ^1.1.0
+  * devDependencies
+    * @rmtc/project bumped from ^1.0.0 to ^1.1.0
+
 ## [1.0.0](https://github.com/rowanmanning/toolchain/compare/plugin-v0.4.0...plugin-v1.0.0) (2024-01-29)
 
 

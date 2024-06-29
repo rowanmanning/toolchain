@@ -1,5 +1,20 @@
 # Changelog
 
+## [1.1.0](https://github.com/rowanmanning/toolchain/compare/plugin-ignore-files-v1.0.0...plugin-ignore-files-v1.1.0) (2024-06-29)
+
+
+### Features
+
+* add Node.js 22 support ([812b7e6](https://github.com/rowanmanning/toolchain/commit/812b7e6bff71d677a144767a61e8dfed615a5094))
+* ignore biome config files ([8eee4e2](https://github.com/rowanmanning/toolchain/commit/8eee4e2cf9a7a318afac0a84a5022c21d94a79f7))
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * @rmtc/plugin bumped from ^1.0.0 to ^1.1.0
+
 ## [1.0.0](https://github.com/rowanmanning/toolchain/compare/plugin-ignore-files-v0.1.2...plugin-ignore-files-v1.0.0) (2024-01-29)
 
 
