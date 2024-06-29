@@ -40,6 +40,7 @@ class IgnoreFiles extends Plugin {
 				'.husky',
 				'.nyc_output',
 				'.release-please-manifest.json',
+				'biome.json',
 				'CHANGELOG.md',
 				'coverage',
 				'docs',
