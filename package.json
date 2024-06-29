@@ -26,14 +26,14 @@
     "test:end-to-end": "toolchain test:end-to-end",
     "test:unit": "toolchain test:unit",
     "test": "toolchain test",
-    "verify": "toolchain verify"
+    "verify": "toolchain verify",
+    "format": "toolchain format"
   },
   "devDependencies": {
     "@commitlint/cli": "^19.3.0",
     "@commitlint/config-conventional": "^19.2.2",
-    "@rowanmanning/eslint-config": "^8.1.0",
+    "@rowanmanning/biome-config": "^1.2.0",
     "@types/node": "^20.14.9",
-    "eslint": "^8.56.0",
     "husky": "^9.0.11",
     "testdouble": "^3.20.2",
     "typescript": "^5.5.2"

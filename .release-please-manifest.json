@@ -4,7 +4,6 @@
 	"packages/logger": "1.0.0",
 	"packages/plugin": "1.0.0",
 	"packages/toolchain": "1.0.0",
-	"plugins/eslint": "1.0.0",
 	"plugins/mocha": "1.0.0",
 	"plugins/npm-scripts": "1.0.0",
 	"packages/create-toolchain": "1.0.0",

@@ -27,7 +27,6 @@ describe('@rmtc/config/lib/error', () => {
 		describe('new ConfigError(message)', () => {
 
 			before(() => {
-				// eslint-disable-next-line no-new
 				new ConfigError('mock message');
 			});
 

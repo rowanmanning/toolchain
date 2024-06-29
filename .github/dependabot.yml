@@ -112,15 +112,6 @@ updates:
       prefix: "fix:"
       prefix-development: "chore:"
   - package-ecosystem: "npm"
-    directory: "/plugins/eslint"
-    schedule:
-      interval: "daily"
-      time: "15:00"
-      timezone: "Europe/London"
-    commit-message:
-      prefix: "fix:"
-      prefix-development: "chore:"
-  - package-ecosystem: "npm"
     directory: "/plugins/ignore-files"
     schedule:
       interval: "daily"

@@ -77,10 +77,10 @@ class PluginSet {
 	 * @param {string[]} [defaultSteps]
 	 */
 	defineWorkflow(name, defaultSteps = []) {
-		name = name.toLowerCase();
-		this.#workflows[name] = this.#workflows[name] || new Set();
+		const lowerCaseName = name.toLowerCase();
+		this.#workflows[lowerCaseName] = this.#workflows[lowerCaseName] || new Set();
 		for (const step of defaultSteps) {
-			this.#workflows[name].add(step);
+			this.#workflows[lowerCaseName].add(step);
 		}
 	}
 

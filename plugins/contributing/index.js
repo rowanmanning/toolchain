@@ -20,23 +20,22 @@ class Contributing extends Plugin {
 	configure(config) {
 
 		// Set some default configurations
-		config = Object.assign({
+		const pluginConfig = Object.assign({
 			techSections: []
 		}, config);
 
 		// Validate the techSections
 		if (
-			!Array.isArray(config.techSections) ||
-			!config.techSections.every(section => VALID_TECH_SECTIONS.includes(section))
+			!Array.isArray(pluginConfig.techSections) ||
+			!pluginConfig.techSections.every(section => VALID_TECH_SECTIONS.includes(section))
 		) {
 			throw new ConfigError(
-				// eslint-disable-next-line max-len
 				`The contributing plugin "techSections" config option be an array with only the following values: ${VALID_TECH_SECTIONS.join(', ')}`,
 				{code: 'CONTRIBUTING_PLUGIN_CONFIG_INVALID'}
 			);
 		}
 
-		return config;
+		return pluginConfig;
 	}
 
 	/**

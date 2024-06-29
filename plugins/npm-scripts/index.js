@@ -35,7 +35,8 @@ class NpmScripts extends Plugin {
 			packageJson.scripts ||= {};
 			for (const workflow of this.availableWorkflows) {
 				const oldScript = packageJson.scripts[workflow];
-				const newScript = packageJson.scripts[workflow] = `toolchain ${workflow}`;
+				const newScript = `toolchain ${workflow}`;
+				packageJson.scripts[workflow] = newScript;
 				if (newScript === oldScript) {
 					this.log.debug(`nothing to do for package.json scripts.${workflow}`);
 				} else {

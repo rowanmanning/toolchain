@@ -10,11 +10,9 @@ class TypesInJsdoc extends Plugin {
 	configure(config) {
 
 		// Set some default configurations
-		config = Object.assign({
+		return Object.assign({
 			project: 'jsconfig.json'
 		}, config);
-
-		return config;
 	}
 
 	/**

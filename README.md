@@ -66,10 +66,10 @@ The task runner expects to find a file named `.rmtc.json5` in the current workin
 
 #### Plugins
 
-Plugins are installed as npm modules but still need to be referenced in your config file. We'll use the [ESLint plugin](plugins/eslint#readme) as an example. First, we install it as a development dependency:
+Plugins are installed as npm modules but still need to be referenced in your config file. We'll use the [Biome plugin](plugins/biome#readme) as an example. First, we install it as a development dependency:
 
 ```sh
-npm install --save-dev @rmtc/plugin-eslint
+npm install --save-dev @rmtc/plugin-biome
 ```
 
 Then we update our config file to include the plugin:
@@ -77,7 +77,7 @@ Then we update our config file to include the plugin:
 ```js
 {
     plugins: [
-        '@rmtc/plugin-eslint'
+        '@rmtc/plugin-biome'
     ],
     workflows: {}
 }
@@ -85,7 +85,7 @@ Then we update our config file to include the plugin:
 
 Plugins define _**Steps**_ and normally some default [_**Workflows**_](#workflows). A step is like a single discreet task that you want to run, and a workflow is a _list_ of steps to run in order.
 
-The ESLint plugin defines a workflow named `verify` automatically, so we can already use it with:
+The Biome plugin defines a workflow named `verify` automatically, so we can already use it with:
 
 ```sh
 npx toolchain verify
@@ -117,28 +117,28 @@ Workflows are defined as object properties, the key is the name of the workflow 
 ```js
 {
     plugins: [
-        '@rmtc/plugin-eslint'
+        '@rmtc/plugin-biome'
     ],
     workflows: {
         doTheLinting: [
-            'eslint'
+            'biome'
         ]
     }
 }
 ```
 
-Now, instead of using the `verify` workflow that was defined by the ESLint plugin, we can use our `doTheLinting` workflow:
+Now, instead of using the `verify` workflow that was defined by the Biome plugin, we can use our `doTheLinting` workflow:
 
 ```sh
 npx toolchain doTheLinting
 ```
 
-You can use this to create your own more complex workflows or remove plugin steps from other workflows that they appear in. E.g. we can disable the default `verify` workflow from ESLint with the following:
+You can use this to create your own more complex workflows or remove plugin steps from other workflows that they appear in. E.g. we can disable the default `verify` workflow from Biome with the following:
 
 ```js
 {
     plugins: [
-        '@rmtc/plugin-eslint'
+        '@rmtc/plugin-biome'
     ],
     workflows: {
         verify: []
@@ -183,8 +183,6 @@ npx toolchain verify test
 These are the official plugins which are published alongside the core library:
 
   * **[@rmtc/plugin-biome](plugins/biome#readme):** validates and formats JavaScript using [Biome](https://biomejs.dev/), with any config found in the project.
-
-  * **[@rmtc/plugin-eslint](plugins/eslint#readme):** validates JavaScript using [ESLint](https://eslint.org/), with any config found in the project.
 
   * **[@rmtc/mocha](plugins/mocha#readme):** runs [Mocha](https://mochajs.org/) test suites.
 

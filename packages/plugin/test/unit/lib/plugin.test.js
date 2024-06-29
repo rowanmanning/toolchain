@@ -176,7 +176,7 @@ describe('@rmtc/plugin/lib/plugin', () => {
 						{times: 1}
 					);
 					td.verify(
-						mockOptions.logger.debug(`spawning child process: mock-command`),
+						mockOptions.logger.debug('spawning child process: mock-command'),
 						{times: 1}
 					);
 				});
@@ -218,7 +218,7 @@ describe('@rmtc/plugin/lib/plugin', () => {
 					);
 					td.verify(
 						mockOptions.logger.debug(
-							`spawning child process: mock-command mock-arg-1 mock-arg-2`
+							'spawning child process: mock-command mock-arg-1 mock-arg-2'
 						),
 						{times: 1}
 					);

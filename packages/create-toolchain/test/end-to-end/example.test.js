@@ -1,4 +1,3 @@
-/* eslint-disable no-invalid-this */
 'use strict';
 
 const assert = require('node:assert');
@@ -12,8 +11,6 @@ const CONFIG_PATH = path.join(PROJECT_DIRECTORY, '.rmtc.json5');
 const PACKAGE_PATH = path.join(PROJECT_DIRECTORY, 'package.json');
 const PACKAGE_LOCK_PATH = path.join(PROJECT_DIRECTORY, 'package-lock.json');
 const NODE_MODULES_PATH = path.join(PROJECT_DIRECTORY, 'node_modules');
-
-console.log(PACKAGE_PATH);
 
 /**
  * @returns {Promise<void>}

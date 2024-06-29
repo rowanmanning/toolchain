@@ -13,19 +13,19 @@ class MitLicense extends Plugin {
 	configure(config) {
 
 		// Set some default configurations
-		config = Object.assign({
+		const pluginConfig = Object.assign({
 			holders: null
 		}, config);
 
 		// Validate the holders
-		if (config.holders && typeof config.holders !== 'string') {
+		if (pluginConfig.holders && typeof pluginConfig.holders !== 'string') {
 			throw new ConfigError(
 				`The mit-license plugin "holders" config option be a string`,
 				{code: 'MIT_LICENSE_PLUGIN_CONFIG_INVALID'}
 			);
 		}
 
-		return config;
+		return pluginConfig;
 	}
 
 	/**

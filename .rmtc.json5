@@ -1,6 +1,6 @@
 {
 	plugins: [
-		'@rmtc/plugin-eslint',
+		'@rmtc/plugin-biome',
 		'@rmtc/plugin-types-in-jsdoc',
 		'@rmtc/plugin-npm-scripts',
 		'@rmtc/plugin-ignore-files',

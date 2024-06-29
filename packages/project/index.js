@@ -59,7 +59,7 @@ class Project {
 			packageJson = JSON.parse(
 				await readFile(path.join(this.#directoryPath, 'package.json'), 'utf-8')
 			);
-		} catch (error) {
+		} catch (_error) {
 			return this;
 		}
 

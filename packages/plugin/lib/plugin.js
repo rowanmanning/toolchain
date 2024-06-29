@@ -142,13 +142,13 @@ class Plugin {
 	 */
 	async editJsonFile(filePath, transformer) {
 		try {
-			filePath = path.resolve(this.#project.directoryPath, filePath);
-			const fileContents = await readFile(filePath, 'utf-8');
+			const resolvedPath = path.resolve(this.#project.directoryPath, filePath);
+			const fileContents = await readFile(resolvedPath, 'utf-8');
 
 			let indentation = '\t';
 			try {
 				indentation = detectIndentation(fileContents) ?? indentation;
-			} catch (error) {}
+			} catch (_error) {}
 
 			let json = {};
 			try {
@@ -159,7 +159,7 @@ class Plugin {
 
 			const updatedJson = await transformer(structuredClone(json));
 			if (!isDeepStrictEqual(json, updatedJson)) {
-				await writeFile(filePath, JSON.stringify(updatedJson, null, indentation));
+				await writeFile(resolvedPath, JSON.stringify(updatedJson, null, indentation));
 			}
 		} catch (/** @type {any} */ cause) {
 			throw new ToolchainError(`Failed to edit JSON at "${filePath}"`, {

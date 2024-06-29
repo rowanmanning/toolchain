@@ -23,7 +23,7 @@ exports.runCommand = async function runCommand({directoryPath, process}) {
 		} catch (/** @type {any} */ error) {
 			if (error.code === 'CONFIG_MISSING') {
 				const configFilePath = path.join(directoryPath, CONFIG_FILENAME);
-				const configTemplate = `{\n\tplugins: [],\n\tworkflows: {}\n}`;
+				const configTemplate = '{\n\tplugins: [],\n\tworkflows: {}\n}';
 				logger.info(`creating config file at "${CONFIG_FILENAME}"`);
 				await writeFile(configFilePath, configTemplate);
 			}
@@ -33,10 +33,9 @@ exports.runCommand = async function runCommand({directoryPath, process}) {
 		 * @param {string} packageName
 		 * @returns {Promise<void>}
 		 */
-		// eslint-disable-next-line no-inner-declarations
 		function installPackage(packageName) {
 			return new Promise((resolve, reject) => {
-				const child = spawn(`npm`, [
+				const child = spawn('npm', [
 					'install',
 					'--save-dev',
 					packageName
