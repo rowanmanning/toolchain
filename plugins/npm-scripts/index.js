@@ -1,9 +1,8 @@
 'use strict';
 
-const {Plugin} = require('@rmtc/plugin');
+const { Plugin } = require('@rmtc/plugin');
 
 class NpmScripts extends Plugin {
-
 	/**
 	 * @type {import('@rmtc/plugin').InitMethod}
 	 */
@@ -17,8 +16,7 @@ class NpmScripts extends Plugin {
 	 */
 	async install() {
 		this.log.info('setting up package.json scripts');
-		await this.editJsonFile('package.json', packageJson => {
-
+		await this.editJsonFile('package.json', (packageJson) => {
 			// Check that the package.json is an object
 			if (!packageJson || typeof packageJson !== 'object' || Array.isArray(packageJson)) {
 				throw new TypeError('the package.json root is not an object `{}`');
@@ -62,7 +60,6 @@ class NpmScripts extends Plugin {
 			return packageJson;
 		});
 	}
-
 }
 
 exports.Plugin = NpmScripts;

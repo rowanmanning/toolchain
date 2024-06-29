@@ -3,8 +3,8 @@
 const assert = require('node:assert');
 const JSON5 = require('json5');
 const path = require('node:path');
-const {readFile, rm, stat, writeFile} = require('node:fs/promises');
-const {spawn} = require('node:child_process');
+const { readFile, rm, stat, writeFile } = require('node:fs/promises');
+const { spawn } = require('node:child_process');
 
 const PROJECT_DIRECTORY = path.resolve(__dirname, 'fixtures', 'project');
 const CONFIG_PATH = path.join(PROJECT_DIRECTORY, '.rmtc.json5');
@@ -24,7 +24,7 @@ function runCommand() {
 				...process.env
 			}
 		});
-		child.on('close', code => {
+		child.on('close', (code) => {
 			if (!code || code === 0) {
 				return resolve();
 			}
@@ -37,8 +37,8 @@ function runCommand() {
  * @returns {Promise<void>}
  */
 async function cleanup() {
-	await rm(CONFIG_PATH, {force: true});
-	await rm(PACKAGE_LOCK_PATH, {force: true});
+	await rm(CONFIG_PATH, { force: true });
+	await rm(PACKAGE_LOCK_PATH, { force: true });
 	await rm(NODE_MODULES_PATH, {
 		force: true,
 		recursive: true
@@ -46,7 +46,7 @@ async function cleanup() {
 	await writeFile(PACKAGE_PATH, '{}');
 }
 
-describe('@rmtc/create-toolchain', function() {
+describe('@rmtc/create-toolchain', function () {
 	this.timeout(10000);
 	this.slow(2000);
 
@@ -72,5 +72,4 @@ describe('@rmtc/create-toolchain', function() {
 		assert.ok((await stat(NODE_MODULES_PATH)).isDirectory());
 		assert.ok((await stat(path.join(NODE_MODULES_PATH, '@rmtc', 'toolchain'))).isDirectory());
 	});
-
 });

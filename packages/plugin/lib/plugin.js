@@ -1,11 +1,11 @@
 'use strict';
 
 const detectIndentation = require('detect-indentation').default;
-const {isDeepStrictEqual} = require('node:util');
+const { isDeepStrictEqual } = require('node:util');
 const path = require('node:path');
-const {readFile, writeFile} = require('node:fs/promises');
-const {spawn} = require('node:child_process');
-const {ToolchainError} = require('@rmtc/errors');
+const { readFile, writeFile } = require('node:fs/promises');
+const { spawn } = require('node:child_process');
+const { ToolchainError } = require('@rmtc/errors');
 
 /**
  * @typedef {Record<string, any>} PluginConfig
@@ -23,7 +23,6 @@ const {ToolchainError} = require('@rmtc/errors');
  */
 
 class Plugin {
-
 	/** @type {PluginConfig} */
 	#config;
 
@@ -80,7 +79,7 @@ class Plugin {
 	 * @param {import('./plugin-set').PluginSet} options.pluginSet
 	 * @param {import('@rmtc/project').Project} options.project
 	 */
-	constructor({config, logger, pluginSet, project}) {
+	constructor({ config, logger, pluginSet, project }) {
 		this.#logger = logger;
 		this.#pluginSet = pluginSet;
 		this.#project = project;
@@ -122,14 +121,16 @@ class Plugin {
 			this.log.debug(
 				`spawning child process: ${command}${args.length ? ` ${args.join(' ')}` : ''}`
 			);
-			const child = spawn('npx', [command, ...args], {stdio: 'inherit'});
-			child.on('close', code => {
+			const child = spawn('npx', [command, ...args], { stdio: 'inherit' });
+			child.on('close', (code) => {
 				if (!code || code === 0) {
 					return resolve();
 				}
-				reject(new CommandError(`Command "${command}" exited with code ${code}`, {
-					code: 'COMMAND_FAILED'
-				}));
+				reject(
+					new CommandError(`Command "${command}" exited with code ${code}`, {
+						code: 'COMMAND_FAILED'
+					})
+				);
 			});
 		});
 	}
@@ -154,7 +155,7 @@ class Plugin {
 			try {
 				json = JSON.parse(fileContents);
 			} catch (/** @type {any} */ cause) {
-				throw new TypeError('package.json is not valid JSON', {cause});
+				throw new TypeError('package.json is not valid JSON', { cause });
 			}
 
 			const updatedJson = await transformer(structuredClone(json));
@@ -184,14 +185,10 @@ class Plugin {
 	init() {
 		// Intentionally empty
 	}
-
 }
 
 class CommandError extends ToolchainError {
-
 	name = 'CommandError';
-
 }
-
 
 exports.Plugin = Plugin;

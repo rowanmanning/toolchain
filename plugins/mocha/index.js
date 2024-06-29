@@ -1,35 +1,35 @@
 'use strict';
 
-const {ConfigError} = require('@rmtc/config');
-const {Plugin} = require('@rmtc/plugin');
+const { ConfigError } = require('@rmtc/config');
+const { Plugin } = require('@rmtc/plugin');
 
 class Mocha extends Plugin {
-
 	/**
 	 * @type {import('@rmtc/plugin').ConfigMethod}
 	 */
 	configure(config) {
-
 		// Set some default configurations
-		const pluginConfig = Object.assign({
-			coverage: false,
-			type: null
-		}, config);
+		const pluginConfig = Object.assign(
+			{
+				coverage: false,
+				type: null
+			},
+			config
+		);
 
 		// Validate the test type
 		if (pluginConfig.type !== null && typeof pluginConfig.type !== 'string') {
 			throw new ConfigError(
 				`The mocha plugin "type" config option must be a string or null`,
-				{code: 'MOCHA_PLUGIN_CONFIG_INVALID'}
+				{ code: 'MOCHA_PLUGIN_CONFIG_INVALID' }
 			);
 		}
 
 		// Validate the test coverage flag
 		if (typeof pluginConfig.coverage !== 'boolean') {
-			throw new ConfigError(
-				`The mocha plugin "coverage" config option must be a boolean`,
-				{code: 'MOCHA_PLUGIN_CONFIG_INVALID'}
-			);
+			throw new ConfigError(`The mocha plugin "coverage" config option must be a boolean`, {
+				code: 'MOCHA_PLUGIN_CONFIG_INVALID'
+			});
 		}
 
 		return pluginConfig;
@@ -48,7 +48,7 @@ class Mocha extends Plugin {
 			this.defineWorkflow('test', ['mocha']);
 		}
 
-		this.pluginSet.map(plugin => plugin.config);
+		this.pluginSet.map((plugin) => plugin.config);
 	}
 
 	/**
@@ -60,9 +60,11 @@ class Mocha extends Plugin {
 		return async () => {
 			const mochaParams = [
 				'--recursive',
-				...extensions.flatMap(extension => [
-					'--extension', `test.${extension}`,
-					'--extension', `spec.${extension}`
+				...extensions.flatMap((extension) => [
+					'--extension',
+					`test.${extension}`,
+					'--extension',
+					`spec.${extension}`
 				])
 			];
 
@@ -76,7 +78,6 @@ class Mocha extends Plugin {
 			this.log.info('all tests passed');
 		};
 	}
-
 }
 
 exports.Plugin = Mocha;

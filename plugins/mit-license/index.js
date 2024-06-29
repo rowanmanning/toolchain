@@ -1,28 +1,28 @@
 'use strict';
 
-const {ConfigError} = require('@rmtc/config');
+const { ConfigError } = require('@rmtc/config');
 const path = require('node:path');
-const {Plugin} = require('@rmtc/plugin');
-const {readFile, writeFile} = require('node:fs/promises');
+const { Plugin } = require('@rmtc/plugin');
+const { readFile, writeFile } = require('node:fs/promises');
 
 class MitLicense extends Plugin {
-
 	/**
 	 * @type {import('@rmtc/plugin').ConfigMethod}
 	 */
 	configure(config) {
-
 		// Set some default configurations
-		const pluginConfig = Object.assign({
-			holders: null
-		}, config);
+		const pluginConfig = Object.assign(
+			{
+				holders: null
+			},
+			config
+		);
 
 		// Validate the holders
 		if (pluginConfig.holders && typeof pluginConfig.holders !== 'string') {
-			throw new ConfigError(
-				`The mit-license plugin "holders" config option be a string`,
-				{code: 'MIT_LICENSE_PLUGIN_CONFIG_INVALID'}
-			);
+			throw new ConfigError(`The mit-license plugin "holders" config option be a string`, {
+				code: 'MIT_LICENSE_PLUGIN_CONFIG_INVALID'
+			});
 		}
 
 		return pluginConfig;
@@ -60,7 +60,7 @@ class MitLicense extends Plugin {
 		this.log.info('wrote latest license');
 
 		// Ensure that the package.json has a license property
-		await this.editJsonFile('package.json', packageJson => {
+		await this.editJsonFile('package.json', (packageJson) => {
 			if (packageJson) {
 				packageJson.license = 'MIT';
 			}
@@ -68,7 +68,6 @@ class MitLicense extends Plugin {
 		});
 		this.log.info('wrote package.json license');
 	}
-
 }
 
 exports.Plugin = MitLicense;

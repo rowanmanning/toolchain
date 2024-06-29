@@ -1,18 +1,19 @@
 'use strict';
 
-const {Plugin} = require('@rmtc/plugin');
+const { Plugin } = require('@rmtc/plugin');
 
 class TypesInJsdoc extends Plugin {
-
 	/**
 	 * @type {import('@rmtc/plugin').ConfigMethod}
 	 */
 	configure(config) {
-
 		// Set some default configurations
-		return Object.assign({
-			project: 'jsconfig.json'
-		}, config);
+		return Object.assign(
+			{
+				project: 'jsconfig.json'
+			},
+			config
+		);
 	}
 
 	/**
@@ -29,11 +30,7 @@ class TypesInJsdoc extends Plugin {
 	 * @type {import('@rmtc/plugin').StepFunction}
 	 */
 	async checkTypes() {
-		await this.exec('tsc', [
-			'--noEmit',
-			'--project',
-			this.config.project
-		]);
+		await this.exec('tsc', ['--noEmit', '--project', this.config.project]);
 		this.log.info('no type errors found');
 	}
 
@@ -50,7 +47,6 @@ class TypesInJsdoc extends Plugin {
 		]);
 		this.log.info('type definitions built successfully');
 	}
-
 }
 
 exports.Plugin = TypesInJsdoc;

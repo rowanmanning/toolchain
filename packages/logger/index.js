@@ -11,7 +11,6 @@ const levels = {
 const levelNames = Object.keys(levels);
 
 class Logger {
-
 	/** @type {number} */
 	#level = levels.info;
 
@@ -33,7 +32,7 @@ class Logger {
 	 * @param {string | number} [options.logLevel]
 	 * @param {string} [options.prefix]
 	 */
-	constructor({logLevel = process.env.LOG_LEVEL, prefix = ''} = {}) {
+	constructor({ logLevel = process.env.LOG_LEVEL, prefix = '' } = {}) {
 		if (typeof logLevel === 'string') {
 			this.#level = levels[logLevel] ?? levels.info;
 		} else if (typeof logLevel === 'number') {
@@ -47,7 +46,7 @@ class Logger {
 	 * @param {string} [options.prefix]
 	 * @returns {Logger}
 	 */
-	child({prefix} = {}) {
+	child({ prefix } = {}) {
 		return new Logger({
 			logLevel: this.#level,
 			prefix: prefix ? this.#prefixMessage(prefix) : this.#prefix
@@ -68,9 +67,7 @@ class Logger {
 	error(message) {
 		if (message instanceof Error) {
 			process.stdout.write(
-				this.#prefixMessage(
-					`An error occurred:\n${this.#stringifyError(message)}`
-				)
+				this.#prefixMessage(`An error occurred:\n${this.#stringifyError(message)}`)
 			);
 		} else {
 			process.stdout.write(this.#prefixMessage(`${message}\n`));
@@ -118,7 +115,6 @@ class Logger {
 			process.stdout.write(this.#prefixMessage(`${message}\n`));
 		}
 	}
-
 }
 
 exports.Logger = Logger;

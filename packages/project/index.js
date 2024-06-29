@@ -1,10 +1,9 @@
 'use strict';
 
 const path = require('node:path');
-const {readFile} = require('node:fs/promises');
+const { readFile } = require('node:fs/promises');
 
 class Project {
-
 	/** @type {string} */
 	#directoryPath;
 
@@ -43,7 +42,7 @@ class Project {
 	 * @param {object} options
 	 * @param {string} options.directoryPath
 	 */
-	constructor({directoryPath}) {
+	constructor({ directoryPath }) {
 		this.#directoryPath = directoryPath;
 		this.#name = path.basename(directoryPath);
 	}
@@ -73,10 +72,8 @@ class Project {
 		}
 
 		this.#isPrivate = Boolean(packageJson?.private);
-		this.#isMonorepo = (
-			Array.isArray(packageJson.workspaces) &&
-			Boolean(packageJson?.workspaces?.length > 0)
-		);
+		this.#isMonorepo =
+			Array.isArray(packageJson.workspaces) && Boolean(packageJson?.workspaces?.length > 0);
 
 		return this;
 	}
@@ -86,10 +83,9 @@ class Project {
 	 * @returns {Promise<Project>}
 	 */
 	static fromDirectory(directoryPath) {
-		const project = new Project({directoryPath});
+		const project = new Project({ directoryPath });
 		return project.init();
 	}
-
 }
 
 exports.Project = Project;

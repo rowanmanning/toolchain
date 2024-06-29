@@ -1,9 +1,8 @@
 'use strict';
 
-const {Plugin} = require('@rmtc/plugin');
+const { Plugin } = require('@rmtc/plugin');
 
 class Biome extends Plugin {
-
 	/**
 	 * @type {import('@rmtc/plugin').InitMethod}
 	 */
@@ -28,7 +27,6 @@ class Biome extends Plugin {
 		await this.exec('biome', ['lint', '.']);
 		this.log.info('no linting errors found');
 	}
-
 }
 
 exports.Plugin = Biome;

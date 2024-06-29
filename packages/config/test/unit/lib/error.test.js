@@ -25,16 +25,12 @@ describe('@rmtc/config/lib/error', () => {
 		});
 
 		describe('new ConfigError(message)', () => {
-
 			before(() => {
 				new ConfigError('mock message');
 			});
 
 			it('calls the ToolchainError constructor', () => {
-				td.verify(
-					ToolchainError.prototype.constructor('mock message', {}),
-					{times: 1}
-				);
+				td.verify(ToolchainError.prototype.constructor('mock message', {}), { times: 1 });
 			});
 		});
 
@@ -43,15 +39,14 @@ describe('@rmtc/config/lib/error', () => {
 			let options;
 
 			before(() => {
-				options = {code: 'MOCK_CODE'};
+				options = { code: 'MOCK_CODE' };
 				configError = new ConfigError('mock message', options);
 			});
 
 			it('calls the ToolchainError constructor', () => {
-				td.verify(
-					ToolchainError.prototype.constructor('mock message', options),
-					{times: 1}
-				);
+				td.verify(ToolchainError.prototype.constructor('mock message', options), {
+					times: 1
+				});
 			});
 
 			describe('.validationErrors', () => {
@@ -88,8 +83,8 @@ describe('@rmtc/config/lib/error', () => {
 						assert.equal(
 							configError.message,
 							'mock message:\n' +
-							'  - mock.path.one: mock validation error 1\n' +
-							'  - mock.path.two: mock validation error 2'
+								'  - mock.path.one: mock validation error 1\n' +
+								'  - mock.path.two: mock validation error 2'
 						);
 					});
 				});

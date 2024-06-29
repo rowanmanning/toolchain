@@ -1,11 +1,10 @@
 'use strict';
 
-const {ConfigError} = require('@rmtc/config');
-const {loadPlugins} = require('@rmtc/plugin');
-const {ToolchainError} = require('@rmtc/errors');
+const { ConfigError } = require('@rmtc/config');
+const { loadPlugins } = require('@rmtc/plugin');
+const { ToolchainError } = require('@rmtc/errors');
 
 class Runner {
-
 	/** @type {import('@rmtc/config').Config} */
 	#config;
 
@@ -31,10 +30,10 @@ class Runner {
 	 * @param {import('@rmtc/logger').Logger} options.logger
 	 * @param {import('@rmtc/project').Project} options.project
 	 */
-	constructor({config, logger, project}) {
+	constructor({ config, logger, project }) {
 		this.#config = config;
 		this.#pluginSet = loadPlugins(config, project).initPlugins();
-		this.#logger = logger.child({prefix: '[Runner]'});
+		this.#logger = logger.child({ prefix: '[Runner]' });
 	}
 
 	/**
@@ -57,7 +56,7 @@ class Runner {
 		if (!workflowInConfig && !workflowInPluginSet) {
 			throw new ConfigError(
 				`A workflow named "${name}" was not defined by a plugin or config file`,
-				{code: 'WORKFLOW_MISSING'}
+				{ code: 'WORKFLOW_MISSING' }
 			);
 		}
 	}
@@ -68,10 +67,9 @@ class Runner {
 	 */
 	#assertStepDefined(name) {
 		if (!this.#pluginSet.definesStep(name)) {
-			throw new ConfigError(
-				`A step named "${name}" was not defined by any plugin`,
-				{code: 'STEP_MISSING'}
-			);
+			throw new ConfigError(`A step named "${name}" was not defined by any plugin`, {
+				code: 'STEP_MISSING'
+			});
 		}
 	}
 
@@ -126,7 +124,6 @@ class Runner {
 			});
 		}
 	}
-
 }
 
 exports.Runner = Runner;

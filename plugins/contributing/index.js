@@ -1,37 +1,33 @@
 'use strict';
 
-const {ConfigError} = require('@rmtc/config');
+const { ConfigError } = require('@rmtc/config');
 const path = require('node:path');
-const {Plugin} = require('@rmtc/plugin');
-const {readFile, mkdir, writeFile} = require('node:fs/promises');
+const { Plugin } = require('@rmtc/plugin');
+const { readFile, mkdir, writeFile } = require('node:fs/promises');
 
-const VALID_TECH_SECTIONS = [
-	'conventional-commits',
-	'linting',
-	'testing',
-	'types-in-jsdoc'
-];
+const VALID_TECH_SECTIONS = ['conventional-commits', 'linting', 'testing', 'types-in-jsdoc'];
 
 class Contributing extends Plugin {
-
 	/**
 	 * @type {import('@rmtc/plugin').ConfigMethod}
 	 */
 	configure(config) {
-
 		// Set some default configurations
-		const pluginConfig = Object.assign({
-			techSections: []
-		}, config);
+		const pluginConfig = Object.assign(
+			{
+				techSections: []
+			},
+			config
+		);
 
 		// Validate the techSections
 		if (
 			!Array.isArray(pluginConfig.techSections) ||
-			!pluginConfig.techSections.every(section => VALID_TECH_SECTIONS.includes(section))
+			!pluginConfig.techSections.every((section) => VALID_TECH_SECTIONS.includes(section))
 		) {
 			throw new ConfigError(
 				`The contributing plugin "techSections" config option be an array with only the following values: ${VALID_TECH_SECTIONS.join(', ')}`,
-				{code: 'CONTRIBUTING_PLUGIN_CONFIG_INVALID'}
+				{ code: 'CONTRIBUTING_PLUGIN_CONFIG_INVALID' }
 			);
 		}
 
@@ -66,15 +62,16 @@ class Contributing extends Plugin {
 		const contributingTemplates = path.join(__dirname, 'templates', 'contributing');
 		const contributingGuide = await Promise.all([
 			readFile(path.join(contributingTemplates, 'main.md'), 'utf-8'),
-			...this.config.techSections.map(
-				section => readFile(
-					path.join(contributingTemplates, 'sections', 'tech', `${section}.md`), 'utf-8'
+			...this.config.techSections.map((section) =>
+				readFile(
+					path.join(contributingTemplates, 'sections', 'tech', `${section}.md`),
+					'utf-8'
 				)
 			)
 		]);
 
 		// Ensure that the docs directory exists
-		await mkdir(docsPath, {recursive: true});
+		await mkdir(docsPath, { recursive: true });
 
 		// Ensure that the code of conduct exists and has the right content
 		await writeFile(codeOfConductPath, idealCodeOfConduct);
@@ -84,7 +81,6 @@ class Contributing extends Plugin {
 		await writeFile(contributingGuidePath, contributingGuide.join('\n'));
 		this.log.info('wrote latest contributing guide');
 	}
-
 }
 
 exports.Plugin = Contributing;

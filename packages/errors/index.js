@@ -7,7 +7,6 @@
  */
 
 class ToolchainError extends Error {
-
 	/** @type {string} */
 	#code;
 
@@ -23,11 +22,10 @@ class ToolchainError extends Error {
 	 * @param {string} message
 	 * @param {ToolchainErrorOptions} [options]
 	 */
-	constructor(message, {code, cause} = {}) {
-		super(message, {cause});
+	constructor(message, { code, cause } = {}) {
+		super(message, { cause });
 		this.#code = code || 'TOOLCHAIN_ERROR';
 	}
-
 }
 
 exports.ToolchainError = ToolchainError;

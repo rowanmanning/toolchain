@@ -1,12 +1,12 @@
 'use strict';
 
-const {Config} = require('@rmtc/config');
-const {help} = require('./lib/help');
-const {Logger} = require('@rmtc/logger');
-const {Runner} = require('./lib/runner');
-const {ToolchainError} = require('@rmtc/errors');
-const {parseArgs} = require('node:util');
-const {Project} = require('@rmtc/project');
+const { Config } = require('@rmtc/config');
+const { help } = require('./lib/help');
+const { Logger } = require('@rmtc/logger');
+const { Runner } = require('./lib/runner');
+const { ToolchainError } = require('@rmtc/errors');
+const { parseArgs } = require('node:util');
+const { Project } = require('@rmtc/project');
 
 /**
  * @typedef {object} CLIOption
@@ -45,31 +45,32 @@ const cliOptions = {
  * @param {import('node:process')} options.process
  * @returns {Promise<void>}
  */
-exports.runCommand = async function runCommand({directoryPath, process}) {
+exports.runCommand = async function runCommand({ directoryPath, process }) {
 	const logger = new Logger();
 	try {
-
 		/** @type {import('node:util').ParseArgsConfig} */
 		const cliConfig = {
 			args: process.argv.slice(2),
 			allowPositionals: true,
-			options: Object.fromEntries(Object.entries(cliOptions).map(([key, value]) => {
-				return [key, {
-					type: value.type,
-					short: value.short,
-					multiple: value.multiple || false
-				}];
-			}))
+			options: Object.fromEntries(
+				Object.entries(cliOptions).map(([key, value]) => {
+					return [
+						key,
+						{
+							type: value.type,
+							short: value.short,
+							multiple: value.multiple || false
+						}
+					];
+				})
+			)
 		};
 		const cli = parseArgs(cliConfig);
 
 		// Show help text
 		if (
-			(
-				cli.values.help ||
-				!cli.positionals.length ||
-				cli.positionals.includes('help')
-			) && !cli.values.list
+			(cli.values.help || !cli.positionals.length || cli.positionals.includes('help')) &&
+			!cli.values.list
 		) {
 			logger.info(help(cliOptions));
 			return;
@@ -91,8 +92,8 @@ exports.runCommand = async function runCommand({directoryPath, process}) {
 
 		// List all workflows and steps
 		if (cli.values.list) {
-			const workflows = runner.workflows.map(workflow => `  - ${workflow}`).join('\n');
-			const steps = runner.steps.map(step => `  - ${step}`).join('\n');
+			const workflows = runner.workflows.map((workflow) => `  - ${workflow}`).join('\n');
+			const steps = runner.steps.map((step) => `  - ${step}`).join('\n');
 			logger.info(`workflows:\n${workflows}`);
 			logger.info(`steps:\n${steps}`);
 			return;
@@ -108,7 +109,7 @@ exports.runCommand = async function runCommand({directoryPath, process}) {
 			});
 		}
 
-	// Error handling
+		// Error handling
 	} catch (/** @type {any} */ error) {
 		process.exitCode = 1;
 
@@ -126,4 +127,3 @@ exports.runCommand = async function runCommand({directoryPath, process}) {
 		}
 	}
 };
-

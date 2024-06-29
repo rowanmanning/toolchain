@@ -2,4 +2,4 @@
 
 const td = require('testdouble');
 
-td.config({ignoreWarnings: true});
+td.config({ ignoreWarnings: true });

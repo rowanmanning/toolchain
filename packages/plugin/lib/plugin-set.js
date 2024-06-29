@@ -1,6 +1,6 @@
 'use strict';
 
-const {ConfigError} = require('@rmtc/config');
+const { ConfigError } = require('@rmtc/config');
 
 /**
  * @typedef {import('./plugin').Plugin} Plugin
@@ -25,7 +25,6 @@ const {ConfigError} = require('@rmtc/config');
  */
 
 class PluginSet {
-
 	/** @type {Plugin[]} */
 	#plugins = [];
 
@@ -47,7 +46,7 @@ class PluginSet {
 
 	/** @type {string[]} */
 	get steps() {
-		const stepNames = this.#steps.map(step => step.name);
+		const stepNames = this.#steps.map((step) => step.name);
 		return [...new Set(stepNames)].sort();
 	}
 
@@ -107,15 +106,15 @@ class PluginSet {
 	 * @param {Step} step
 	 */
 	defineStep(step) {
-		const existingSteps = this.#steps.filter(existingStep => existingStep.name === step.name);
+		const existingSteps = this.#steps.filter((existingStep) => existingStep.name === step.name);
 		if (existingSteps.length) {
 			const pluginNames = [
 				step.plugin.constructor.name,
-				...existingSteps.map(existingStep => existingStep.plugin.constructor.name)
+				...existingSteps.map((existingStep) => existingStep.plugin.constructor.name)
 			];
 			throw new ConfigError(
 				`The "${step.name}" step is defined by multiple plugins: ${pluginNames.join(', ')}`,
-				{code: 'DUPLICATE_STEP_DEFINITION'}
+				{ code: 'DUPLICATE_STEP_DEFINITION' }
 			);
 		}
 		this.#steps.push(step);
@@ -126,7 +125,7 @@ class PluginSet {
 	 * @returns {boolean}
 	 */
 	definesStep(name) {
-		return this.#steps.some(step => step.name === name);
+		return this.#steps.some((step) => step.name === name);
 	}
 
 	/**
@@ -134,9 +133,8 @@ class PluginSet {
 	 * @returns {StepExecutor | null}
 	 */
 	getStepExecutor(name) {
-		return this.#steps.find(step => step.name === name)?.executor || null;
+		return this.#steps.find((step) => step.name === name)?.executor || null;
 	}
-
 }
 
 exports.PluginSet = PluginSet;

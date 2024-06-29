@@ -49,7 +49,5 @@
 			"errorMessage": "must be an object with with arrays of unique steps as properties"
 		}
 	},
-	"required": [
-		"plugins"
-	]
+	"required": ["plugins"]
 }

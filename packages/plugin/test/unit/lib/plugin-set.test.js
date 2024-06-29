@@ -16,7 +16,7 @@ describe('@rmtc/plugin/lib/plugin-set', () => {
 		mockStep = {
 			name: 'mock-step',
 			plugin: {
-				constructor: {name: 'MockPlugin'}
+				constructor: { name: 'MockPlugin' }
 			},
 			executor: 'mock-executor'
 		};
@@ -83,18 +83,16 @@ describe('@rmtc/plugin/lib/plugin-set', () => {
 				it('adds a plugin to the set', () => {
 					pluginSet = new PluginSet();
 					pluginSet.addPlugin({
-						constructor: {name: 'MockPlugin'}
+						constructor: { name: 'MockPlugin' }
 					});
-					assert.deepEqual(pluginSet.plugins, [
-						{constructor: {name: 'MockPlugin'}}
-					]);
+					assert.deepEqual(pluginSet.plugins, [{ constructor: { name: 'MockPlugin' } }]);
 				});
 			});
 
 			describe('.initPlugins()', () => {
 				it('initialises each plugin in the set and returns the plugin set', () => {
-					const mockPlugin1 = {init: td.func()};
-					const mockPlugin2 = {init: td.func()};
+					const mockPlugin1 = { init: td.func() };
+					const mockPlugin2 = { init: td.func() };
 
 					pluginSet = new PluginSet();
 					pluginSet.addPlugin(mockPlugin1);
@@ -102,8 +100,8 @@ describe('@rmtc/plugin/lib/plugin-set', () => {
 
 					const returnValue = pluginSet.initPlugins();
 					assert.equal(returnValue, pluginSet);
-					td.verify(mockPlugin1.init(), {times: 1});
-					td.verify(mockPlugin2.init(), {times: 1});
+					td.verify(mockPlugin1.init(), { times: 1 });
+					td.verify(mockPlugin2.init(), { times: 1 });
 				});
 			});
 
@@ -170,7 +168,7 @@ describe('@rmtc/plugin/lib/plugin-set', () => {
 							const mockDuplicateStep = {
 								name: 'mock-step',
 								plugin: {
-									constructor: {name: 'MockPlugin'}
+									constructor: { name: 'MockPlugin' }
 								},
 								executor: 'mock-executor'
 							};
@@ -178,9 +176,11 @@ describe('@rmtc/plugin/lib/plugin-set', () => {
 							assert.equal(true, false, 'did not throw');
 						} catch (error) {
 							assert.ok(error instanceof ConfigError);
-							td.verify(new ConfigError(td.matchers.isA(String), {
-								code: 'DUPLICATE_STEP_DEFINITION'
-							}));
+							td.verify(
+								new ConfigError(td.matchers.isA(String), {
+									code: 'DUPLICATE_STEP_DEFINITION'
+								})
+							);
 						}
 					});
 				});

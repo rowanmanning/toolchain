@@ -1,11 +1,11 @@
 'use strict';
 
-const {Config, CONFIG_FILENAME} = require('@rmtc/config');
-const {Logger} = require('@rmtc/logger');
-const {ToolchainError} = require('@rmtc/errors');
+const { Config, CONFIG_FILENAME } = require('@rmtc/config');
+const { Logger } = require('@rmtc/logger');
+const { ToolchainError } = require('@rmtc/errors');
 const path = require('node:path');
-const {writeFile} = require('node:fs/promises');
-const {spawn} = require('node:child_process');
+const { writeFile } = require('node:fs/promises');
+const { spawn } = require('node:child_process');
 
 /**
  * @param {object} options
@@ -13,10 +13,9 @@ const {spawn} = require('node:child_process');
  * @param {import('node:process')} options.process
  * @returns {Promise<void>}
  */
-exports.runCommand = async function runCommand({directoryPath, process}) {
+exports.runCommand = async function runCommand({ directoryPath, process }) {
 	const logger = new Logger();
 	try {
-
 		// Create a config file if it doesn't exist
 		try {
 			await Config.fromFile(process.cwd());
@@ -35,24 +34,20 @@ exports.runCommand = async function runCommand({directoryPath, process}) {
 		 */
 		function installPackage(packageName) {
 			return new Promise((resolve, reject) => {
-				const child = spawn('npm', [
-					'install',
-					'--save-dev',
-					packageName
-				], {
+				const child = spawn('npm', ['install', '--save-dev', packageName], {
 					env: {
 						...process.env,
 						PWD: directoryPath
 					}
 				});
-				child.on('close', code => {
+				child.on('close', (code) => {
 					if (!code || code === 0) {
 						return resolve();
 					}
 					reject(
 						new ToolchainError(
 							`Package install of ${packageName} failed with exit code ${code}`,
-							{code: 'PACKAGE_INSTALL_FAILED'}
+							{ code: 'PACKAGE_INSTALL_FAILED' }
 						)
 					);
 				});
@@ -66,7 +61,7 @@ exports.runCommand = async function runCommand({directoryPath, process}) {
 		// Done!
 		logger.info('all done');
 
-	// Error handling
+		// Error handling
 	} catch (/** @type {any} */ error) {
 		process.exitCode = 1;
 

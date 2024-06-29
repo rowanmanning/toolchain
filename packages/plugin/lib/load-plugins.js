@@ -1,9 +1,9 @@
 'use strict';
 
-const {Logger} = require('@rmtc/logger');
-const {Plugin} = require('./plugin');
-const {PluginSet} = require('./plugin-set');
-const {ToolchainError} = require('@rmtc/errors');
+const { Logger } = require('@rmtc/logger');
+const { Plugin } = require('./plugin');
+const { PluginSet } = require('./plugin-set');
+const { ToolchainError } = require('@rmtc/errors');
 
 /**
  * @typedef {object} LoadedPluginDefinition
@@ -30,7 +30,7 @@ function loadPlugins(config, project) {
  * @param {import('@rmtc/project').Project} project
  * @returns {Plugin}
  */
-function loadPlugin({path: pluginPath, config}, pluginSet, project) {
+function loadPlugin({ path: pluginPath, config }, pluginSet, project) {
 	try {
 		const resolvedPluginPath = require.resolve(pluginPath, {
 			paths: [project.directoryPath]
@@ -43,7 +43,7 @@ function loadPlugin({path: pluginPath, config}, pluginSet, project) {
 		if (!(pluginModule?.Plugin?.prototype instanceof Plugin)) {
 			throw new ToolchainError(
 				`The plugin file at "${pluginPath}" does not export a \`Plugin\` property that extends @rmtc/plugin`,
-				{code: 'PLUGIN_INVALID'}
+				{ code: 'PLUGIN_INVALID' }
 			);
 		}
 
@@ -55,18 +55,13 @@ function loadPlugin({path: pluginPath, config}, pluginSet, project) {
 			pluginSet,
 			project
 		});
-
 	} catch (/** @type {any} */ error) {
-
 		// Config file was not found
 		if (error.code === 'MODULE_NOT_FOUND') {
-			throw new ToolchainError(
-				`A plugin file was not found at "${pluginPath}"`,
-				{
-					code: 'PLUGIN_MISSING',
-					cause: error
-				}
-			);
+			throw new ToolchainError(`A plugin file was not found at "${pluginPath}"`, {
+				code: 'PLUGIN_MISSING',
+				cause: error
+			});
 		}
 
 		// Config file was not valid JavaScript

@@ -9,9 +9,9 @@ describe('@rmtc/plugin', () => {
 	before(() => {
 		td.reset();
 
-		td.replace('../../lib/load-plugins', {loadPlugins: 'mockLoadPlugins'});
-		td.replace('../../lib/plugin', {Plugin: 'mockPlugin'});
-		td.replace('../../lib/plugin-set', {PluginSet: 'mockPluginSet'});
+		td.replace('../../lib/load-plugins', { loadPlugins: 'mockLoadPlugins' });
+		td.replace('../../lib/plugin', { Plugin: 'mockPlugin' });
+		td.replace('../../lib/plugin-set', { PluginSet: 'mockPluginSet' });
 
 		module = require('../..');
 	});

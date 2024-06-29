@@ -39,12 +39,12 @@ describe('@rmtc/config', () => {
 
 	describe('on import', () => {
 		it('creates an Ajv validator with the config file schema', () => {
-			td.verify(new Ajv({allErrors: true}), {times: 1});
-			td.verify(Ajv.prototype.compile(configSchema), {times: 1});
+			td.verify(new Ajv({ allErrors: true }), { times: 1 });
+			td.verify(Ajv.prototype.compile(configSchema), { times: 1 });
 		});
 
 		it('initialises the ajv-errors plugin', () => {
-			td.verify(ajvErrors(new Ajv()), {times: 1});
+			td.verify(ajvErrors(new Ajv()), { times: 1 });
 		});
 	});
 
@@ -60,28 +60,28 @@ describe('@rmtc/config', () => {
 
 			before(() => {
 				configData = {
-					plugins: [
-						'mock-plugin-1',
-						['mock-plugin-2', {mockConfig: true}]
-					],
-					workflows: {'mock-workflow': ['mock-step']}
+					plugins: ['mock-plugin-1', ['mock-plugin-2', { mockConfig: true }]],
+					workflows: { 'mock-workflow': ['mock-step'] }
 				};
-				config = new Config({
-					directoryPath: 'mock-directory',
-					filePath: 'mock-file'
-				}, configData);
+				config = new Config(
+					{
+						directoryPath: 'mock-directory',
+						filePath: 'mock-file'
+					},
+					configData
+				);
 			});
 
 			it('creates a logger', () => {
-				td.verify(new Logger({prefix: '[Config]'}), {times: 1});
+				td.verify(new Logger({ prefix: '[Config]' }), { times: 1 });
 			});
 
 			it('validates the config data against the schema', () => {
-				td.verify(validateConfigSchema(configData), {times: 1});
+				td.verify(validateConfigSchema(configData), { times: 1 });
 			});
 
 			it('logs that the config has been loaded', () => {
-				td.verify(Logger.prototype.debug('loaded from "mock-file"'), {times: 1});
+				td.verify(Logger.prototype.debug('loaded from "mock-file"'), { times: 1 });
 			});
 
 			describe('.directoryPath', () => {
@@ -117,7 +117,7 @@ describe('@rmtc/config', () => {
 						},
 						{
 							path: 'mock-plugin-2',
-							config: {mockConfig: true}
+							config: { mockConfig: true }
 						}
 					]);
 				});
@@ -145,12 +145,15 @@ describe('@rmtc/config', () => {
 
 			describe('when configData.workflows is not defined', () => {
 				before(() => {
-					config = new Config({
-						directoryPath: 'mock-directory',
-						filePath: 'mock-file'
-					}, {
-						plugins: []
-					});
+					config = new Config(
+						{
+							directoryPath: 'mock-directory',
+							filePath: 'mock-file'
+						},
+						{
+							plugins: []
+						}
+					);
 				});
 
 				describe('.workflows', () => {
@@ -168,17 +171,22 @@ describe('@rmtc/config', () => {
 
 				it('throws a config error using the underlying Ajv errors', () => {
 					try {
-						config = new Config({
-							directoryPath: 'mock-directory',
-							filePath: 'mock-file'
-						}, {});
+						config = new Config(
+							{
+								directoryPath: 'mock-directory',
+								filePath: 'mock-file'
+							},
+							{}
+						);
 						assert.equal(true, false, 'did not throw');
 					} catch (error) {
 						assert.ok(error instanceof ConfigError);
-						td.verify(new ConfigError(td.matchers.isA(String), {
-							code: 'CONFIG_INVALID_SCHEMA',
-							validationErrors: ['mock-error']
-						}));
+						td.verify(
+							new ConfigError(td.matchers.isA(String), {
+								code: 'CONFIG_INVALID_SCHEMA',
+								validationErrors: ['mock-error']
+							})
+						);
 					}
 				});
 			});
@@ -189,7 +197,9 @@ describe('@rmtc/config', () => {
 
 			before(async () => {
 				td.when(validateConfigSchema(td.matchers.anything())).thenReturn(true);
-				td.when(path.resolve('mock-directory', '.rmtc.json5')).thenReturn('mock-resolved-file');
+				td.when(path.resolve('mock-directory', '.rmtc.json5')).thenReturn(
+					'mock-resolved-file'
+				);
 				td.when(readFile('mock-resolved-file', 'utf-8')).thenResolve('mock-file-contents');
 				td.when(JSON5.parse('mock-file-contents')).thenReturn({
 					plugins: ['mock-plugin-from-file']
@@ -198,8 +208,8 @@ describe('@rmtc/config', () => {
 			});
 
 			it('reads the config file in the given directory as JSON5', () => {
-				td.verify(readFile('mock-resolved-file', 'utf-8'), {times: 1});
-				td.verify(JSON5.parse('mock-file-contents'), {times: 1});
+				td.verify(readFile('mock-resolved-file', 'utf-8'), { times: 1 });
+				td.verify(JSON5.parse('mock-file-contents'), { times: 1 });
 			});
 
 			it('returns a config instance configured as expected', () => {
@@ -229,10 +239,13 @@ describe('@rmtc/config', () => {
 						assert.equal(true, false, 'did not throw');
 					} catch (error) {
 						assert.ok(error instanceof ConfigError);
-						td.verify(new ConfigError(td.matchers.isA(String), {
-							code: 'CONFIG_MISSING',
-							cause: mockError
-						}), {times: 1});
+						td.verify(
+							new ConfigError(td.matchers.isA(String), {
+								code: 'CONFIG_MISSING',
+								cause: mockError
+							}),
+							{ times: 1 }
+						);
 					}
 				});
 			});
@@ -242,7 +255,9 @@ describe('@rmtc/config', () => {
 
 				before(() => {
 					mockError = new SyntaxError('mock error');
-					td.when(readFile('mock-resolved-file', 'utf-8')).thenResolve('mock-file-contents');
+					td.when(readFile('mock-resolved-file', 'utf-8')).thenResolve(
+						'mock-file-contents'
+					);
 					td.when(JSON5.parse('mock-file-contents')).thenThrow(mockError);
 				});
 
@@ -252,10 +267,13 @@ describe('@rmtc/config', () => {
 						assert.equal(true, false, 'did not throw');
 					} catch (error) {
 						assert.ok(error instanceof ConfigError);
-						td.verify(new ConfigError(td.matchers.isA(String), {
-							code: 'CONFIG_INVALID_JSON5',
-							cause: mockError
-						}), {times: 1});
+						td.verify(
+							new ConfigError(td.matchers.isA(String), {
+								code: 'CONFIG_INVALID_JSON5',
+								cause: mockError
+							}),
+							{ times: 1 }
+						);
 					}
 				});
 			});

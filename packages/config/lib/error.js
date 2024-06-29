@@ -1,6 +1,6 @@
 'use strict';
 
-const {ToolchainError} = require('@rmtc/errors');
+const { ToolchainError } = require('@rmtc/errors');
 
 /**
  * @typedef {object} ConfigErrorOptions
@@ -8,7 +8,6 @@ const {ToolchainError} = require('@rmtc/errors');
  */
 
 class ConfigError extends ToolchainError {
-
 	/** @type {string} */
 	name = 'ConfigError';
 
@@ -21,7 +20,7 @@ class ConfigError extends ToolchainError {
 	 */
 	constructor(message, options = {}) {
 		super(message, options);
-		const {validationErrors} = options;
+		const { validationErrors } = options;
 		if (validationErrors?.length) {
 			const self = /** @type {typeof ConfigError} */ (this.constructor);
 			this.validationErrors = validationErrors;
@@ -34,11 +33,12 @@ class ConfigError extends ToolchainError {
 	 * @returns {string}
 	 */
 	static validationErrorsToString(validationErrors) {
-		return validationErrors.map(error => {
-			const dotPath = error.instancePath.slice(1).replaceAll('/', '.');
-			return `  - ${dotPath}: ${error.message}`;
-		}).join('\n');
+		return validationErrors
+			.map((error) => {
+				const dotPath = error.instancePath.slice(1).replaceAll('/', '.');
+				return `  - ${dotPath}: ${error.message}`;
+			})
+			.join('\n');
 	}
-
 }
 exports.ConfigError = ConfigError;

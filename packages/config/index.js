@@ -2,12 +2,12 @@
 
 const Ajv = require('ajv/dist/2020').default;
 const ajvErrors = require('ajv-errors').default;
-const {ConfigError} = require('./lib/error');
+const { ConfigError } = require('./lib/error');
 const configSchema = require('./schema.json');
 const JSON5 = require('json5');
-const {Logger} = require('@rmtc/logger');
+const { Logger } = require('@rmtc/logger');
 const path = require('node:path');
-const {readFile} = require('node:fs/promises');
+const { readFile } = require('node:fs/promises');
 
 /**
  * @typedef {[string, import('@rmtc/plugin').PluginConfig]} ConfigDataPluginWithConfig
@@ -33,14 +33,13 @@ const {readFile} = require('node:fs/promises');
  * @typedef {string[]} WorkflowDefinition
  */
 
-const ajv = new Ajv({allErrors: true});
+const ajv = new Ajv({ allErrors: true });
 ajvErrors(ajv);
 const validateConfigSchema = ajv.compile(configSchema);
 
 const CONFIG_FILENAME = '.rmtc.json5';
 
 class Config {
-
 	/** @type {string} */
 	#directoryPath;
 
@@ -82,11 +81,11 @@ class Config {
 	 * @param {{directoryPath: string, filePath: string}} paths
 	 * @param {ConfigData} configData
 	 */
-	constructor({directoryPath, filePath}, configData) {
+	constructor({ directoryPath, filePath }, configData) {
 		/** @type {typeof Config} */ (this.constructor).#validateConfigData(configData);
 		this.#directoryPath = directoryPath;
 		this.#filePath = filePath;
-		this.#plugins = configData.plugins.map(plugin => {
+		this.#plugins = configData.plugins.map((plugin) => {
 			if (typeof plugin === 'string') {
 				return {
 					path: plugin,
@@ -124,20 +123,20 @@ class Config {
 	static async fromFile(directoryPath) {
 		let filePath = CONFIG_FILENAME;
 		try {
-
 			// Read and parse the config file
 			filePath = path.resolve(directoryPath, CONFIG_FILENAME);
 			const fileContents = await readFile(filePath, 'utf-8');
 			const config = JSON5.parse(fileContents);
 
 			// Create and return a new config object
-			return new this({
-				directoryPath,
-				filePath
-			}, config);
-
+			return new this(
+				{
+					directoryPath,
+					filePath
+				},
+				config
+			);
 		} catch (/** @type {any} */ error) {
-
 			// Config file was not found
 			if (error.code === 'ENOENT') {
 				throw new ConfigError(`A config file was not found at ${filePath}`, {
@@ -158,7 +157,6 @@ class Config {
 			throw error;
 		}
 	}
-
 }
 
 exports.Config = Config;

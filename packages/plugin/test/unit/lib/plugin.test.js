@@ -38,9 +38,9 @@ describe('@rmtc/plugin/lib/plugin', () => {
 			let plugin;
 
 			before(() => {
-				mockProject = {directoryPath: 'mock-directory'};
+				mockProject = { directoryPath: 'mock-directory' };
 				mockOptions = {
-					config: {mockConfig: true},
+					config: { mockConfig: true },
 					logger: new Logger(),
 					pluginSet: new PluginSet(),
 					project: mockProject
@@ -48,8 +48,8 @@ describe('@rmtc/plugin/lib/plugin', () => {
 				mockOptions.pluginSet.workflows = ['mock-workflow'];
 				mockOptions.pluginSet.plugins = ['mock-plugin'];
 
-				mockChildProcess = {on: td.func()};
-				td.when(spawn(), {ignoreExtraArgs: true}).thenReturn(mockChildProcess);
+				mockChildProcess = { on: td.func() };
+				td.when(spawn(), { ignoreExtraArgs: true }).thenReturn(mockChildProcess);
 
 				plugin = new Plugin(mockOptions);
 			});
@@ -121,12 +121,11 @@ describe('@rmtc/plugin/lib/plugin', () => {
 					plugin.defineWorkflow('mock-plugin-workflow');
 					td.verify(
 						mockOptions.pluginSet.defineWorkflow('mock-plugin-workflow', undefined),
-						{times: 1}
+						{ times: 1 }
 					);
-					td.verify(
-						mockOptions.logger.debug('defined workflow mock-plugin-workflow'),
-						{times: 1}
-					);
+					td.verify(mockOptions.logger.debug('defined workflow mock-plugin-workflow'), {
+						times: 1
+					});
 				});
 			});
 
@@ -136,12 +135,11 @@ describe('@rmtc/plugin/lib/plugin', () => {
 					plugin.defineWorkflow('mock-plugin-workflow', ['mock-step']);
 					td.verify(
 						mockOptions.pluginSet.defineWorkflow('mock-plugin-workflow', ['mock-step']),
-						{times: 1}
+						{ times: 1 }
 					);
-					td.verify(
-						mockOptions.logger.debug('defined workflow mock-plugin-workflow'),
-						{times: 1}
-					);
+					td.verify(mockOptions.logger.debug('defined workflow mock-plugin-workflow'), {
+						times: 1
+					});
 				});
 			});
 
@@ -154,12 +152,11 @@ describe('@rmtc/plugin/lib/plugin', () => {
 							plugin,
 							executor: 'mock-executor'
 						}),
-						{times: 1}
+						{ times: 1 }
 					);
-					td.verify(
-						mockOptions.logger.debug('defined step mock-plugin-step'),
-						{times: 1}
-					);
+					td.verify(mockOptions.logger.debug('defined step mock-plugin-step'), {
+						times: 1
+					});
 				});
 			});
 
@@ -167,18 +164,10 @@ describe('@rmtc/plugin/lib/plugin', () => {
 				it('spawns a child process and resolves when it exits', async () => {
 					td.when(mockChildProcess.on('close')).thenCallback(0);
 					await plugin.exec('mock-command');
-					td.verify(
-						spawn(
-							'npx',
-							['mock-command'],
-							{stdio: 'inherit'}
-						),
-						{times: 1}
-					);
-					td.verify(
-						mockOptions.logger.debug('spawning child process: mock-command'),
-						{times: 1}
-					);
+					td.verify(spawn('npx', ['mock-command'], { stdio: 'inherit' }), { times: 1 });
+					td.verify(mockOptions.logger.debug('spawning child process: mock-command'), {
+						times: 1
+					});
 				});
 
 				describe('when the child process exits without a code', () => {
@@ -196,9 +185,11 @@ describe('@rmtc/plugin/lib/plugin', () => {
 							assert.equal(true, false, 'did not throw');
 						} catch (error) {
 							assert.ok(error instanceof ToolchainError);
-							td.verify(new ToolchainError(td.matchers.isA(String), {
-								code: 'COMMAND_FAILED'
-							}));
+							td.verify(
+								new ToolchainError(td.matchers.isA(String), {
+									code: 'COMMAND_FAILED'
+								})
+							);
 						}
 					});
 				});
@@ -209,18 +200,16 @@ describe('@rmtc/plugin/lib/plugin', () => {
 					td.when(mockChildProcess.on('close')).thenCallback(0);
 					await plugin.exec('mock-command', ['mock-arg-1', 'mock-arg-2']);
 					td.verify(
-						spawn(
-							'npx',
-							['mock-command', 'mock-arg-1', 'mock-arg-2'],
-							{stdio: 'inherit'}
-						),
-						{times: 1}
+						spawn('npx', ['mock-command', 'mock-arg-1', 'mock-arg-2'], {
+							stdio: 'inherit'
+						}),
+						{ times: 1 }
 					);
 					td.verify(
 						mockOptions.logger.debug(
 							'spawning child process: mock-command mock-arg-1 mock-arg-2'
 						),
-						{times: 1}
+						{ times: 1 }
 					);
 				});
 			});
@@ -232,12 +221,15 @@ describe('@rmtc/plugin/lib/plugin', () => {
 				before(async () => {
 					mockTransformer = td.func();
 
-					td.when(path.resolve('mock-directory', 'mock-file'))
-						.thenReturn('mock-resolved-file');
-					td.when(fs.readFile('mock-resolved-file', 'utf-8'))
-						.thenResolve('{\n\t"isMockJSON": true\n}');
-					td.when(mockTransformer({isMockJSON: true}))
-						.thenResolve({isMockTransformedJSON: true});
+					td.when(path.resolve('mock-directory', 'mock-file')).thenReturn(
+						'mock-resolved-file'
+					);
+					td.when(fs.readFile('mock-resolved-file', 'utf-8')).thenResolve(
+						'{\n\t"isMockJSON": true\n}'
+					);
+					td.when(mockTransformer({ isMockJSON: true })).thenResolve({
+						isMockTransformedJSON: true
+					});
 					td.when(
 						fs.writeFile('mock-resolved-file', '{\n\t"isMockTransformedJSON": true\n}')
 					).thenResolve();
@@ -250,68 +242,70 @@ describe('@rmtc/plugin/lib/plugin', () => {
 				});
 
 				it('loads the JSON relative to the project directory', () => {
-					td.verify(
-						fs.readFile('mock-resolved-file', 'utf-8'),
-						{times: 1}
-					);
+					td.verify(fs.readFile('mock-resolved-file', 'utf-8'), { times: 1 });
 				});
 
 				it('edits the JSON using the given transformer', () => {
-					td.verify(
-						mockTransformer({isMockJSON: true}),
-						{times: 1}
-					);
+					td.verify(mockTransformer({ isMockJSON: true }), { times: 1 });
 				});
 
 				it('writes the edited JSON', () => {
 					td.verify(
 						fs.writeFile('mock-resolved-file', '{\n\t"isMockTransformedJSON": true\n}'),
-						{times: 1}
+						{ times: 1 }
 					);
 				});
 
 				describe('when no changes are made in the transformer', () => {
 					it('does not write the file', async () => {
-						td.when(mockTransformer({isMockJSON: true}))
-							.thenResolve({isMockJSON: true});
+						td.when(mockTransformer({ isMockJSON: true })).thenResolve({
+							isMockJSON: true
+						});
 						await plugin.editJsonFile('mock-file', mockTransformer);
-						td.verify(
-							fs.writeFile(),
-							{
-								ignoreExtraArgs: true,
-								// The 1 time is from a previous test run
-								times: 1
-							}
-						);
+						td.verify(fs.writeFile(), {
+							ignoreExtraArgs: true,
+							// The 1 time is from a previous test run
+							times: 1
+						});
 					});
 				});
 
 				describe('when the JSON uses spaces for indentation', () => {
 					it('preserves the whitespace choice when writing the file', async () => {
-						td.when(fs.readFile('mock-resolved-file', 'utf-8'))
-							.thenResolve('{\n    "isMockJSON": true\n}');
-						td.when(mockTransformer({isMockJSON: true}))
-							.thenResolve({isMockTransformedJSON: true});
+						td.when(fs.readFile('mock-resolved-file', 'utf-8')).thenResolve(
+							'{\n    "isMockJSON": true\n}'
+						);
+						td.when(mockTransformer({ isMockJSON: true })).thenResolve({
+							isMockTransformedJSON: true
+						});
 						await plugin.editJsonFile('mock-file', mockTransformer);
-						td.verify(fs.writeFile(
-							'mock-resolved-file',
-							'{\n    "isMockTransformedJSON": true\n}'
-						), {times: 1});
+						td.verify(
+							fs.writeFile(
+								'mock-resolved-file',
+								'{\n    "isMockTransformedJSON": true\n}'
+							),
+							{ times: 1 }
+						);
 					});
 				});
 
 				describe('when the JSON uses no indentation', () => {
 					it('defaults to tabs', async () => {
-						td.when(fs.readFile('mock-resolved-file', 'utf-8'))
-							.thenResolve('{\n"isMockJSON": true\n}');
-						td.when(mockTransformer({isMockJSON: true}))
-							.thenResolve({isMockTransformedJSON: true});
+						td.when(fs.readFile('mock-resolved-file', 'utf-8')).thenResolve(
+							'{\n"isMockJSON": true\n}'
+						);
+						td.when(mockTransformer({ isMockJSON: true })).thenResolve({
+							isMockTransformedJSON: true
+						});
 						await plugin.editJsonFile('mock-file', mockTransformer);
-						td.verify(fs.writeFile(
-							'mock-resolved-file',
-							'{\n\t"isMockTransformedJSON": true\n}'
-							// 1 of these times is from a previous test run
-						), {times: 2});
+						td.verify(
+							fs.writeFile(
+								'mock-resolved-file',
+								'{\n\t"isMockTransformedJSON": true\n}'
+								// 1 of these times is from a previous test run
+							),
+							{ times: 2 }
+						);
 					});
 				});
 
@@ -320,18 +314,23 @@ describe('@rmtc/plugin/lib/plugin', () => {
 						td.when(fs.readFile('mock-resolved-file', 'utf-8')).thenResolve(
 							'{\n\t"isMockJSON": true,\n  "hasConsistentSpacing": false\n}'
 						);
-						td.when(mockTransformer({
-							isMockJSON: true,
-							hasConsistentSpacing: false
-						})).thenResolve({
+						td.when(
+							mockTransformer({
+								isMockJSON: true,
+								hasConsistentSpacing: false
+							})
+						).thenResolve({
 							isMockTransformedJSON: true,
 							hasConsistentSpacing: false
 						});
 						await plugin.editJsonFile('mock-file', mockTransformer);
-						td.verify(fs.writeFile(
-							'mock-resolved-file',
-							'{\n\t"isMockTransformedJSON": true,\n\t"hasConsistentSpacing": false\n}'
-						), {times: 1});
+						td.verify(
+							fs.writeFile(
+								'mock-resolved-file',
+								'{\n\t"isMockTransformedJSON": true,\n\t"hasConsistentSpacing": false\n}'
+							),
+							{ times: 1 }
+						);
 					});
 				});
 
@@ -339,16 +338,19 @@ describe('@rmtc/plugin/lib/plugin', () => {
 					it('throws a custom error', async () => {
 						const mockFileError = new Error('mock file error');
 						try {
-							td.when(fs.readFile('mock-resolved-file', 'utf-8'))
-								.thenReject(mockFileError);
+							td.when(fs.readFile('mock-resolved-file', 'utf-8')).thenReject(
+								mockFileError
+							);
 							await plugin.editJsonFile('mock-file', mockTransformer);
 							assert.equal(true, false, 'did not throw');
 						} catch (error) {
 							assert.ok(error instanceof ToolchainError);
-							td.verify(new ToolchainError(td.matchers.isA(String), {
-								code: 'EDIT_JSON_FAILED',
-								cause: mockFileError
-							}));
+							td.verify(
+								new ToolchainError(td.matchers.isA(String), {
+									code: 'EDIT_JSON_FAILED',
+									cause: mockFileError
+								})
+							);
 						}
 					});
 				});
@@ -356,16 +358,19 @@ describe('@rmtc/plugin/lib/plugin', () => {
 				describe('when the JSON is invalid', () => {
 					it('throws a custom error', async () => {
 						try {
-							td.when(fs.readFile('mock-resolved-file', 'utf-8'))
-								.thenResolve('{\n\t"isValidJSON": false');
+							td.when(fs.readFile('mock-resolved-file', 'utf-8')).thenResolve(
+								'{\n\t"isValidJSON": false'
+							);
 							await plugin.editJsonFile('mock-file', mockTransformer);
 							assert.equal(true, false, 'did not throw');
 						} catch (error) {
 							assert.ok(error instanceof ToolchainError);
-							td.verify(new ToolchainError(td.matchers.isA(String), {
-								code: 'EDIT_JSON_FAILED',
-								cause: td.matchers.isA(TypeError)
-							}));
+							td.verify(
+								new ToolchainError(td.matchers.isA(String), {
+									code: 'EDIT_JSON_FAILED',
+									cause: td.matchers.isA(TypeError)
+								})
+							);
 						}
 					});
 				});

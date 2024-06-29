@@ -17,7 +17,7 @@ describe('@rmtc/project', () => {
 
 		Project = require('../..').Project;
 		projectProperties = Object.entries(Object.getOwnPropertyDescriptors(Project.prototype))
-			.filter(([key, {get}]) => key !== 'directoryPath' && get)
+			.filter(([key, { get }]) => key !== 'directoryPath' && get)
 			.map(([key]) => key);
 	});
 
@@ -92,16 +92,18 @@ describe('@rmtc/project', () => {
 
 				before(async () => {
 					td.when(path.join('mock-directory', 'package.json')).thenReturn('mock-package');
-					td.when(fs.readFile('mock-package', 'utf-8')).thenResolve(JSON.stringify({
-						name: 'mock-package-name',
-						private: true,
-						workspaces: ['mock-workspace']
-					}));
+					td.when(fs.readFile('mock-package', 'utf-8')).thenResolve(
+						JSON.stringify({
+							name: 'mock-package-name',
+							private: true,
+							workspaces: ['mock-workspace']
+						})
+					);
 					returnValue = await project.init();
 				});
 
 				it('loads the package.json file from the project directory', () => {
-					td.verify(fs.readFile('mock-package', 'utf-8'), {times: 1});
+					td.verify(fs.readFile('mock-package', 'utf-8'), { times: 1 });
 				});
 
 				it('resolves with the project instance', () => {
@@ -173,11 +175,13 @@ describe('@rmtc/project', () => {
 
 				describe('when the package.json name property is a non-string', () => {
 					before(async () => {
-						td.when(fs.readFile('mock-package', 'utf-8')).thenResolve(JSON.stringify({
-							name: 123,
-							private: true,
-							workspaces: ['mock-workspace']
-						}));
+						td.when(fs.readFile('mock-package', 'utf-8')).thenResolve(
+							JSON.stringify({
+								name: 123,
+								private: true,
+								workspaces: ['mock-workspace']
+							})
+						);
 						project = new Project(mockOptions);
 						await project.init();
 					});
@@ -191,11 +195,13 @@ describe('@rmtc/project', () => {
 
 				describe('when the package.json private property is a non-boolean', () => {
 					before(async () => {
-						td.when(fs.readFile('mock-package', 'utf-8')).thenResolve(JSON.stringify({
-							name: 'mock-package-name',
-							private: 'yes',
-							workspaces: ['mock-workspace']
-						}));
+						td.when(fs.readFile('mock-package', 'utf-8')).thenResolve(
+							JSON.stringify({
+								name: 'mock-package-name',
+								private: 'yes',
+								workspaces: ['mock-workspace']
+							})
+						);
 						project = new Project(mockOptions);
 						await project.init();
 					});
@@ -209,11 +215,13 @@ describe('@rmtc/project', () => {
 
 				describe('when the package.json workspaces property is an empty array', () => {
 					before(async () => {
-						td.when(fs.readFile('mock-package', 'utf-8')).thenResolve(JSON.stringify({
-							name: 'mock-package-name',
-							private: true,
-							workspaces: []
-						}));
+						td.when(fs.readFile('mock-package', 'utf-8')).thenResolve(
+							JSON.stringify({
+								name: 'mock-package-name',
+								private: true,
+								workspaces: []
+							})
+						);
 						project = new Project(mockOptions);
 						await project.init();
 					});
@@ -227,11 +235,13 @@ describe('@rmtc/project', () => {
 
 				describe('when the package.json workspaces property is a non-array', () => {
 					before(async () => {
-						td.when(fs.readFile('mock-package', 'utf-8')).thenResolve(JSON.stringify({
-							name: 'mock-package-name',
-							private: true,
-							workspaces: 'hello'
-						}));
+						td.when(fs.readFile('mock-package', 'utf-8')).thenResolve(
+							JSON.stringify({
+								name: 'mock-package-name',
+								private: true,
+								workspaces: 'hello'
+							})
+						);
 						project = new Project(mockOptions);
 						await project.init();
 					});
@@ -256,7 +266,7 @@ describe('@rmtc/project', () => {
 		});
 
 		it('initialises a project', () => {
-			td.verify(Project.prototype.init(), {times: 1});
+			td.verify(Project.prototype.init(), { times: 1 });
 		});
 
 		it('returns a project instance', () => {

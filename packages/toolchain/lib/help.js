@@ -10,7 +10,9 @@ exports.help = function help(options) {
 
 		options:
 		${describeOptions(options).join('\n')}
-	`.replaceAll('\t', '').trim();
+	`
+		.replaceAll('\t', '')
+		.trim();
 };
 
 /**

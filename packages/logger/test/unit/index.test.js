@@ -71,7 +71,7 @@ describe('@rmtc/logger', () => {
 			describe('.child(options)', () => {
 				describe('when options.prefix is defined', () => {
 					it('returns a new logger with the configured prefix', () => {
-						const child = logger.child({prefix: 'mock-child-prefix'});
+						const child = logger.child({ prefix: 'mock-child-prefix' });
 						assert.equal(child.prefix, 'mock-child-prefix');
 					});
 				});
@@ -80,7 +80,7 @@ describe('@rmtc/logger', () => {
 			describe('.error(message)', () => {
 				it('writes the message to stdout', () => {
 					logger.error('mock error message');
-					td.verify(process.stdout.write('mock error message\n'), {times: 1});
+					td.verify(process.stdout.write('mock error message\n'), { times: 1 });
 				});
 			});
 
@@ -88,24 +88,21 @@ describe('@rmtc/logger', () => {
 				it('writes the stringified error to stdout', () => {
 					logger.error(new Error('mock error'));
 					td.verify(
-						process.stdout.write(
-							'An error occurred:\n' +
-							'  └─ Error: mock error\n'
-						),
-						{times: 1}
+						process.stdout.write('An error occurred:\n' + '  └─ Error: mock error\n'),
+						{ times: 1 }
 					);
 				});
 
 				describe('when the error has a cause', () => {
 					it('writes the stringified error and cause to stdout', () => {
-						logger.error(new Error('mock error', {cause: new Error('mock cause')}));
+						logger.error(new Error('mock error', { cause: new Error('mock cause') }));
 						td.verify(
 							process.stdout.write(
 								'An error occurred:\n' +
-								'  └─ Error: mock error\n' +
-								'    └─ Error: mock cause\n'
+									'  └─ Error: mock error\n' +
+									'    └─ Error: mock cause\n'
 							),
-							{times: 1}
+							{ times: 1 }
 						);
 					});
 				});
@@ -114,21 +111,21 @@ describe('@rmtc/logger', () => {
 			describe('.warn(message)', () => {
 				it('writes the message to stdout', () => {
 					logger.warn('mock warn message');
-					td.verify(process.stdout.write('mock warn message\n'), {times: 1});
+					td.verify(process.stdout.write('mock warn message\n'), { times: 1 });
 				});
 			});
 
 			describe('.info(message)', () => {
 				it('writes the message to stdout', () => {
 					logger.info('mock info message');
-					td.verify(process.stdout.write('mock info message\n'), {times: 1});
+					td.verify(process.stdout.write('mock info message\n'), { times: 1 });
 				});
 			});
 
 			describe('.debug(message)', () => {
 				it('writes the message to stdout', () => {
 					logger.debug('mock debug message');
-					td.verify(process.stdout.write('mock debug message\n'), {times: 1});
+					td.verify(process.stdout.write('mock debug message\n'), { times: 1 });
 				});
 			});
 		});
@@ -160,7 +157,7 @@ describe('@rmtc/logger', () => {
 				describe('.child(options)', () => {
 					describe('when options.prefix is defined', () => {
 						it('returns a new logger with the configured prefix appended', () => {
-							const child = logger.child({prefix: 'mock-child-prefix'});
+							const child = logger.child({ prefix: 'mock-child-prefix' });
 							assert.equal(child.prefix, 'mock-prefix mock-child-prefix');
 						});
 					});
@@ -169,10 +166,9 @@ describe('@rmtc/logger', () => {
 				describe('.error(message)', () => {
 					it('writes the message to stdout with a prefix', () => {
 						logger.error('mock error message');
-						td.verify(
-							process.stdout.write('mock-prefix mock error message\n'),
-							{times: 1}
-						);
+						td.verify(process.stdout.write('mock-prefix mock error message\n'), {
+							times: 1
+						});
 					});
 				});
 
@@ -181,23 +177,24 @@ describe('@rmtc/logger', () => {
 						logger.error(new Error('mock error'));
 						td.verify(
 							process.stdout.write(
-								'mock-prefix An error occurred:\n' +
-								'  └─ Error: mock error\n'
+								'mock-prefix An error occurred:\n' + '  └─ Error: mock error\n'
 							),
-							{times: 1}
+							{ times: 1 }
 						);
 					});
 
 					describe('when the error has a cause', () => {
 						it('writes the stringified error and cause to stdout with a prefix', () => {
-							logger.error(new Error('mock error', {cause: new Error('mock cause')}));
+							logger.error(
+								new Error('mock error', { cause: new Error('mock cause') })
+							);
 							td.verify(
 								process.stdout.write(
 									'mock-prefix An error occurred:\n' +
-									'  └─ Error: mock error\n' +
-									'    └─ Error: mock cause\n'
+										'  └─ Error: mock error\n' +
+										'    └─ Error: mock cause\n'
 								),
-								{times: 1}
+								{ times: 1 }
 							);
 						});
 					});
@@ -206,30 +203,27 @@ describe('@rmtc/logger', () => {
 				describe('.warn(message)', () => {
 					it('writes the message to stdout with a prefix', () => {
 						logger.warn('mock warn message');
-						td.verify(
-							process.stdout.write('mock-prefix mock warn message\n'),
-							{times: 1}
-						);
+						td.verify(process.stdout.write('mock-prefix mock warn message\n'), {
+							times: 1
+						});
 					});
 				});
 
 				describe('.info(message)', () => {
 					it('writes the message to stdout with a prefix', () => {
 						logger.info('mock info message');
-						td.verify(
-							process.stdout.write('mock-prefix mock info message\n'),
-							{times: 1}
-						);
+						td.verify(process.stdout.write('mock-prefix mock info message\n'), {
+							times: 1
+						});
 					});
 				});
 
 				describe('.debug(message)', () => {
 					it('writes the message to stdout with a prefix', () => {
 						logger.debug('mock debug message');
-						td.verify(
-							process.stdout.write('mock-prefix mock debug message\n'),
-							{times: 1}
-						);
+						td.verify(process.stdout.write('mock-prefix mock debug message\n'), {
+							times: 1
+						});
 					});
 				});
 			});
@@ -256,25 +250,25 @@ describe('@rmtc/logger', () => {
 
 				describe('.warn(message)', () => {
 					it('does not write to stdout if the log level is higher than "warn"', () => {
-						logger = new Logger({logLevel: 'error'});
+						logger = new Logger({ logLevel: 'error' });
 						logger.warn('mock warn message');
-						td.verify(process.stdout.write(td.matchers.anything()), {times: 0});
+						td.verify(process.stdout.write(td.matchers.anything()), { times: 0 });
 					});
 				});
 
 				describe('.info(message)', () => {
 					it('does not write to stdout if the log level is higher than "info"', () => {
-						logger = new Logger({logLevel: 'warn'});
+						logger = new Logger({ logLevel: 'warn' });
 						logger.info('mock info message');
-						td.verify(process.stdout.write(td.matchers.anything()), {times: 0});
+						td.verify(process.stdout.write(td.matchers.anything()), { times: 0 });
 					});
 				});
 
 				describe('.debug(message)', () => {
 					it('does not write to stdout if the log level is higher than "debug"', () => {
-						logger = new Logger({logLevel: 'info'});
+						logger = new Logger({ logLevel: 'info' });
 						logger.debug('mock debug message');
-						td.verify(process.stdout.write(td.matchers.anything()), {times: 0});
+						td.verify(process.stdout.write(td.matchers.anything()), { times: 0 });
 					});
 				});
 			});

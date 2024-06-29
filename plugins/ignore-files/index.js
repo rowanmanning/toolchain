@@ -1,11 +1,10 @@
 'use strict';
 
 const path = require('node:path');
-const {Plugin} = require('@rmtc/plugin');
-const {readFile, writeFile} = require('node:fs/promises');
+const { Plugin } = require('@rmtc/plugin');
+const { readFile, writeFile } = require('node:fs/promises');
 
 class IgnoreFiles extends Plugin {
-
 	/**
 	 * @type {import('@rmtc/plugin').InitMethod}
 	 */
@@ -93,7 +92,6 @@ class IgnoreFiles extends Plugin {
 		sortedStatements.push('');
 		await writeFile(filePath, sortedStatements.join('\n'));
 	}
-
 }
 
 exports.Plugin = IgnoreFiles;
