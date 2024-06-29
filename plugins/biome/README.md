@@ -66,7 +66,7 @@ E.g. if you prefer to define a `lint` workflow, use the following:
 
 ```js
 {
-    plugins: ['@rmtc/plugin-eslint'],
+    plugins: ['@rmtc/plugin-biome'],
     workflows: {
         lint: ['biome:lint']
     }
