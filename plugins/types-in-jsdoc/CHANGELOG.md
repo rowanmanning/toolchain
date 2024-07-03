@@ -36,6 +36,13 @@
   * dependencies
     * @rmtc/plugin bumped from ^0.3.0 to ^0.4.0
 
+## [1.1.1](https://github.com/rowanmanning/toolchain/compare/plugin-types-in-jsdoc-v1.1.0...plugin-types-in-jsdoc-v1.1.1) (2024-07-03)
+
+
+### Bug Fixes
+
+* bump typescript from 5.5.2 to 5.5.3 ([2a7a39b](https://github.com/rowanmanning/toolchain/commit/2a7a39be2238ebbc0b146a23af07601125126627))
+
 ## [1.1.0](https://github.com/rowanmanning/toolchain/compare/plugin-types-in-jsdoc-v1.0.0...plugin-types-in-jsdoc-v1.1.0) (2024-06-29)
 
 
