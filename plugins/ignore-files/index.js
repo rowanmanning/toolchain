@@ -38,14 +38,13 @@ class IgnoreFiles extends Plugin {
 				'.github',
 				'.husky',
 				'.nyc_output',
-				'.release-please-manifest.json',
+				'.release-please/*.json',
 				'biome.json',
 				'CHANGELOG.md',
 				'coverage',
 				'docs',
 				'example',
 				'jsconfig.json',
-				'release-please-config.json',
 				'test'
 			]);
 		}
