@@ -22,7 +22,7 @@
   "scripts": {
     "build": "toolchain build",
     "postinstall": "toolchain postinstall",
-    "prepare": "husky",
+    "prepare": "husky || true",
     "test:end-to-end": "toolchain test:end-to-end",
     "test:unit": "toolchain test:unit",
     "test": "toolchain test",
