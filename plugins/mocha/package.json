@@ -20,7 +20,7 @@
   "dependencies": {
     "@rmtc/config": "^1.1.0",
     "@rmtc/plugin": "^1.1.0",
-    "mocha": "^10.6.0",
+    "mocha": "^10.7.0",
     "nyc": "^17.0.0"
   }
 }
