@@ -6,6 +6,13 @@
   * dependencies
     * @rmtc/logger bumped from ^0.1.0 to ^0.1.1
 
+## [1.1.1](https://github.com/rowanmanning/toolchain/compare/config-v1.1.0...config-v1.1.1) (2024-07-27)
+
+
+### Bug Fixes
+
+* bump ajv from 8.16.0 to 8.17.1 ([8fea04e](https://github.com/rowanmanning/toolchain/commit/8fea04e50362132984020f849371effd6d933795))
+
 ## [1.1.0](https://github.com/rowanmanning/toolchain/compare/config-v1.0.0...config-v1.1.0) (2024-06-29)
 
 

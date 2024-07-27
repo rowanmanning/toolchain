@@ -28,6 +28,16 @@
   * dependencies
     * @rmtc/plugin bumped from ^0.2.2 to ^0.2.3
 
+## [1.1.1](https://github.com/rowanmanning/toolchain/compare/toolchain-v1.1.0...toolchain-v1.1.1) (2024-07-27)
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * @rmtc/config bumped from ^1.1.0 to ^1.1.1
+    * @rmtc/plugin bumped from ^1.1.0 to ^1.1.1
+
 ## [1.1.0](https://github.com/rowanmanning/toolchain/compare/toolchain-v1.0.0...toolchain-v1.1.0) (2024-06-29)
 
 

@@ -19,6 +19,21 @@
   * dependencies
     * @rmtc/plugin bumped from ^0.3.0 to ^0.4.0
 
+## [1.1.2](https://github.com/rowanmanning/toolchain/compare/plugin-mocha-v1.1.1...plugin-mocha-v1.1.2) (2024-07-27)
+
+
+### Bug Fixes
+
+* bump mocha from 10.6.0 to 10.7.0 ([1c24ee8](https://github.com/rowanmanning/toolchain/commit/1c24ee8967a9077413632a22f78e10b89ee6c945))
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * @rmtc/config bumped from ^1.1.0 to ^1.1.1
+    * @rmtc/plugin bumped from ^1.1.0 to ^1.1.1
+
 ## [1.1.1](https://github.com/rowanmanning/toolchain/compare/plugin-mocha-v1.1.0...plugin-mocha-v1.1.1) (2024-07-07)
 
 
