@@ -1,5 +1,14 @@
 # Changelog
 
+## [1.1.1](https://github.com/rowanmanning/toolchain/compare/plugin-ignore-files-v1.1.0...plugin-ignore-files-v1.1.1) (2024-07-27)
+
+
+### Dependencies
+
+* The following workspace dependencies were updated
+  * dependencies
+    * @rmtc/plugin bumped from ^1.1.0 to ^1.1.1
+
 ## [1.1.0](https://github.com/rowanmanning/toolchain/compare/plugin-ignore-files-v1.0.0...plugin-ignore-files-v1.1.0) (2024-06-29)
 
 
