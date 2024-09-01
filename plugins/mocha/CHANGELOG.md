@@ -19,6 +19,13 @@
   * dependencies
     * @rmtc/plugin bumped from ^0.3.0 to ^0.4.0
 
+## [1.1.3](https://github.com/rowanmanning/toolchain/compare/plugin-mocha-v1.1.2...plugin-mocha-v1.1.3) (2024-09-01)
+
+
+### Bug Fixes
+
+* bump mocha from 10.7.0 to 10.7.3 ([6dc9798](https://github.com/rowanmanning/toolchain/commit/6dc979813642fdc5783124b7539b1bdda3911530))
+
 ## [1.1.2](https://github.com/rowanmanning/toolchain/compare/plugin-mocha-v1.1.1...plugin-mocha-v1.1.2) (2024-07-27)
 
 

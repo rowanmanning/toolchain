@@ -4,7 +4,7 @@
 	"packages/logger": "1.1.0",
 	"packages/plugin": "1.1.1",
 	"packages/toolchain": "1.1.1",
-	"plugins/mocha": "1.1.2",
+	"plugins/mocha": "1.1.3",
 	"plugins/npm-scripts": "1.1.1",
 	"packages/create-toolchain": "1.1.1",
 	"plugins/types-in-jsdoc": "1.1.2",
